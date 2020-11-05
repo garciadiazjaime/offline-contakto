@@ -1,12 +1,25 @@
 <script>
-	import Content from '../../components/Content.svelte';
-	import Subnav from '../../components/Subnav.svelte';
+	let data = {}
+	export let updateView;
+
+	import { saveUser } from '../../support/user'
+
+	function saveHandler(event) {
+		event.preventDefault()
+
+		if (!data.nombre) {
+			return
+		}
+		
+		saveUser(data)
+
+		updateView()
+	}
 </script>
 
 <style>
 	span {
-		width: 320px;
-		display: inline-block;
+		display: block;
 	}
 	input {
 		width: 400px;
@@ -17,16 +30,27 @@
 		padding: 12px 20px;
 		border: 1px solid black;
 	}
+
+	.btn {
+		display: inline-block;
+		padding: 12px;
+    margin: 6px;
+		font-size: 20px;
+		border: 1px solid black;
+	}
+	
+	.btn:hover {
+		cursor: pointer;
+	}
 </style>
 
-<Content>
-	<Subnav />
+	<!-- <Subnav /> -->
 
 	<h1>Datos Generales</h1>
 
 	<p>
 		<span>Nombre:</span>
-		<input type="text" name="nombre">
+		<input type="text" bind:value={data.nombre}>
 	</p>
 	<p>
 		<span>Apellido:</span>
@@ -151,7 +175,5 @@
 		<input type="text">
 	</p>
 
-	<a href="/">Guardar</a>
-	<a href="/">Cancelar</a>
-
-</Content>
+	<span class="btn" on:click={saveHandler}>Guardar</span>
+	<span class="btn">Cancelar</span>
