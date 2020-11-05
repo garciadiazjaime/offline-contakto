@@ -13,17 +13,35 @@ function getUsers() {
   return JSON.parse(localStorage.getItem('users') || '{}')
 }
 
-function saveUser(data) {
+function saveUser(user) {
   const users = getUsers()
   const uuid = uuidv4()
-  
-  users[uuid] = data
+
+  user.uuid = uuid
+  users[uuid] = user
 
 	localStorage.setItem('users', JSON.stringify(users))
+}
+
+function updateUser(user) {
+  const users = getUsers()
+
+  users[user.uuid] = user
+
+  localStorage.setItem('users', JSON.stringify(users))
+}
+
+function getUser(activeUUID) {
+  const users = getUsers()
+  const uuid = Object.keys(users).find(uuid => uuid === activeUUID)
+  
+  return users[uuid]
 }
 
 
 module.exports = {
   getUsers,
-  saveUser
+  getUser,
+  saveUser,
+  updateUser
 }

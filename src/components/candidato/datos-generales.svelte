@@ -1,18 +1,27 @@
 <script>
-	let data = {}
+	import { onMount } from 'svelte';
+
+	
 	export let updateView;
+	export let user;
 
-	import { saveUser } from '../../support/user'
+	import { getUser, saveUser, updateUser } from '../../support/user'
 
-	function saveHandler(event) {
-		event.preventDefault()
-
-		if (!data.nombre) {
+	function saveHandler() {
+		if (!user.nombre) {
 			return
 		}
-		
-		saveUser(data)
 
+		if (!user.uuid) {
+			saveUser(user)
+		} else {
+			updateUser(user)
+		}
+
+		updateView()
+	}
+
+	function cancelHandler() {
 		updateView()
 	}
 </script>
@@ -25,10 +34,6 @@
 		width: 400px;
 		height: 32px;
 		font-size: 26px;
-	}
-	a {
-		padding: 12px 20px;
-		border: 1px solid black;
 	}
 
 	.btn {
@@ -50,7 +55,7 @@
 
 	<p>
 		<span>Nombre:</span>
-		<input type="text" bind:value={data.nombre}>
+		<input type="text" bind:value={user.nombre}>
 	</p>
 	<p>
 		<span>Apellido:</span>
@@ -176,4 +181,4 @@
 	</p>
 
 	<span class="btn" on:click={saveHandler}>Guardar</span>
-	<span class="btn">Cancelar</span>
+	<span class="btn" on:click={cancelHandler}>Cancelar</span>
