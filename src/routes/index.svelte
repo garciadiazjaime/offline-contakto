@@ -64,7 +64,6 @@
 	}
 	
   .container {
-		display: flex;
 		position: relative;
 		top: 74px;
 	}
@@ -73,6 +72,7 @@
 		padding: 12px;
 		position: relative;
 		left: 224px;
+		width: calc(100% - 248px)
 	}
 
   .list {
@@ -105,6 +105,10 @@
 
   li {
     padding: 6px 0;
+	}
+
+	li:hover {
+		text-decoration: underline;
 	}
 	
 	.link {

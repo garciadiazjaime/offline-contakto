@@ -31,21 +31,42 @@
 		display: block;
 	}
 	input {
-		width: 400px;
 		height: 32px;
 		font-size: 26px;
+		width: 100%;
 	}
 
 	.btn {
 		display: inline-block;
 		padding: 12px;
-    margin: 6px;
 		font-size: 20px;
 		border: 1px solid black;
+	}
+
+	.btn:first-of-type {
+		margin-right: 12px;
+	}
+
+	.btn:hover {
+		text-decoration: underline;
 	}
 	
 	.btn:hover {
 		cursor: pointer;
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+	}
+
+	p span {
+		width: 240px;
+		padding-right: 6px;
+	}
+
+	h2 {
+		padding-top: 29px;
 	}
 </style>
 
@@ -94,7 +115,11 @@
 
 	<h2>Teléfonos</h2>
 	<p>
-		<span>Movil:</span>
+		<span>Casa:</span>
+		<input type="text">
+	</p>
+	<p>
+		<span>Celular:</span>
 		<input type="text">
 	</p>
 	<p>
