@@ -2,34 +2,48 @@
 	import { onMount } from 'svelte';
 
 	import DatosGenerales from '../components/candidato/datos-generales.svelte'
-	import { getUsers, getUser } from '../support/user'
+	import InformacionPersonal from '../components/candidato/informacion-personal.svelte'
+	import { STEPS, getUsers, getUser } from '../support/user'
 
 	let activeView = ''
 	let users = {}
 	let activeUser = {}
+	const LIMIT_USERS = 15
 
 	onMount(async () => {
 		users = getUsers()
 	});
 
-	function addUserHandler() {
-		activeUser = {}
-
-		activeView = 'CREATE_USER'
+	function getNewUser() {
+		return {
+			generales: {},
+			personal: {}
+		}
 	}
 
-	function updateView(view) {
+	function addUserHandler() {
+		users = getUsers()
+		if (Object.keys(users).length >= LIMIT_USERS) {
+			return alert(`No se pueden crear más de ${LIMIT_USERS} candidatos.`)
+		}
+
+		activeUser = getNewUser()
+
+		activeView = STEPS.generales
+	}
+
+	function updateView(view, user) {
 		activeView = view
 
 		users = getUsers()
 
-		activeUser = {}
+		activeUser = user || getNewUser()
 	}
 
 	function editUserHandler(uuid) {
 		activeUser = getUser(uuid)
 
-		activeView = 'EDIT_USER'
+		activeView = STEPS.generales
 	}
 </script>
 
@@ -123,7 +137,7 @@
 <nav>
 	<ul>
 		<li>
-			<a href="/" on:click={updateView}>
+			<a href="/" on:click={() => updateView('')}>
 				<img src="http://www.contaktoapp.com/static/media/logo_white.png" alt="">
 			</a>
 		</li>
@@ -140,14 +154,16 @@
     </div>
     <ul>
       {#each Object.keys(users) as uuid}
-				<li><span class="link" on:click={() => editUserHandler(uuid)}>{users[uuid].nombre}</span></li>
+				<li><span class="link" on:click={() => editUserHandler(uuid)}>{users[uuid].generales.nombre}</span></li>
 			{/each}
     </ul>
   </section>
 
 	<section class="view">
-		{#if activeView === 'CREATE_USER' || activeView === 'EDIT_USER'}
+		{#if activeView === STEPS.generales}
 			<DatosGenerales updateView={updateView} user={activeUser}	/>
+		{:else if activeView === STEPS.personal}
+			<InformacionPersonal updateView={updateView} user={activeUser} />
 		{/if}
 	</section>
 </div>
