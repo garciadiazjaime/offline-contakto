@@ -104,7 +104,11 @@
 
 <p>
 	<span><h3>Tiene algún familiar trabajando en la empresa</h3></span>
-	<input bind:value={user.personal.empresaFamiliar}>
+	<select bind:value={user.personal.empresaFamiliar}>
+		<option value=""></option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select>
 </p>
 
 <p>

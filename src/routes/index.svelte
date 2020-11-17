@@ -4,6 +4,7 @@
 	import DatosGenerales from '../components/candidato/datos-generales.svelte'
 	import InformacionPersonal from '../components/candidato/informacion-personal.svelte'
 	import SaludActividadesHabitos from '../components/candidato/salud-actividades-habitos.svelte'
+	import InformacionAcademica from '../components/candidato/informacion-academica.svelte'
 	import { STEPS, getUsers, getUser } from '../support/user'
 
 	let activeView = ''
@@ -19,7 +20,8 @@
 		return {
 			generales: {},
 			personal: {},
-			salud: {}
+			salud: {},
+			academica: {}
 		}
 	}
 
@@ -172,6 +174,8 @@
 			<InformacionPersonal updateView={updateView} user={activeUser} activeView={activeView} />
 		{:else if activeView === STEPS.salud}
 			<SaludActividadesHabitos updateView={updateView} user={activeUser} activeView={activeView} />
+		{:else if activeView === STEPS.academica}
+			<InformacionAcademica updateView={updateView} user={activeUser} activeView={activeView} />
 		{/if}
 	</section>
 </div>

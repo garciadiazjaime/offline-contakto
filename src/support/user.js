@@ -2,7 +2,7 @@ const STEPS = {
   generales: 'GENERALES',
   personal: 'PERSONAL',
   salud: 'SALUD',
-  academica: 4,
+  academica: 'ACADEMICA',
   vivienda: 5,
   marco: 6,
   economica: 7,

@@ -1,167 +1,215 @@
 <script>
-	import Content from '../../components/Content.svelte';
-	import Subnav from '../../components/Subnav.svelte';
+	import Subnav from '../Subnav.svelte'
+	import { getUser, saveUser, updateUser, STEPS } from '../../support/user'
+
+	export let updateView;
+	export let user;
+	export let activeView;
+
+	function saveHandler() {
+		updateUser(user)
+
+		updateView(STEPS.academica, user)
+	}
+
+	function cancelHandler() {
+		updateView()
+	}
 </script>
 
 <style>
 	span {
-		width: 320px;
-		display: inline-block;
+		display: block;
 	}
-	input {
-		width: 400px;
+	input, select {
 		height: 32px;
 		font-size: 26px;
+		width: 100%;
 	}
-	a {
-		padding: 12px 20px;
+
+	.btn {
+		display: inline-block;
+		padding: 12px;
+		font-size: 20px;
 		border: 1px solid black;
+	}
+
+	.btn:first-of-type {
+		margin-right: 12px;
+	}
+
+	.btn:hover {
+		text-decoration: underline;
+	}
+	
+	.btn:hover {
+		cursor: pointer;
+	}
+
+	p {
+		display: flex;
+		align-items: center;
+	}
+
+	p span {
+		width: 240px;
+		padding-right: 6px;
+	}
+
+	h2 {
+		padding-top: 29px;
 	}
 </style>
 
-<Content>
-	<Subnav />
+<Subnav updateView={updateView} user={user} activeView={activeView} />
 
-	<h1>Inf. Académica</h1>
+<h1>Inf. Académica</h1>
 
-	<h2>Primaria</h2>
-	<p>
-		<span>Institución:</span>
-		<input type="text" name="nombre">
-	</p>
-	<p>
-		<span>Lugar (ciudad):</span>
-		<input type="text" name="apellido">
-	</p>
-	<p>
-		<span>años:</span>
-		<input type="text" name="email">
-	</p>
-	<p>
-		<span>Certificado:</span>
-		<input type="text">
-	</p>
+<h2>Primaria</h2>
+<p>
+	<span>Institución</span>
+	<input bind:value={user.academica.institucion}>
+</p>
+<p>
+	<span>Lugar (ciudad)</span>
+	<input bind:value={user.academica.lugar}>
+</p>
+<p>
+	<span>Años</span>
+	<input bind:value={user.academica.anios}>
+</p>
+<p>
+	<span>Certificado</span>
+	<input bind:value={user.academica.certificado}>
+</p>
 
-	<h2>Secundaria</h2>
-	<p>
-		<span>Institución:</span>
-		<input type="text" name="nombre">
-	</p>
-	<p>
-		<span>Lugar (ciudad):</span>
-		<input type="text" name="apellido">
-	</p>
-	<p>
-		<span>años:</span>
-		<input type="text" name="email">
-	</p>
-	<p>
-		<span>Certificado:</span>
-		<input type="text">
-	</p>
+<h2>Secundaria</h2>
+<p>
+	<span>Institución</span>
+	<input bind:value={user.academica.secundaria} name="nombre">
+</p>
+<p>
+	<span>Lugar (ciudad)</span>
+	<input bind:value={user.academica.secundariaLugar} name="apellido">
+</p>
+<p>
+	<span>Años</span>
+	<input bind:value={user.academica.secundariaAnios} name="email">
+</p>
+<p>
+	<span>Certificado</span>
+	<input bind:value={user.academica.secundariaCertificado}>
+</p>
 
-	<h2>Preparatoria</h2>
-	<p>
-		<span>Institución:</span>
-		<input type="text" name="nombre">
-	</p>
-	<p>
-		<span>Lugar (ciudad):</span>
-		<input type="text" name="apellido">
-	</p>
-	<p>
-		<span>años:</span>
-		<input type="text" name="email">
-	</p>
-	<p>
-		<span>Certificado:</span>
-		<input type="text">
-	</p>
+<h2>Preparatoria</h2>
+<p>
+	<span>Institución</span>
+	<input bind:value={user.academica.prepa} name="nombre">
+</p>
+<p>
+	<span>Lugar (ciudad)</span>
+	<input bind:value={user.academica.prepaLugar} name="apellido">
+</p>
+<p>
+	<span>Años</span>
+	<input bind:value={user.academica.prepaAnios} name="email">
+</p>
+<p>
+	<span>Certificado</span>
+	<input bind:value={user.academica.prepaCertificado}>
+</p>
 
-	<h2>Profesional</h2>
-	<p>
-		<span>Institución:</span>
-		<input type="text" name="nombre">
-	</p>
-	<p>
-		<span>Lugar (ciudad):</span>
-		<input type="text" name="apellido">
-	</p>
-	<p>
-		<span>años:</span>
-		<input type="text" name="email">
-	</p>
-	<p>
-		<span>Certificado:</span>
-		<input type="text">
-	</p>
+<h2>Profesional</h2>
+<p>
+	<span>Institución</span>
+	<input bind:value={user.academica.uni} name="nombre">
+</p>
+<p>
+	<span>Lugar (ciudad)</span>
+	<input bind:value={user.academica.uniLugar} name="apellido">
+</p>
+<p>
+	<span>Años</span>
+	<input bind:value={user.academica.uniAnios} name="email">
+</p>
+<p>
+	<span>Certificado</span>
+	<input bind:value={user.academica.uniCertificado}>
+</p>
 
-	<h2>Otro</h2>
-	<p>
-		<span>Institución:</span>
-		<input type="text" name="nombre">
-	</p>
-	<p>
-		<span>Lugar (ciudad):</span>
-		<input type="text" name="apellido">
-	</p>
-	<p>
-		<span>años:</span>
-		<input type="text" name="email">
-	</p>
-	<p>
-		<span>Certificado:</span>
-		<input type="text">
-	</p>
+<h2>Otro</h2>
+<p>
+	<span>Institución</span>
+	<input bind:value={user.academica.otro} name="nombre">
+</p>
+<p>
+	<span>Lugar (ciudad)</span>
+	<input bind:value={user.academica.otroLugar} name="apellido">
+</p>
+<p>
+	<span>Años</span>
+	<input bind:value={user.academica.otroAnios} name="email">
+</p>
+<p>
+	<span>Certificado</span>
+	<input bind:value={user.academica.otroCertificado}>
+</p>
 
-	<p>
-		<span>Cédula profesional::</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Año de expedición::</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Dominio de otro idioma::</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Hablado:</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Leido:</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Escuchado:</span>
-		<input type="text">
-	</p>
+<br />
+<p>
+	<span>Cédula profesional:</span>
+	<input bind:value={user.academica.cedula}>
+</p>
+<p>
+	<span>Año de expedición:</span>
+	<input bind:value={user.academica.cedulaExpedicion}>
+</p>
 
-	<h2>Estudios</h2>
-	<p>
-		<span>Estudia Actualmente:</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Institución:</span>
-		<input type="text">
-	</p>
+<br />
+<p>
+	<span>Dominio de otro idioma:</span>
+	<input bind:value={user.academica.idioma}>
+</p>
+<p>
+	<span>Hablado</span>
+	<input bind:value={user.academica.idiomaHablado}>
+</p>
+<p>
+	<span>Leido</span>
+	<input bind:value={user.academica.idiomaLeido}>
+</p>
+<p>
+	<span>Escuchado</span>
+	<input bind:value={user.academica.idiomaEscuchado}>
+</p>
 
-	<p>
-		<span>Qué estudia?:</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Horarios:</span>
-		<input type="text">
-	</p>
-	<p>
-		<span>Días:</span>
-		<input type="text">
-	</p>
+<h2>Estudios</h2>
+<p>
+	<span>Estudia Actualmente</span>
+	<select bind:value={user.academica.estudios}>
+		<option value=""></option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+		<option value="NA">NA</option>
+	</select> 
+</p>
+<p>
+	<span>Institución</span>
+	<input bind:value={user.academica.estudiosInstitucion}>
+</p>
 
-	<a href="/">Guardar</a>
-	<a href="/">Cancelar</a>
-</Content>
+<p>
+	<span>Qué estudia?</span>
+	<input bind:value={user.academica.estudiosDescripcion}>
+</p>
+<p>
+	<span>Horarios</span>
+	<input bind:value={user.academica.estudiosHorario}>
+</p>
+<p>
+	<span>Días</span>
+	<input bind:value={user.academica.estudiosDiass}>
+</p>
+
+<span class="btn" on:click={saveHandler}>Guardar</span>
+<span class="btn" on:click={cancelHandler}>Cancelar</span>
