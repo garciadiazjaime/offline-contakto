@@ -1,29 +1,15 @@
 <script>
-	import { onMount } from 'svelte';
-
 	import Subnav from '../Subnav.svelte'
 	import { getUser, saveUser, updateUser, STEPS } from '../../support/user'
 
-	
 	export let updateView;
 	export let user;
-
-	const data = user.personal || {}
-
+	export let activeView;
 
 	function saveHandler() {
-		const newData = {
-			...user,
-			personal: data
-		}
+		updateUser(user)
 
-		if (!newData.uuid) {
-			saveUser(newData)
-		} else {
-			updateUser(newData)
-		}
-
-		updateView(STEPS.generales, user)
+		updateView(STEPS.personal, user)
 	}
 
 	function cancelHandler() {
@@ -75,7 +61,7 @@
 	}
 </style>
 
-<Subnav updateView={updateView} user={user} />
+<Subnav updateView={updateView} user={user} activeView={activeView} />
 
 
 
@@ -83,17 +69,17 @@
 
 <p>
 	<span>Demandas Laborales y/o Antecedentes Penales</span>
-	<input bind:value={data.demandas}>
+	<input bind:value={user.personal.demandas}>
 </p>
 <p>
 	<span>Cuenta con algún tatuaje o arete:(Cuantos y en que parte del cuerpo)</span>
-	<input bind:value={data.tatuaje}>
+	<input bind:value={user.personal.tatuaje}>
 </p>
 
 <h2>Historial en empresa</h2>
 <p>
 	<span><h3>Ha trabajado anteriormente en la empresa</h3></span>
-	<select bind:value={data.empresaAnterior}>
+	<select bind:value={user.personal.empresaAnterior}>
 		<option value=""></option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -101,41 +87,41 @@
 </p>
 <p>
 	<span>Puesto</span>
-	<input bind:value={data.empresaPuestoAnterior}>
+	<input bind:value={user.personal.empresaPuestoAnterior}>
 </p>
 <p>
-	<span>Periodo:</span>
-	<input bind:value={data.empresoPeriodoAnterior}>
+	<span>Periodo</span>
+	<input bind:value={user.personal.empresoPeriodoAnterior}>
 </p>
 <p>
 	<span>Sucursal</span>
-	<input bind:value={data.empresoSucursalAnterior}>
+	<input bind:value={user.personal.empresoSucursalAnterior}>
 </p>
 <p>
-	<span>Motivo de Salida:</span>
-	<input bind:value={data.empresaSalidaAnterior}>
-</p>
-
-<p>
-	<span><h3>Tiene algún familiar trabajando en la empresa:</h3></span>
-	<input bind:value={data.empresaFamiliar}>
+	<span>Motivo de Salida</span>
+	<input bind:value={user.personal.empresaSalidaAnterior}>
 </p>
 
 <p>
-	<span>Puesto:</span>
-	<input bind:value={data.empresaPuestoFamiliar}>
+	<span><h3>Tiene algún familiar trabajando en la empresa</h3></span>
+	<input bind:value={user.personal.empresaFamiliar}>
+</p>
+
+<p>
+	<span>Puesto</span>
+	<input bind:value={user.personal.empresaPuestoFamiliar}>
 </p>
 <p>
-	<span>Nombre:</span>
-	<input bind:value={data.empresaNombreFamiliar}>
+	<span>Nombre</span>
+	<input bind:value={user.personal.empresaNombreFamiliar}>
 </p>
 <p>
-	<span>Sucursal:</span>
-	<input bind:value={data.empresaSucursalFamiliar}>
+	<span>Sucursal</span>
+	<input bind:value={user.personal.empresaSucursalFamiliar}>
 </p>
 <p>
-	<span>Parentesco:</span>
-	<input bind:value={data.empresaParentescoFamiliar}>
+	<span>Parentesco</span>
+	<input bind:value={user.personal.empresaParentescoFamiliar}>
 </p>
 
 <span class="btn" on:click={saveHandler}>Guardar</span>

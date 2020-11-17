@@ -3,6 +3,7 @@
 
   export let updateView
   export let user
+  export let activeView
 
   
   function clicHandler(step) {
@@ -26,13 +27,17 @@
     cursor: pointer;
     text-decoration: underline;
   }
+
+  .active {
+    text-decoration: underline;
+  }
 </style>
 
 <ul>
-  <li><span on:click={() => clicHandler(STEPS.generales)}>Datos Generales</span></li>
-  <li><span on:click={() => clicHandler(STEPS.personal)}>Inf. Personal</span></li>
-  <!-- <li><a href="./candidato/salud-actividades-habitos">Salud, Actividades y Hábitos</a></li>
-  <li><a href="./candidato/informacion-academica">Inf. Académica</a></li>
+  <li class:active="{activeView === STEPS.generales}" on:click={() => clicHandler(STEPS.generales)}><span>Datos Generales</span></li>
+  <li class:active="{activeView === STEPS.personal}" on:click={() => clicHandler(STEPS.personal)}><span>Inf. Personal</span></li>
+  <li class:active="{activeView === STEPS.salud}" on:click={() => clicHandler(STEPS.salud)}><span>Salud, Actividades y Hábitos</span></li>
+  <!-- <li><a href="./candidato/informacion-academica">Inf. Académica</a></li>
   <li><a href="./candidato/vivienda">Vivienda</a></li>
   <li><a href="./candidato/marco-familiar">Marco Familiar</a></li>
   <li><a href="./candidato/informacion-economica">Inf. Económica</a></li>

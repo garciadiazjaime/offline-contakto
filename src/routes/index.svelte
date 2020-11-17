@@ -3,6 +3,7 @@
 
 	import DatosGenerales from '../components/candidato/datos-generales.svelte'
 	import InformacionPersonal from '../components/candidato/informacion-personal.svelte'
+	import SaludActividadesHabitos from '../components/candidato/salud-actividades-habitos.svelte'
 	import { STEPS, getUsers, getUser } from '../support/user'
 
 	let activeView = ''
@@ -17,7 +18,8 @@
 	function getNewUser() {
 		return {
 			generales: {},
-			personal: {}
+			personal: {},
+			salud: {}
 		}
 	}
 
@@ -128,6 +130,10 @@
 	.link {
 		cursor: pointer
 	}
+
+	.active {
+		text-decoration: underline;
+	}
 </style>
 
 <svelte:head>
@@ -154,16 +160,18 @@
     </div>
     <ul>
       {#each Object.keys(users) as uuid}
-				<li><span class="link" on:click={() => editUserHandler(uuid)}>{users[uuid].generales.nombre}</span></li>
+				<li><span class="link" class:active="{uuid === activeUser.uuid}" on:click={() => editUserHandler(uuid)}>{users[uuid].generales.nombre}</span></li>
 			{/each}
     </ul>
   </section>
 
 	<section class="view">
 		{#if activeView === STEPS.generales}
-			<DatosGenerales updateView={updateView} user={activeUser}	/>
+			<DatosGenerales updateView={updateView} user={activeUser}	activeView={activeView} />
 		{:else if activeView === STEPS.personal}
-			<InformacionPersonal updateView={updateView} user={activeUser} />
+			<InformacionPersonal updateView={updateView} user={activeUser} activeView={activeView} />
+		{:else if activeView === STEPS.salud}
+			<SaludActividadesHabitos updateView={updateView} user={activeUser} activeView={activeView} />
 		{/if}
 	</section>
 </div>
