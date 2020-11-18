@@ -11,6 +11,7 @@
 	let users = {}
 	let activeUser = {}
 	const LIMIT_USERS = 15
+	let login = false
 
 	onMount(async () => {
 		users = getUsers()
@@ -108,7 +109,7 @@
 
   .btn {
     display: inline-block;
-    margin: 6px;
+    padding: 12px 20px;
     font-size: 20px;
 	}
 	
@@ -136,12 +137,35 @@
 	.active {
 		text-decoration: underline;
 	}
+
+	.login {
+		background: #7c7b7b;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 42px;
+		color: white;
+	}
+
+	.login a {
+		padding: 100%;
+	}
 </style>
 
 <svelte:head>
 	<title>Contakto Offline</title>
 </svelte:head>
 
+{#if !login}
+<div class="login">
+	<a href="/" on:click={() => login = true}>
+		<img src="http://www.contaktoapp.com/static/media/logo_white.png" alt="">
+	</a>
+</div>
+{:else}
 <nav>
 	<ul>
 		<li>
@@ -162,7 +186,7 @@
     </div>
     <ul>
       {#each Object.keys(users) as uuid}
-				<li><span class="link" class:active="{uuid === activeUser.uuid}" on:click={() => editUserHandler(uuid)}>{users[uuid].generales.nombre}</span></li>
+				<li class="link" class:active="{uuid === activeUser.uuid}" on:click={() => editUserHandler(uuid)}>{users[uuid].generales.nombre}</li>
 			{/each}
     </ul>
   </section>
@@ -179,4 +203,4 @@
 		{/if}
 	</section>
 </div>
-
+{/if}
