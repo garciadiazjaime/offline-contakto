@@ -1,30 +1,7 @@
 <script>
-	import Subnav from '../Subnav.svelte'
-	import { getUser, saveUser, updateUser, STEPS } from '../../support/user'
-
-	export let updateView;
-	export let user;
-	export let activeView;
-
-	function saveHandler() {
-		if (!user.generales.nombre) {
-			alert('Es necesario capturar nombre')
-			return
-		}
-
-		if (!user.uuid) {
-			saveUser(user)
-		} else {
-			updateUser(user)
-		}
-
-		updateView(STEPS.generales, user)
-	}
-
-	function cancelHandler() {
-		updateView()
-	}
+	export let user
 </script>
+
 
 <style>
 	span {
@@ -34,25 +11,6 @@
 		height: 32px;
 		font-size: 26px;
 		width: 100%;
-	}
-
-	.btn {
-		display: inline-block;
-		padding: 12px;
-		font-size: 20px;
-		border: 1px solid black;
-	}
-
-	.btn:first-of-type {
-		margin-right: 12px;
-	}
-
-	.btn:hover {
-		text-decoration: underline;
-	}
-	
-	.btn:hover {
-		cursor: pointer;
 	}
 
 	p {
@@ -70,9 +28,6 @@
 	}
 </style>
 
-{#if user.uuid }
-<Subnav updateView={updateView} user={user} activeView={activeView} />
-{/if}
 
 <h1>Datos Generales</h1>
 
@@ -206,6 +161,3 @@
 	<span>Tiempo de trayecto al lugar de trabajo</span>
 	<input bind:value={user.generales.tiempoTrayecto}>
 </p>
-
-<span class="btn" on:click={saveHandler}>Guardar</span>
-<span class="btn" on:click={cancelHandler}>Cancelar</span>

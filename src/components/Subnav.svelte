@@ -1,14 +1,8 @@
 <script>
   import { STEPS } from '../support/user'
 
-  export let updateView
-  export let user
-  export let activeView
-
-  
-  function clicHandler(step) {
-    updateView(step, user)
-  }
+  export let uuid
+  export let section
 </script>
 
 <style>
@@ -31,13 +25,17 @@
   .active {
     text-decoration: underline;
   }
+
+  a {
+    text-decoration: none;
+  }
 </style>
 
 <ul>
-  <li class:active="{activeView === STEPS.generales}" on:click={() => clicHandler(STEPS.generales)}>Datos Generales</li>
-  <li class:active="{activeView === STEPS.personal}" on:click={() => clicHandler(STEPS.personal)}>Inf. Personal</li>
-  <li class:active="{activeView === STEPS.salud}" on:click={() => clicHandler(STEPS.salud)}>Salud, Actividades y Hábitos</li>
-  <li class:active="{activeView === STEPS.academica}" on:click={() => clicHandler(STEPS.academica)}>Inf. Académica</li>
+  <li><a class:active="{section == STEPS.generales}" href="/candidato/{uuid}/datos-generales">Datos Generales</a></li>
+  <li><a class:active="{section == STEPS.personal}" href="/candidato/{uuid}/informacion-personal">Inf. Personal</a></li>
+  <li><a class:active="{section == STEPS.salud}" href="/candidato/{uuid}/salud-actividades-habitos">Actividades y Hábitos</a></li>
+  <li><a class:active="{section == STEPS.academica}" href="/candidato/{uuid}/informacion-academica">Inf. Académica</a></li>
   <!-- <li><a href="./candidato/vivienda">Vivienda</a></li>
   <li><a href="./candidato/marco-familiar">Marco Familiar</a></li>
   <li><a href="./candidato/informacion-economica">Inf. Económica</a></li>
