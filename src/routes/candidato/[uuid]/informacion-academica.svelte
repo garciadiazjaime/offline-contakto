@@ -24,7 +24,7 @@
 	span {
 		display: block;
 	}
-	input {
+	input, select {
 		height: 32px;
 		font-size: 26px;
 		width: 100%;

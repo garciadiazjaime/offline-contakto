@@ -3,12 +3,12 @@ const STEPS = {
   personal: 'PERSONAL',
   salud: 'SALUD',
   academica: 'ACADEMICA',
-  vivienda: 5,
-  marco: 6,
-  economica: 7,
-  referencias: 8,
-  evaluacion: 9,
-  adjuntos: 10,
+  vivienda: 'VIVIENDA',
+  marco: 'MARCO',
+  economica: 'ECONOMICA',
+  referencias: 'REFERENCIAS',
+  evaluacion: 'EVALUACION',
+  adjuntos: 'ADJUNTOS',
 }
 
 function uuidv4() {
@@ -48,11 +48,26 @@ function updateUser(user) {
   alert('Información guardada')
 }
 
+function getEmptyUser() {
+  return {
+		generales: {},
+		personal: {},
+		salud: {},
+		academica: {},
+		vivienda: {},
+		marco: {},
+		economica: {},
+		referencias: {},
+		evaluacion: {},
+		adjuntos: {}
+  }
+}
+
 function getUser(activeUUID) {
   const users = getUsers()
   const uuid = Object.keys(users).find(uuid => uuid === activeUUID)
   
-  return users[uuid]
+  return users[uuid] || getEmptyUser()
 }
 
 
@@ -61,5 +76,6 @@ module.exports = {
   getUsers,
   getUser,
   saveUser,
-  updateUser
+  updateUser,
+  getEmptyUser
 }
