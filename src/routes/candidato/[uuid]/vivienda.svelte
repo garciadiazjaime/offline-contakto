@@ -7,7 +7,6 @@
 </script>
 
 <script>
-	import { onMount } from 'svelte';
 
 	import Layout from '../../../components/Layout.svelte'
 	import Form from '../../../components/Form.svelte'
@@ -21,11 +20,6 @@
 	$: {
 		user = getUser(uuid)
 	}
-
-	onMount(async () => {
-		const url = new URL(window.location)
-		uuid = url.pathname.split('/')[2]
-	});
 </script>
 
 <style>

@@ -37,8 +37,8 @@
   <li><a class:active="{section == STEPS.salud}" href="/candidato/{uuid}/salud-actividades-habitos">Actividades y Hábitos</a></li>
   <li><a class:active="{section == STEPS.academica}" href="/candidato/{uuid}/informacion-academica">Inf. Académica</a></li>
   <li><a class:active="{section == STEPS.vivienda}" href="/candidato/{uuid}/vivienda">Vivienda</a></li>
-  <!-- <li><a href="./candidato/marco-familiar">Marco Familiar</a></li>
-  <li><a href="./candidato/informacion-economica">Inf. Económica</a></li>
+  <li><a class:active="{section == STEPS.vivienda}" href="/candidato/{uuid}/marco-familiar">Marco Familiar</a></li>
+  <!-- <li><a href="./candidato/informacion-economica">Inf. Económica</a></li>
   <li><a href="./candidato/referencias-personales">Referencias Personales</a></li>
   <li><a href="./candidato/evaluacion">Evaluación</a></li>
   <li><a href="./candidato/adjuntos">Adjuntos</a></li>
