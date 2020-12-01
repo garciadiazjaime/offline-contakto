@@ -31,6 +31,11 @@
 		display: block;
 	}
 
+	.control {
+		text-align: right;
+		margin: 12px 0;
+	}
+
 	.btn {
 		display: inline-block;
 		padding: 12px;
@@ -49,12 +54,20 @@
 	.btn:hover {
 		cursor: pointer;
 	}
+
+	.success {
+		background: #428bca;
+		color: white;
+		border-color: #357ebd;
+	}
 </style>
 
 <form>
 
   <slot></slot>
 
-  <span class="btn" on:click={saveHandler}>Guardar</span>
-  <span class="btn" on:click={cancelHandler}>Cancelar</span>
+	<div class="control">
+		<span class="btn" on:click={cancelHandler}>Cancelar</span>
+		<span class="btn success" on:click={saveHandler}>Guardar</span>
+	</div>
 </form>

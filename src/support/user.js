@@ -5,8 +5,8 @@ const STEPS = {
   academica: 'informacion-academica',
   vivienda: 'vivienda',
   marco: 'marco-familiar',
-  economica: 'ECONOMICA',
-  referencias: 'REFERENCIAS',
+  economica: 'informacion-economica',
+  referencias: 'referencias',
   evaluacion: 'EVALUACION',
   adjuntos: 'ADJUNTOS',
 }
