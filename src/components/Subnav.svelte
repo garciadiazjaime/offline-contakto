@@ -39,7 +39,7 @@
   <li><a class:active="{section == STEPS.vivienda}" href="/candidato/{uuid}/vivienda">Vivienda</a></li>
   <li><a class:active="{section == STEPS.marco}" href="/candidato/{uuid}/marco-familiar">Marco Familiar</a></li>
   <li><a class:active="{section == STEPS.economica}" href="/candidato/{uuid}/informacion-economica">Inf. Económica</a></li>
-  <li><a class:active="{section == STEPS.economica}" href="/candidato/{uuid}/referencias-personales">Referencias Personales</a></li>
+  <li><a class:active="{section == STEPS.referencias}" href="/candidato/{uuid}/referencias-personales">Referencias Personales</a></li>
   <!-- 
   <li><a href="./candidato/evaluacion">Evaluación</a></li>
   <li><a href="./candidato/adjuntos">Adjuntos</a></li>
