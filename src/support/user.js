@@ -8,7 +8,7 @@ const STEPS = {
   economica: 'informacion-economica',
   referencias: 'referencias-personales',
   evaluacion: 'evaluacion',
-  adjuntos: 'ADJUNTOS',
+  adjuntos: 'adjuntos',
 }
 
 function uuidv4() {

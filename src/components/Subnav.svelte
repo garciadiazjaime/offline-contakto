@@ -41,7 +41,7 @@
   <li><a class:active="{section == STEPS.economica}" href="/candidato/{uuid}/informacion-economica">Inf. Económica</a></li>
   <li><a class:active="{section == STEPS.referencias}" href="/candidato/{uuid}/referencias-personales">Referencias Personales</a></li>
   <li><a class:active="{section == STEPS.evaluacion}" href="/candidato/{uuid}/evaluacion">Evaluación</a></li>
+  <li><a class:active="{section == STEPS.adjuntos}" href="/candidato/{uuid}/adjuntos">Adjuntos</a></li>
   <!-- 
-  <li><a href="./candidato/adjuntos">Adjuntos</a></li>
   <li><a href="./candidato/exportar">Export</a></li> -->
 </ul>
