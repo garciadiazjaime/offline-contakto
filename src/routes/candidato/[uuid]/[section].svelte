@@ -17,6 +17,7 @@
   import MarcoFamiliar from '../../../components/candidato/marco-familiar.svelte'
   import Economica from '../../../components/candidato/informacion-economica.svelte'
   import Referencias from '../../../components/candidato/referencias-personales.svelte'
+  import Evaluacion from '../../../components/candidato/evaluacion.svelte'
   
 	import { getUser, STEPS } from '../../../support/user'
 
@@ -47,6 +48,8 @@
     <Economica user={user}  />
     {:else if section === STEPS.referencias}
     <Referencias user={user}  />
+    {:else if section === STEPS.evaluacion}
+    <Evaluacion user={user}  />
     {/if}
 	</Form>
 </Layout>

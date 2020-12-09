@@ -51,15 +51,15 @@
 <h2>Secundaria</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.secundaria} name="nombre">
+	<input bind:value={user.academica.secundaria}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.secundariaLugar} name="apellido">
+	<input bind:value={user.academica.secundariaLugar}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.secundariaAnios} name="email">
+	<input bind:value={user.academica.secundariaAnios}>
 </p>
 <p>
 	<span>Certificado</span>
@@ -69,15 +69,15 @@
 <h2>Preparatoria</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.prepa} name="nombre">
+	<input bind:value={user.academica.prepa}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.prepaLugar} name="apellido">
+	<input bind:value={user.academica.prepaLugar}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.prepaAnios} name="email">
+	<input bind:value={user.academica.prepaAnios}>
 </p>
 <p>
 	<span>Certificado</span>
@@ -87,15 +87,15 @@
 <h2>Profesional</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.uni} name="nombre">
+	<input bind:value={user.academica.uni}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.uniLugar} name="apellido">
+	<input bind:value={user.academica.uniLugar}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.uniAnios} name="email">
+	<input bind:value={user.academica.uniAnios}>
 </p>
 <p>
 	<span>Certificado</span>
@@ -105,15 +105,15 @@
 <h2>Otro</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.otro} name="nombre">
+	<input bind:value={user.academica.otro}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.otroLugar} name="apellido">
+	<input bind:value={user.academica.otroLugar}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.otroAnios} name="email">
+	<input bind:value={user.academica.otroAnios}>
 </p>
 <p>
 	<span>Certificado</span>

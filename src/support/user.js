@@ -7,7 +7,7 @@ const STEPS = {
   marco: 'marco-familiar',
   economica: 'informacion-economica',
   referencias: 'referencias-personales',
-  evaluacion: 'EVALUACION',
+  evaluacion: 'evaluacion',
   adjuntos: 'ADJUNTOS',
 }
 
