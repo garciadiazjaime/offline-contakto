@@ -127,14 +127,14 @@
 	<tr>
 		<th>Educación</th>
 		<th>Médico</th>
-		<th>Diversos</th>
+		<th>Diversión</th>
 		<th>Servicios (Luz, Agua, Teléfono)</th>
 		<th>Serv. doméstico</th>
 	</tr>
 	<tr>
 		<td><input bind:value={user.economica.egresoEducacion}></td>
 		<td><input bind:value={user.economica.egresoMedico}></td>
-		<td><input bind:value={user.economica.egresoDiversos}></td>
+		<td><input bind:value={user.economica.egresoDiversion}></td>
 		<td><input bind:value={user.economica.egresoServicios}></td>
 		<td><input bind:value={user.economica.egresoDomestico}></td>
 	</tr>
