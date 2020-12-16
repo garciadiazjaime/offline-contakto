@@ -1,21 +1,44 @@
 <script>
+  import JSZip from 'jszip/dist/jszip'
+  import { saveAs } from 'file-saver';
+
   import { STEPS } from '../support/user'
+
+  import successkid from 'images/successkid.jpg';
 
   export let uuid
   export let section
   export let user
-  const exportName = 'user'
 
-  function  clickHandler(event) {
+  function toDataURL(url) {
+    return fetch(url)
+      .then(response => response.blob())
+      .then(blob => new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result.replace('data:image/png;base64,', ''))
+        reader.onerror = reject
+        reader.readAsDataURL(blob)
+      }))
+  }
+
+  async function clickHandler(event) {
     event.preventDefault()
 
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(user));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href",     dataStr);
-    downloadAnchorNode.setAttribute("download", exportName + ".json");
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
+    console.log(user)
+
+    const exportName = 'user'
+    const zip = new JSZip();
+
+    zip.file("data.json", JSON.stringify(user));
+
+    const img = zip.folder("images");
+    const imageData = await toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0')
+
+    img.file("image_1.jpg", imageData, { base64: true });
+
+    const content = await zip.generateAsync({type:"blob"})
+    
+    saveAs(content, "user.zip");
   }
 </script>
 
@@ -56,5 +79,5 @@
   <li><a class:active="{section == STEPS.referencias}" href="/candidato/{uuid}/referencias-personales">Referencias Personales</a></li>
   <li><a class:active="{section == STEPS.evaluacion}" href="/candidato/{uuid}/evaluacion">Evaluación</a></li>
   <li><a class:active="{section == STEPS.adjuntos}" href="/candidato/{uuid}/adjuntos">Adjuntos</a></li>
-  <li><a href="/exportar" on:click={clickHandler}>Export</a></li>
+  <li><a href="/exportar" on:click={clickHandler}>Exportar</a></li>
 </ul>
