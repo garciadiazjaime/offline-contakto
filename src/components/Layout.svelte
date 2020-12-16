@@ -15,6 +15,7 @@
 
 	export let uuid;
 	export let section;
+	export let user;
 
 	let users = {}
 	// const LIMIT_USERS = 15
@@ -154,7 +155,7 @@
 
 	<section class="view">
 		{#if uuid }
-			<Subnav uuid={uuid} section={section} />
+			<Subnav uuid={uuid} section={section} user={user}/>
 		{/if}
 		<slot></slot>
 	</section>

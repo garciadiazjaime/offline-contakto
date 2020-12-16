@@ -31,7 +31,7 @@
 	}
 </script>
 
-<Layout uuid={uuid} section={section}>
+<Layout uuid={uuid} section={section} user={user}>
 	<Form user={user}>
     {#if section === STEPS.generales}
 		<DatosGenerales user={user} />

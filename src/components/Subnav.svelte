@@ -3,6 +3,20 @@
 
   export let uuid
   export let section
+  export let user
+  const exportName = 'user'
+
+  function  clickHandler(event) {
+    event.preventDefault()
+
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(user));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
 </script>
 
 <style>
@@ -42,6 +56,5 @@
   <li><a class:active="{section == STEPS.referencias}" href="/candidato/{uuid}/referencias-personales">Referencias Personales</a></li>
   <li><a class:active="{section == STEPS.evaluacion}" href="/candidato/{uuid}/evaluacion">Evaluación</a></li>
   <li><a class:active="{section == STEPS.adjuntos}" href="/candidato/{uuid}/adjuntos">Adjuntos</a></li>
-  <!-- 
-  <li><a href="./candidato/exportar">Export</a></li> -->
+  <li><a href="/exportar" on:click={clickHandler}>Export</a></li>
 </ul>
