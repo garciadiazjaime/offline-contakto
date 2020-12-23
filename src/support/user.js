@@ -70,6 +70,14 @@ function getUser(activeUUID) {
   return users[uuid] || getEmptyUser()
 }
 
+function deleteUser(uuid) {
+  const users = getUsers()
+
+  delete users[uuid]
+
+  localStorage.setItem('users', JSON.stringify(users))
+}
+
 
 module.exports = {
   STEPS,
@@ -77,5 +85,6 @@ module.exports = {
   getUser,
   saveUser,
   updateUser,
-  getEmptyUser
+  getEmptyUser,
+  deleteUser,
 }

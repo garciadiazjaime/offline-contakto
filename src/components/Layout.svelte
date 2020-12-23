@@ -11,30 +11,28 @@
 
 	import Subnav from '../components/Subnav.svelte'
 
-	import { STEPS, getUsers, getUser } from '../support/user'
+	import { getUsers } from '../support/user'
 
 	export let uuid;
 	export let section;
 	export let user;
 
 	let users = {}
-	// const LIMIT_USERS = 15
-	// let login = true
+	const LIMIT_USERS = 15
 
 	onMount(async () => {
 		users = getUsers()
 	});
 
-	// function addUserHandler() {
-	// 	users = getUsers()
-	// 	if (Object.keys(users).length >= LIMIT_USERS) {
-	// 		return alert(`No se pueden crear más de ${LIMIT_USERS} candidatos.`)
-	// 	}
+	function clickHandlerAdd(e) {
+		users = getUsers()
 
-	// 	activeUser = getNewUser()
+		if (Object.keys(users).length >= LIMIT_USERS) {
+			e.preventDefault()
 
-	// 	activeView = STEPS.generales
-	// }
+			alert(`No se pueden crear más de ${LIMIT_USERS} candidatos.`)
+		}
+	}
 </script>
 
 <style>
@@ -144,10 +142,10 @@
 	<section class="list">
     <div class="controls">
       <h3>Entrevistas</h3>
-      <a class="btn" href="/candidato/agregar">+</a>
+      <a class="btn" href="/candidato/agregar" on:click={clickHandlerAdd}>+</a>
     </div>
     <ul>
-      {#each Object.keys(users) as userUUID}
+      {#each Object.keys(users).sort((a, b) => users[a].generales.nombre - users[b].generales.nombre) as userUUID}
 				<li><a class="link" class:active="{userUUID === uuid}" href="/candidato/{userUUID}/datos-generales">{users[userUUID].generales.nombre}</a></li>
 			{/each}
     </ul>

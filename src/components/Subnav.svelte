@@ -2,7 +2,7 @@
   import JSZip from 'jszip/dist/jszip'
   import { saveAs } from 'file-saver';
 
-  import { STEPS } from '../support/user'
+  import { STEPS, deleteUser } from '../support/user'
 
   import successkid from 'images/successkid.jpg';
 
@@ -21,10 +21,8 @@
       }))
   }
 
-  async function clickHandler(event) {
+  async function clickHandlerExport(event) {
     event.preventDefault()
-
-    console.log(user)
 
     const exportName = 'user'
     const zip = new JSZip();
@@ -32,13 +30,26 @@
     zip.file("data.json", JSON.stringify(user));
 
     const img = zip.folder("images");
-    const imageData = await toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0')
 
-    img.file("image_1.jpg", imageData, { base64: true });
+    // const imageData = await toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0')
+
+    Object.keys(user.adjuntos).map(filename => {
+      const imageData = user.adjuntos[filename].replace('data:image/png;base64,', '')
+      img.file(`${filename}.jpg`, imageData, { base64: true });
+    })
+    
 
     const content = await zip.generateAsync({type:"blob"})
     
     saveAs(content, "user.zip");
+  }
+
+  function clickHandlerDelete(e) {
+    if(confirm('Confirmar que se quiere eliminar al candidato')) {
+      return deleteUser(uuid)
+    }
+    
+    e.preventDefault()
   }
 </script>
 
@@ -66,6 +77,11 @@
   a {
     text-decoration: none;
   }
+
+  .delete {
+    color: #dc2b2b;
+    font-size: .8em;
+  }
 </style>
 
 <ul>
@@ -79,5 +95,6 @@
   <li><a class:active="{section == STEPS.referencias}" href="/candidato/{uuid}/referencias-personales">Referencias Personales</a></li>
   <li><a class:active="{section == STEPS.evaluacion}" href="/candidato/{uuid}/evaluacion">Evaluación</a></li>
   <li><a class:active="{section == STEPS.adjuntos}" href="/candidato/{uuid}/adjuntos">Adjuntos</a></li>
-  <li><a href="/exportar" on:click={clickHandler}>Exportar</a></li>
+  <li><a href="/exportar" on:click={clickHandlerExport}>Exportar</a></li>
+  <li><a href="/" on:click={clickHandlerDelete} class="delete">Eliminar</a></li>
 </ul>
