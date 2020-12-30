@@ -2,25 +2,24 @@
 
 	import Layout from '../components/Layout.svelte'
 
-
-	let login = true
+	let login = false
 </script>
 
 <style>
 	.login {
-		background: #7c7b7b;
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		display: block;
 		font-size: 42px;
-		color: white;
+		text-align: center;
+		height: 100%;
+		border: 1px solid black;
+		margin: 10% 20% 0;
 	}
 
-	.login a {
-		padding: 100%;
+	a {
+		text-decoration: none;
+	}
+	a:hover {
+		box-shadow: 0 0 6px 6px #EEE;
 	}
 </style>
 
@@ -28,12 +27,7 @@
 	<title>Contakto Offline</title>
 </svelte:head>
 
-{#if !login}
-<div class="login">
-	<a href="/" on:click={() => login = true}>
-		<img src="http://www.contaktoapp.com/static/media/logo_white.png" alt="">
-	</a>
-</div>
-{:else}
-	<Layout />
-{/if}
+<a href="/candidatos" class="login" on:click={() => login = true}>
+	<h1>Contakto Offline</h1>
+	<small>V1.0</small>
+</a>

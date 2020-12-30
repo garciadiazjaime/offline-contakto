@@ -96,5 +96,5 @@
   <li><a class:active="{section == STEPS.evaluacion}" href="/candidato/{uuid}/evaluacion">Evaluación</a></li>
   <li><a class:active="{section == STEPS.adjuntos}" href="/candidato/{uuid}/adjuntos">Adjuntos</a></li>
   <li><a href="/exportar" on:click={clickHandlerExport}>Exportar</a></li>
-  <li><a href="/" on:click={clickHandlerDelete} class="delete">Eliminar</a></li>
+  <li><a href="/candidatos" on:click={clickHandlerDelete} class="delete">Eliminar</a></li>
 </ul>

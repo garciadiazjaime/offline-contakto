@@ -18,11 +18,11 @@
 			updateUser(user)
 		}
 
-		goto('/');
+		goto('/candidatos');
 	}
 
 	function cancelHandler() {
-		goto('/');
+		goto('/candidatos');
 	}
 </script>
 
