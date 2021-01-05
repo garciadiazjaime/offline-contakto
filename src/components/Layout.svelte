@@ -10,6 +10,7 @@
 	import { onMount } from 'svelte';
 
 	import Subnav from '../components/Subnav.svelte'
+	import Alert from '../components/Alert.svelte'
 
 	import { getUsers } from '../support/user'
 
@@ -18,6 +19,7 @@
 	export let user;
 
 	let users = {}
+	let msg = ''
 	const LIMIT_USERS = 15
 
 	onMount(async () => {
@@ -30,7 +32,7 @@
 		if (Object.keys(users).length >= LIMIT_USERS) {
 			e.preventDefault()
 
-			alert(`No se pueden crear más de ${LIMIT_USERS} candidatos.`)
+			msg = `No se pueden crear más de ${LIMIT_USERS} candidatos.`
 		}
 	}
 </script>
@@ -39,35 +41,25 @@
 	nav {
 		border-bottom: 1px solid rgba(255,62,0,0.1);
 		font-weight: 300;
-		padding: 0 1em;
+		height: 40px;
 		background-color: #101010;
 		padding: 12px;
 
 		position: fixed;
 		width: 100%;
 		z-index: 1;
+		color: white;
+		font-size: 38px;
+		line-height: 38px;
 	}
 
-	nav ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	/* clearfix */
-	nav ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
-	nav li {
-		display: block;
-		float: left;
+	a {
+		text-decoration: none;
 	}
 	
   .container {
 		position: relative;
-		top: 74px;
+		top: 50px;
 	}
 
 	.view {
@@ -109,8 +101,12 @@
     padding: 6px 0;
 	}
 
+	li a{
+		display: block;
+	}
+
 	li:hover {
-		text-decoration: underline;
+		background-color:#e5e5e5
 	}
 	
 	.link {
@@ -119,6 +115,7 @@
 
 	.active {
 		text-decoration: underline;
+		font-weight: bold;
 	}
 </style>
 
@@ -127,13 +124,9 @@
 </svelte:head>
 
 <nav>
-	<ul>
-		<li>
-			<a href="/">
-				<img src="http://www.contaktoapp.com/static/media/logo_white.png" alt="">
-			</a>
-		</li>
-	</ul>
+	<a href="/candidatos">
+		Contakto Offline
+	</a>
 </nav>
 
 
@@ -158,3 +151,5 @@
 		<slot></slot>
 	</section>
 </div>
+
+<Alert msg={msg} />

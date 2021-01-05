@@ -34,8 +34,6 @@ function saveUser(user) {
   users[uuid] = user
 
   localStorage.setItem('users', JSON.stringify(users))
-  
-  alert('Información guardada')
 }
 
 function updateUser(user) {
@@ -44,8 +42,6 @@ function updateUser(user) {
   users[user.uuid] = user
 
   localStorage.setItem('users', JSON.stringify(users))
-  
-  alert('Información guardada')
 }
 
 function getEmptyUser() {

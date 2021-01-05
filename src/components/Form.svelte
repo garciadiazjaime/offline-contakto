@@ -3,13 +3,15 @@
 	import { goto } from '@sapper/app';
 
 	import { saveUser, updateUser } from '../support/user'
+	import Alert from './Alert.svelte'
 
-  export let user;
+	export let user;
+	
+	let msg = ''
 
 	function saveHandler() {
 		if (!user.generales.nombre) {
-			alert('Es necesario capturar nombre')
-			return
+			return msg = 'Es necesario capturar nombre'
     }
 
 		if (!user.uuid) {
@@ -18,7 +20,7 @@
 			updateUser(user)
 		}
 
-		goto('/candidatos');
+		goto('/candidatos?exito');
 	}
 
 	function cancelHandler() {
@@ -71,3 +73,5 @@
 		<span class="btn success" on:click={saveHandler}>Guardar</span>
 	</div>
 </form>
+
+<Alert msg={msg} />

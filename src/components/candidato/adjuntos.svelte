@@ -1,5 +1,9 @@
 <script>
+	import Alert from '../Alert.svelte'
+
 	export let user
+	let msg = ''
+
 	const preview = user.adjuntos || {}
 	const validExtensions = /jpeg|jpg|gif|bmp|png/i
 
@@ -9,7 +13,7 @@
 		if (input.files && input.files[0]) {
 			
 			if (!validExtensions.test(input.files[0].type)) {
-				return alert('Error: Este archivo no es una imagen.')
+				return msg = 'Error: Este archivo no es una imagen.'
 			}
 
 			const { value: fileName } = this.attributes.name
@@ -386,3 +390,5 @@
 	<strong on:click={clickHandlerDelete} data-file="file36">x</strong>
 	{/if}
 </p>
+
+<Alert msg={msg} />
