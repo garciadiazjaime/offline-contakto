@@ -1,4 +1,7 @@
-# sapper-template
+# Powered by Mint
+[Web Development Tijuana](https://www.mintitmedia.com/)
+
+## sapper-template
 
 The default [Sapper](https://github.com/sveltejs/sapper) template, available for Rollup and webpack.
 
