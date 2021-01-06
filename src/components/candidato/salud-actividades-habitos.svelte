@@ -31,95 +31,95 @@
 
 <p>
 	<span>Peso (kg)</span>
-	<input bind:value={user.salud.peso}>
+	<input bind:value={user.datos_salud.peso_kg}>
 </p>
 <p>
 	<span>Estatura (mts)</span>
-	<input bind:value={user.salud.estatura}>
+	<input bind:value={user.datos_salud.estatura_mts}>
 </p>
 <p>
 	<span>Salud física</span>
-	<input bind:value={user.salud.fisica}>
+	<input bind:value={user.datos_salud.salud_fisica}>
 </p>
 
 
 <p>
 	<span>Salud visual</span>
-	<input bind:value={user.salud.visual}>
+	<input bind:value={user.datos_salud.salud_visual}>
 </p>
 <p>
 	<span>Embarazada (# meses)</span>
-	<input bind:value={user.salud.embarazada}>
+	<input bind:value={user.datos_salud.embarazo_meses}>
 </p>
 <p>
 	<span>Ejercicio que practica y con qué frecuencia lo hace</span>
-	<input bind:value={user.salud.ejercicio}>
+	<input bind:value={user.datos_salud.ejercicio_tipo_frecuencia}>
 </p>
 <p>
 	<span>Accidentes</span>
-	<input bind:value={user.salud.accidentes}>
+	<input bind:value={user.datos_salud.accidentes}>
 </p>
 <p>
 	<span>Intervenciones quirúrgicas</span>
-	<input bind:value={user.salud.intervenciones}>
+	<input bind:value={user.datos_salud.intervenciones_quirurgicas}>
 </p>
 <p>
 	<span>Enfermedades que padecen familiares:</span>
-	<input bind:value={user.salud.enfermedadesFamiliares}>
+	<input bind:value={user.datos_salud.enfermedades_familiares}>
 </p>
 
 <p>
 	<span>Ha estado bajo algún tratamiento médico o psicológico</span>
-	<input bind:value={user.salud.tratamiento}>
+	<input bind:value={user.datos_salud.tratamiento_medico_psicologico}>
 </p>
 <p>
 	<span>Enfermedades padecidas con mayor frecuencia</span>
-	<input bind:value={user.salud.enfermedades}>
+	<input bind:value={user.datos_salud.enfermedades_mayor_frecuencia}>
 </p>
 <p>
 	<span>Institución médica a la que acude</span>
-	<input bind:value={user.salud.instituciones}>
+	<input bind:value={user.datos_salud.institucion_medica}>
 </p>
 
 <p>
 	<span>Religión:</span>
-	<input bind:value={user.salud.religion}>
+	<input bind:value={user.datos_generales.religion}>
 </p>
 <p>
 	<span>Horarios y días en los que las practica</span>
-	<input bind:value={user.salud.horario}>
+	<input bind:value={user.datos_generales.religion_tiempo}>
 </p>
 
 <h2>Inactividad laboral</h2>
 <p>
 	<span>Periodos:</span>
-	<input bind:value={user.salud.periodo}>
+	<input bind:value={user.actividades_habitos.inactividad_laboral}>
 </p>
 <p>
 	<span>Actividades que realizó</span>
-	<input bind:value={user.salud.actividad}>
+	<input bind:value={user.actividades_habitos.inactividad_laboral_actividad}>
 </p>
 
 <h2>Negocios por cuenta propia</h2>
 <p>
 	<span>Periodos:</span>
-	<input bind:value={user.salud.negocioPeriodo}>
+	<input bind:value={user.actividades_habitos.negocios}>
 </p>
 <p>
 	<span>Actividades que realizó</span>
-	<input bind:value={user.salud.negocioActividad}>
+	<input bind:value={user.actividades_habitos.negocios_actividad}>
 </p>
 
 <h2>Especificar cada cuanto consume</h2>
 <p>
 	<span>Tabaco:</span>
-	<input bind:value={user.salud.tabaco}>
+	<input bind:value={user.actividades_habitos.frecuencia_tabaco}>
 </p>
 <p>
 	<span>Alcohol:</span>
-	<input bind:value={user.salud.alcohol}>
+	<input bind:value={user.actividades_habitos.frecuencia_alcohol}>
 </p>
 <p>
 	<span>Otras:</span>
-	<input bind:value={user.salud.otras}>
+	<input bind:value={user.actividades_habitos.frecuencia_otras_sust}>
 </p>

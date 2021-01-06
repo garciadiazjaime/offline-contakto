@@ -33,145 +33,145 @@
 <h2>Primaria</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.institucion}>
+	<input bind:value={user.info_academica.primaria.institucion}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.lugar}>
+	<input bind:value={user.info_academica.primaria.ciudad}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.anios}>
+	<input bind:value={user.info_academica.primaria.anos}>
 </p>
 <p>
 	<span>Certificado</span>
-	<input bind:value={user.academica.certificado}>
+	<input bind:value={user.info_academica.primaria.certificado}>
 </p>
 
 <h2>Secundaria</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.secundaria}>
+	<input bind:value={user.info_academica.secundaria.institucion}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.secundariaLugar}>
+	<input bind:value={user.info_academica.secundaria.ciudad}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.secundariaAnios}>
+	<input bind:value={user.info_academica.secundaria.anos}>
 </p>
 <p>
 	<span>Certificado</span>
-	<input bind:value={user.academica.secundariaCertificado}>
+	<input bind:value={user.info_academica.secundaria.certificado}>
 </p>
 
 <h2>Preparatoria</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.prepa}>
+	<input bind:value={user.info_academica.preparatoria.institucion}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.prepaLugar}>
+	<input bind:value={user.info_academica.preparatoria.ciudad}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.prepaAnios}>
+	<input bind:value={user.info_academica.preparatoria.anos}>
 </p>
 <p>
 	<span>Certificado</span>
-	<input bind:value={user.academica.prepaCertificado}>
+	<input bind:value={user.info_academica.preparatoria.certificado}>
 </p>
 
 <h2>Profesional</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.uni}>
+	<input bind:value={user.info_academica.profesional.institucion}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.uniLugar}>
+	<input bind:value={user.info_academica.profesional.ciudad}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.uniAnios}>
+	<input bind:value={user.info_academica.profesional.anos}>
 </p>
 <p>
 	<span>Certificado</span>
-	<input bind:value={user.academica.uniCertificado}>
+	<input bind:value={user.info_academica.profesional.certificado}>
 </p>
 
 <h2>Otro</h2>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.otro}>
+	<input bind:value={user.info_academica.otro_grado.institucion}>
 </p>
 <p>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.academica.otroLugar}>
+	<input bind:value={user.info_academica.otro_grado.ciudad}>
 </p>
 <p>
 	<span>Años</span>
-	<input bind:value={user.academica.otroAnios}>
+	<input bind:value={user.info_academica.otro_grado.anos}>
 </p>
 <p>
 	<span>Certificado</span>
-	<input bind:value={user.academica.otroCertificado}>
+	<input bind:value={user.info_academica.otro_grado.certificado}>
 </p>
 
 <br />
 <p>
 	<span>Cédula profesional:</span>
-	<input bind:value={user.academica.cedula}>
+	<input bind:value={user.info_academica.cedula_profesional}>
 </p>
 <p>
 	<span>Año de expedición:</span>
-	<input bind:value={user.academica.cedulaExpedicion}>
+	<input bind:value={user.info_academica.cedula_prof_ano_exp}>
 </p>
 
 <br />
 <p>
 	<span>Dominio de otro idioma:</span>
-	<input bind:value={user.academica.idioma}>
+	<input bind:value={user.info_academica.otro_idioma.idioma}>
 </p>
 <p>
 	<span>Hablado</span>
-	<input bind:value={user.academica.idiomaHablado}>
+	<input bind:value={user.info_academica.otro_idioma.hablado}>
 </p>
 <p>
 	<span>Leido</span>
-	<input bind:value={user.academica.idiomaLeido}>
+	<input bind:value={user.info_academica.otro_idioma.leido}>
 </p>
 <p>
 	<span>Escuchado</span>
-	<input bind:value={user.academica.idiomaEscuchado}>
+	<input bind:value={user.info_academica.otro_idioma.escuchado}>
 </p>
 
 <h2>Estudios</h2>
 <p>
 	<span>Estudia Actualmente</span>
-	<select bind:value={user.academica.estudios}>
+	<select bind:value={user.info_academica.estudia_actualmente}>
 		<option value=""></option>
-		<option value="SI">Sí</option>
-		<option value="NO">No</option>
-		<option value="NA">NA</option>
+		<option value="1">Sí</option>
+		<option value="2">No</option>
+		<option value="0">NA</option>
 	</select> 
 </p>
 <p>
 	<span>Institución</span>
-	<input bind:value={user.academica.estudiosInstitucion}>
+	<input bind:value={user.info_academica.estudios_institucion}>
 </p>
 
 <p>
 	<span>Qué estudia?</span>
-	<input bind:value={user.academica.estudiosDescripcion}>
+	<input bind:value={user.info_academica.estudios_que}>
 </p>
 <p>
 	<span>Horarios</span>
-	<input bind:value={user.academica.estudiosHorario}>
+	<input bind:value={user.info_academica.estudios_horarios}>
 </p>
 <p>
 	<span>Días</span>
-	<input bind:value={user.academica.estudiosDiass}>
+	<input bind:value={user.info_academica.estudios_dias}>
 </p>
