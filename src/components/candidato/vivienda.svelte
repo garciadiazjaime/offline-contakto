@@ -38,21 +38,21 @@
 
 <p>
 	<span>Nombre del propietario</span>
-	<input bind:value={user.vivienda.nombre}>
+	<input bind:value={user.situacion_vivienda.propietario.nombre}>
 </p>
 <p>
 	<span>Parentesco</span>
-	<input bind:value={user.vivienda.parentesco}>
+	<input bind:value={user.situacion_vivienda.propietario.parentesco}>
 </p>
 <p>
 	<span>Renta mensual</span>
-	<input bind:value={user.vivienda.renta}>
+	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.renta_mensual}>
 </p>
 
 <h2>Vivienda</h2>
 <p>
 	<span>Tipo</span>
-	<select bind:value={user.vivienda.tipo}>
+	<select bind:value={user.situacion_vivienda.caracteristicas_vivienda.propia}>
 		<option value=""></option>
 		<option value="PROPIA">Propia</option>
 		<option value="RENTADA">Rentada</option>
@@ -62,17 +62,17 @@
 </p>
 <p>
 	<span>Otra</span>
-	<input bind:value={user.vivienda.otra}>
+	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.otra}>
 </p>
 <p>
 	<span>Valor aproximado</span>
-	<input bind:value={user.vivienda.valuor}>
+	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.valor_aproximado}>
 </p>
 
 <h2>Tipo de inmueble</h2>
 <p>
 	<span>Tipo</span>
-	<select bind:value={user.vivienda.inmueble}>
+	<select bind:value={user.situacion_vivienda.tipo_inmueble.casa}>
 		<option value=""></option>
 		<option value="CASA">Casa</option>
 		<option value="TERRENO">Terreno compartido</option>
@@ -82,13 +82,13 @@
 </p>
 <p>
 	<span>Otro</span>
-	<input bind:value={user.vivienda.otro}>
+	<input bind:value={user.situacion_vivienda.tipo_inmueble.otro_tipo}>
 </p>
 
 <h2>Distribución dimensional</h2>
 <p>
 	<span>Habitaciones</span>
-	<select bind:value={user.vivienda.habitaciones}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.habitaciones}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -97,7 +97,7 @@
 </p>
 <p>
 	<span>Baños</span>
-	<select bind:value={user.vivienda.banios}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.banos}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -106,7 +106,7 @@
 </p>
 <p>
 	<span>Salas</span>
-	<select bind:value={user.vivienda.salas}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.salas}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -115,7 +115,7 @@
 </p>
 <p>
 	<span>Comedor</span>
-	<select bind:value={user.vivienda.comedor}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.comedor}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -124,7 +124,7 @@
 </p>
 <p>
 	<span>Cocina</span>
-	<select bind:value={user.vivienda.cocina}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.cocina}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -133,7 +133,7 @@
 </p>
 <p>
 	<span>Patios</span>
-	<select bind:value={user.vivienda.patios}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.patios}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -142,7 +142,7 @@
 </p>
 <p>
 	<span>Cocheras</span>
-	<select bind:value={user.vivienda.cocheras}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.cocheras}>
 		<option value=""></option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -154,11 +154,11 @@
 
 <p>
 	<span>Tiempo de radicar en el domicilio</span>
-	<input bind:value={user.vivienda.radicr}>
+	<input bind:value={user.situacion_vivienda.tiempo_radicando}>
 </p>
 <p>
 	<span>Tipo de mobiliario</span>
-	<select bind:value={user.vivienda.mobiliario}>
+	<select bind:value={user.situacion_vivienda.tipo_mobiliario}>
 		<option value=""></option>
 		<option value="INSUFICIENTE">Insuficiente</option>
 		<option value="SUFICIENTE">Suficiente</option>
@@ -166,7 +166,7 @@
 </p>
 <p>
 	<span>Sector socioeconómico</span>
-	<select bind:value={user.vivienda.sector}>
+	<select bind:value={user.situacion_vivienda.sector_socioeconomico}>
 		<option value=""></option>
 		<option value="A">A - Clase Alta</option>
 		<option value="B">B - Clase Media</option>
@@ -176,11 +176,11 @@
 </p>
 <p>
 	<span>Personas que viven con el evaluado</span>
-	<input bind:value={user.vivienda.personas}>
+	<input bind:value={user.situacion_vivienda.personas_viven_con_evaluado}>
 </p>
 <p>
-	<span>Conservación de vivienda</span>
-	<select bind:value={user.vivienda.conservacion}>
+	<span>Conservación de Vivienda</span>
+	<select bind:value={user.situacion_vivienda.conservacion}>
 		<option value=""></option>
 		<option value="BUENO">Buen estado</option>
 		<option value="REGULAR">Regular estado</option>
@@ -189,15 +189,15 @@
 </p>
 <p>
 	<span>Tamaño aproximado (mts2)</span>
-	<input bind:value={user.vivienda.tamanio}>
+	<input bind:value={user.situacion_vivienda.tamano_aprox_mts2}>
 </p>
 <p>
 	<span>Si tiene más de 5 Años viviendo en el domicilio, especifique su domicilio anterior completo</span>
-	<input bind:value={user.vivienda.anterior}>
+	<input bind:value={user.situacion_vivienda.domicilio_anterior}>
 </p>
 <p>
 	<span>Direcciones de cómo llegar al domicilio</span>
-	<input bind:value={user.vivienda.domicilio}>
+	<input bind:value={user.situacion_vivienda.domicilio_direcciones}>
 </p>
 
 <h2>Personas que viven con el evaluado</h2>
@@ -213,52 +213,52 @@
 	</tr>
 
 	<tr>
-		<td><input bind:value={user.vivienda.persona1Parentesco}></td>
-		<td><input bind:value={user.vivienda.persona1Nombre}></td>
-		<td><input bind:value={user.vivienda.persona1Edad}></td>
-		<td><input bind:value={user.vivienda.persona1Ocupacion}></td>
-		<td><input bind:value={user.vivienda.persona1Empresa}></td>
-		<td><input bind:value={user.vivienda.persona1Residencia}></td>
-		<td><input bind:value={user.vivienda.persona1Telefono}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].parentesco}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].nombre}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].edad}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].ocupacion}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].empresa}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].residencia}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[0].telefono}></td>
 	</tr>
 
 	<tr>
-		<td><input bind:value={user.vivienda.persona2Parentesco}></td>
-		<td><input bind:value={user.vivienda.persona2Nombre}></td>
-		<td><input bind:value={user.vivienda.persona2Edad}></td>
-		<td><input bind:value={user.vivienda.persona2Ocupacion}></td>
-		<td><input bind:value={user.vivienda.persona2Empresa}></td>
-		<td><input bind:value={user.vivienda.persona2Residencia}></td>
-		<td><input bind:value={user.vivienda.persona2Telefono}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].parentesco}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].nombre}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].edad}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].ocupacion}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].empresa}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].residencia}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[1].telefono}></td>
 	</tr>
 
 	<tr>
-		<td><input bind:value={user.vivienda.persona3Parentesco}></td>
-		<td><input bind:value={user.vivienda.persona3Nombre}></td>
-		<td><input bind:value={user.vivienda.persona3Edad}></td>
-		<td><input bind:value={user.vivienda.persona3Ocupacion}></td>
-		<td><input bind:value={user.vivienda.persona3Empresa}></td>
-		<td><input bind:value={user.vivienda.persona3Residencia}></td>
-		<td><input bind:value={user.vivienda.persona3Telefono}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].parentesco}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].nombre}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].edad}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].ocupacion}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].empresa}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].residencia}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[2].telefono}></td>
 	</tr>
 
 	<tr>
-		<td><input bind:value={user.vivienda.persona4Parentesco}></td>
-		<td><input bind:value={user.vivienda.persona4Nombre}></td>
-		<td><input bind:value={user.vivienda.persona4Edad}></td>
-		<td><input bind:value={user.vivienda.persona4Ocupacion}></td>
-		<td><input bind:value={user.vivienda.persona4Empresa}></td>
-		<td><input bind:value={user.vivienda.persona4Residencia}></td>
-		<td><input bind:value={user.vivienda.persona4Telefono}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].parentesco}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].nombre}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].edad}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].ocupacion}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].empresa}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].residencia}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[3].telefono}></td>
 	</tr>
 
 	<tr>
-		<td><input bind:value={user.vivienda.persona5Parentesco}></td>
-		<td><input bind:value={user.vivienda.persona5Nombre}></td>
-		<td><input bind:value={user.vivienda.persona5Edad}></td>
-		<td><input bind:value={user.vivienda.persona5Ocupacion}></td>
-		<td><input bind:value={user.vivienda.persona5Empresa}></td>
-		<td><input bind:value={user.vivienda.persona5Residencia}></td>
-		<td><input bind:value={user.vivienda.persona5Telefono}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].parentesco}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].nombre}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].edad}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].ocupacion}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].empresa}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].residencia}></td>
+		<td><input bind:value={user.situacion_vivienda.marco_familiar[4].telefono}></td>
 	</tr>
 </table>
