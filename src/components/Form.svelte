@@ -1,6 +1,7 @@
 
 <script>
 	import { goto } from '@sapper/app';
+	import { onMount } from 'svelte';
 
 	import { saveUser, updateUser } from '../support/user'
 	import Alert from './Alert.svelte'
@@ -10,9 +11,9 @@
 	let msg = ''
 
 	function saveHandler() {
-		if (!user.generales.nombre) {
+		if (!user.datos_generales.nombre) {
 			return msg = 'Es necesario capturar nombre'
-    }
+		}
 
 		if (!user.uuid) {
 			saveUser(user)
@@ -26,6 +27,13 @@
 	function cancelHandler() {
 		goto('/candidatos');
 	}
+
+	onMount(() => {
+		const url = new URL(window.location)
+		if(url.search.includes('exito')) {
+			msg = 'Información guardada'
+		}
+	})
 </script>
 
 <style>

@@ -138,8 +138,8 @@
       <a class="btn" href="/candidato/agregar" on:click={clickHandlerAdd}>+</a>
     </div>
     <ul>
-      {#each Object.keys(users).sort((a, b) => users[a].generales.nombre - users[b].generales.nombre) as userUUID}
-				<li><a class="link" class:active="{userUUID === uuid}" href="/candidato/{userUUID}/datos-generales">{users[userUUID].generales.nombre}</a></li>
+      {#each Object.keys(users).sort((a, b) => users[a].datos_generales.nombre - users[b].datos_generales.nombre) as userUUID}
+				<li><a class="link" class:active="{userUUID === uuid}" href="/candidato/{userUUID}/datos-generales">{users[userUUID].datos_generales.nombre}</a></li>
 			{/each}
     </ul>
   </section>

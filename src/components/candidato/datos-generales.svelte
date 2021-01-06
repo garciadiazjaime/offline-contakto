@@ -33,131 +33,131 @@
 
 <p>
 	<span>Nombre</span>
-	<input bind:value={user.generales.nombre}>
+	<input bind:value={user.datos_generales.nombre}>
 </p>
 <p>
 	<span>Apellido</span>
-	<input bind:value={user.generales.apellido}>
+	<input bind:value={user.datos_generales.apellido}>
 </p>
 <p>
 	<span>Email</span>
-	<input bind:value={user.generales.email}>
+	<input bind:value={user.datos_generales.email}>
 </p>
 
 <h2>Domicilio</h2>
 <p>
 	<span>Calle</span>
-	<input bind:value={user.generales.calle}>
+	<input bind:value={user.datos_generales.direccion.calle}>
 </p>
 <p>
 	<span>Colonia</span>
-	<input bind:value={user.generales.colonia}>
+	<input bind:value={user.datos_generales.direccion.colonia}>
 </p>
 <p>
 	<span>Num ext-int</span>
-	<input bind:value={user.generales.numExterior}>
+	<input bind:value={user.datos_generales.direccion.num}>
 </p>
 <p>
 	<span>Ciudad</span>
-	<input bind:value={user.generales.ciudad}>
+	<input bind:value={user.datos_generales.direccion.ciudad}>
 </p>
 <p>
 	<span>Estado</span>
-	<input bind:value={user.generales.estado}>
+	<input bind:value={user.datos_generales.direccion.estado}>
 </p>
 <p>
 	<span>Código Postal</span>
-	<input bind:value={user.generales.codigoPostal}>
+	<input bind:value={user.datos_generales.direccion.cp}>
 </p>
 
 <h2>Teléfonos</h2>
 <p>
 	<span>Casa</span>
-	<input bind:value={user.generales.telefonoCasa}>
+	<input bind:value={user.datos_generales.telefono.casa}>
 </p>
 <p>
 	<span>Celular</span>
-	<input bind:value={user.generales.telefonoCelular}>
+	<input bind:value={user.datos_generales.telefono.movil}>
 </p>
 <p>
 	<span>Recado</span>
-	<input bind:value={user.generales.telefonoRecado}>
+	<input bind:value={user.datos_generales.telefono.recados.numero}>
 </p>
 <p>
 	<span>Parentesco</span>
-	<input bind:value={user.generales.telefonoParentesco}>
+	<input bind:value={user.datos_generales.telefono.recados.parentesco}>
 </p>
 
 <h2>Datos adicionales</h2>
 <p>
 	<span>Lugar de nacimiento</span>
-	<input bind:value={user.generales.lugarNacimiento}>
+	<input bind:value={user.datos_generales.origen.lugar}>
 </p>
 <p>
 	<span>Fecha de nacimiento</span>
-	<input bind:value={user.generales.fechaNacimiento}>
+	<input bind:value={user.datos_generales.origen.fecha}>
 </p>
 <p>
 	<span>Nacionalidad</span>
-	<input bind:value={user.generales.nacionalidad}>
+	<input bind:value={user.datos_generales.origen.nacionalidad}>
 </p>
 <p>
 	<span>RFC</span>
-	<input bind:value={user.generales.rfc}>
+	<input bind:value={user.datos_generales.rfc}>
 </p>
 <p>
 	<span>CURP</span>
-	<input bind:value={user.generales.curp}>
+	<input bind:value={user.datos_generales.curp}>
 </p>
 <p>
 	<span>Folio credencial INE</span>
-	<input bind:value={user.generales.ine}>
+	<input bind:value={user.datos_generales.ife}>
 </p>
 <p>
 	<span>Cartilla SMN</span>
-	<input bind:value={user.generales.smn}>
+	<input bind:value={user.datos_generales.smn}>
 </p>
 <p>
 	<span>Tipo de licencia</span>
-	<input bind:value={user.generales.tipoLicencia}>
+	<input bind:value={user.datos_generales.licencia.tipo}>
 </p>
 <p>
 	<span>No. de licencia</span>
-	<input bind:value={user.generales.licencia}>
+	<input bind:value={user.datos_generales.licencia.numero}>
 </p>
 <p>
 	<span>No. de pasaporte o visa</span>
-	<input bind:value={user.generales.pasaporte}>
+	<input bind:value={user.datos_generales.pasaporte}>
 </p>
 <p>
 	<span>NSS (IMSS)</span>
-	<input bind:value={user.generales.nss}>
+	<input bind:value={user.datos_generales.nss}>
 </p>
 <p>
 	<span>Estado civil</span>
-	<input bind:value={user.generales.estadoCivil}>
+	<input bind:value={user.datos_generales.estado_civil}>
 </p>
 <p>
 	<span>Fecha de matrimonio</span>
-	<input bind:value={user.generales.fechaMatrimonio}>
+	<input bind:value={user.datos_generales.fecha_matrimonio}>
 </p>
 <p>
 	<span>Religión</span>
-	<input bind:value={user.generales.religion}>
+	<input bind:value={user.datos_generales.religion}>
 </p>
 <p>
 	<span>Tiempo radicando en la ciudad</span>
-	<input bind:value={user.generales.tiempoRadicado}>
+	<input bind:value={user.datos_generales.tiempo_radicando}>
 </p>
 <p>
 	<span>Medio que utiliza para transporte</span>
-	<input bind:value={user.generales.medioTransporte}>
+	<input bind:value={user.datos_generales.medio_utilizado}>
 </p>
 <p>
 	<span>Medio por el qué se enteró de la vacante</span>
-	<input bind:value={user.generales.medioEntero}>
+	<input bind:value={user.datos_generales.referencia_vacante}>
 </p>
 <p>
 	<span>Tiempo de trayecto al lugar de trabajo</span>
-	<input bind:value={user.generales.tiempoTrayecto}>
+	<input bind:value={user.datos_generales.tiempo_transporte}>
 </p>

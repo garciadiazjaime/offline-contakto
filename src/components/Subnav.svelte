@@ -27,7 +27,11 @@
     const exportName = 'user'
     const zip = new JSZip();
 
-    zip.file("data.json", JSON.stringify(user));
+    const data = { ...user }
+    delete data.adjuntos
+
+
+    zip.file("data.json", JSON.stringify(data));
 
     const img = zip.folder("images");
 
@@ -41,7 +45,8 @@
 
     const content = await zip.generateAsync({type:"blob"})
     
-    saveAs(content, "user.zip");
+    const zipName = `user_${data.datos_generales.nombre.toLowerCase().replace(/\W/ig, '')}.zip`
+    saveAs(content, zipName);
   }
 
   function clickHandlerDelete(e) {
