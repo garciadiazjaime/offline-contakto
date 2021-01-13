@@ -36,7 +36,7 @@
 
 <p>
 	<span>Dependientes economicos</span>
-	<input bind:value={user.economica.dependientes}>
+	<input bind:value={user.info_economica_mensual.dependientes}>
 </p>
 
 <h2>Infonavit</h2>
@@ -50,16 +50,16 @@
 	</tr>
 	<tr>
 		<td>
-			<select bind:value={user.economica.infonavitTiene}>
+			<select bind:value={user.info_economica_mensual.infonavitTiene}>
 				<option value=""></option>
 				<option value="SI">Sí</option>
 				<option value="NO">No</option>
 			</select>
 		</td>
-		<td><input bind:value={user.economica.infonavitCredito}></td>
-		<td><input bind:value={user.economica.infonavitFecha}></td>
-		<td><input bind:value={user.economica.infonavitUso}></td>
-		<td><input bind:value={user.economica.infonavitPara}></td>
+		<td><input bind:value={user.info_economica_mensual.infonavitCredito}></td>
+		<td><input bind:value={user.info_economica_mensual.infonavitFecha}></td>
+		<td><input bind:value={user.info_economica_mensual.infonavitUso}></td>
+		<td><input bind:value={user.info_economica_mensual.infonavitPara}></td>
 	</tr>
 </table>
 
@@ -73,15 +73,15 @@
 	</tr>
 	<tr>
 		<td>
-			<select bind:value={user.economica.fonacotTiene}>
+			<select bind:value={user.info_economica_mensual.fonacotTiene}>
 				<option value=""></option>
 				<option value="SI">Sí</option>
 				<option value="NO">No</option>
 			</select>
 		</td>
-		<td><input bind:value={user.economica.fonacotCredito}></td>
-		<td><input bind:value={user.economica.fonacotFecha}></td>
-		<td><input bind:value={user.economica.fonacotUso}></td>
+		<td><input bind:value={user.info_economica_mensual.fonacotCredito}></td>
+		<td><input bind:value={user.info_economica_mensual.fonacotFecha}></td>
+		<td><input bind:value={user.info_economica_mensual.fonacotUso}></td>
 	</tr>
 </table>
 
@@ -92,16 +92,16 @@
 		<th>Cónyuge</th>
 		<th>Padres</th>
 		<th>Hermanos</th>
-		<th><input bind:value={user.economica.ingresoOtroParentesco} placeholder="Otro"></th>
+		<th><input bind:value={user.info_economica_mensual.ingresos[4].concepto} placeholder="Otro"></th>
 		<th>Total</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.ingresoInvestigado}></td>
-		<td><input bind:value={user.economica.ingresoConyuge}></td>
-		<td><input bind:value={user.economica.ingresoPadres}></td>
-		<td><input bind:value={user.economica.ingresoHermanos}></td>
-		<td><input bind:value={user.economica.ingresoOtro}></td>
-		<td><input bind:value={user.economica.ingresoTotal}></td>
+		<td><input bind:value={user.info_economica_mensual.ingresos[0].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.ingresos[1].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.ingresos[2].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.ingresos[3].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.ingresos[4].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.ingresos[5].monto}></td>
 	</tr>
 </table>
 
@@ -115,11 +115,11 @@
 		<th>Alimentación</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.egresoImpuestos}></td>
-		<td><input bind:value={user.economica.egresoVestimenta}></td>
-		<td><input bind:value={user.economica.egresoAuto}></td>
-		<td><input bind:value={user.economica.egresoTransporte}></td>
-		<td><input bind:value={user.economica.egresoAlimentacion}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[0].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[1].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[2].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[3].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[4].monto}></td>
 	</tr>
 
 	<tr><td colspan="5"><br /></td></tr>
@@ -132,28 +132,28 @@
 		<th>Serv. doméstico</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.egresoEducacion}></td>
-		<td><input bind:value={user.economica.egresoMedico}></td>
-		<td><input bind:value={user.economica.egresoDiversion}></td>
-		<td><input bind:value={user.economica.egresoServicios}></td>
-		<td><input bind:value={user.economica.egresoDomestico}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[5].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[6].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[7].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[8].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[9].monto}></td>
 	</tr>
 
 	<tr><td colspan="5"><br /></td></tr>
 
 	<tr>
 		<th>Seguros</th>
-		<th><input bind:value={user.economica.egresoOtro1Valor} placeholder="Otro"></th>
-		<th><input bind:value={user.economica.egresoOtro2Valor} placeholder="Otro"></th>
-		<th><input bind:value={user.economica.egresoOtro3Valor} placeholder="Otro"></th>
+		<th><input bind:value={user.info_economica_mensual.egresos[11].concepto}></th>
+		<th><input bind:value={user.info_economica_mensual.egresos[12].concepto}></th>
+		<th><input bind:value={user.info_economica_mensual.egresos[13].concepto}></th>
 		<th>Total</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.egresoSeguros}></td>
-		<td><input bind:value={user.economica.egresoOtro1}></td>
-		<td><input bind:value={user.economica.egresoOtro2}></td>
-		<td><input bind:value={user.economica.egresoOtro3}></td>
-		<td><input bind:value={user.economica.egresoTotal}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[10].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[11].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[12].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[13].monto}></td>
+		<td><input bind:value={user.info_economica_mensual.egresos[14].monto}></td>
 	</tr>
 </table>
 
@@ -166,16 +166,16 @@
 		<th>Saldo Actual</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.credito1Institucion}></td>
-		<td><input bind:value={user.economica.credito1}></td>
-		<td><input bind:value={user.economica.credito1Pago}></td>
-		<td><input bind:value={user.economica.credito1Saldo}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[0].institucion}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[0].limite_credito}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[0].pago_minimo}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[0].saldo_actual}></td>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.credito2Institucion}></td>
-		<td><input bind:value={user.economica.credito2}></td>
-		<td><input bind:value={user.economica.credito2Pago}></td>
-		<td><input bind:value={user.economica.credito2Saldo}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[1].institucion}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[1].limite_credito}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[1].pago_minimo}></td>
+		<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[1].saldo_actual}></td>
 	</tr>
 </table>
 
@@ -188,16 +188,16 @@
 		<th>Ahorro</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.debito1Institucion}></td>
-		<td><input bind:value={user.economica.debito1Saldo}></td>
-		<td><input bind:value={user.economica.debito1Antiguedad}></td>
-		<td><input bind:value={user.economica.debito1Ahorro}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[0].institucion}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[0].saldo_mensual}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[0].antiguedad}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[0].ahorro}></td>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.debito2Institucion}></td>
-		<td><input bind:value={user.economica.debito2Saldo}></td>
-		<td><input bind:value={user.economica.debito2Antiguedad}></td>
-		<td><input bind:value={user.economica.debito2Ahorro}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[1].institucion}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[1].saldo_mensual}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[1].antiguedad}></td>
+		<td><input bind:value={user.situacion_economica.cuentas_debito[1].ahorro}></td>
 	</tr>
 </table>
 
@@ -210,16 +210,16 @@
 		<th>Valor Comercial (M.N.)</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.auto1Marco}></td>
-		<td><input bind:value={user.economica.auto1Modelo}></td>
-		<td><input bind:value={user.economica.auto1Liquidad}></td>
-		<td><input bind:value={user.economica.auto1Valor}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[0].marca}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[0].modelo_ano}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[0].liquidacion}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[0].valor_comercial}></td>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.auto2Marco}></td>
-		<td><input bind:value={user.economica.auto2Modelo}></td>
-		<td><input bind:value={user.economica.auto2Liquidad}></td>
-		<td><input bind:value={user.economica.auto2Valor}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[1].marca}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[1].modelo_ano}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[1].liquidacion}></td>
+		<td><input bind:value={user.situacion_economica.automoviles[1].valor_comercial}></td>
 	</tr>
 </table>
 
@@ -232,16 +232,16 @@
 		<th>Valor Comercial (M.N.)</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.bienes1Tipo}></td>
-		<td><input bind:value={user.economica.bienes1Ubicacion}></td>
-		<td><input bind:value={user.economica.bienes1Liquidado}></td>
-		<td><input bind:value={user.economica.bienes1Valor}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[0].tipo_inmueble}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[0].ubicacion}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[0].liquidacion}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[0].valor_comercial}></td>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.bienes2Tipo}></td>
-		<td><input bind:value={user.economica.bienes2Ubicacion}></td>
-		<td><input bind:value={user.economica.bienes2Liquidado}></td>
-		<td><input bind:value={user.economica.bienes2Valor}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[1].tipo_inmueble}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[1].ubicacion}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[1].liquidacion}></td>
+		<td><input bind:value={user.situacion_economica.bienes_raices[1].valor_comercial}></td>
 	</tr>
 </table>
 
@@ -254,16 +254,16 @@
 		<th>Vigencia</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.seguro1Empresa}></td>
-		<td><input bind:value={user.economica.seguro1Tipo}></td>
-		<td><input bind:value={user.economica.seguro1Forma}></td>
-		<td><input bind:value={user.economica.seguro1Vigencia}></td>
+		<td><input bind:value={user.situacion_economica.seguros[0].empresa}></td>
+		<td><input bind:value={user.situacion_economica.seguros[0].tipo}></td>
+		<td><input bind:value={user.situacion_economica.seguros[0].forma_pago}></td>
+		<td><input bind:value={user.situacion_economica.seguros[0].vigencia}></td>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.seguro2Empresa}></td>
-		<td><input bind:value={user.economica.seguro2Tipo}></td>
-		<td><input bind:value={user.economica.seguro2Forma}></td>
-		<td><input bind:value={user.economica.seguro2Vigencia}></td>
+		<td><input bind:value={user.situacion_economica.seguros[1].empresa}></td>
+		<td><input bind:value={user.situacion_economica.seguros[1].tipo}></td>
+		<td><input bind:value={user.situacion_economica.seguros[1].forma_pago}></td>
+		<td><input bind:value={user.situacion_economica.seguros[1].vigencia}></td>
 	</tr>
 </table>
 
@@ -278,19 +278,19 @@
 		<th>Pago mensual</th>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.deuda1Fecha}></td>
-		<td><input bind:value={user.economica.deuda1Tipo}></td>
-		<td><input bind:value={user.economica.deuda1Institucion}></td>
-		<td><input bind:value={user.economica.deuda1Cantidad}></td>
-		<td><input bind:value={user.economica.deuda1Saldo}></td>
-		<td><input bind:value={user.economica.deuda1Pago}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[0].fecha_otorgamiento}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[0].tipo}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[0].institucion}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[0].cantidad_total}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[0].saldo_actual}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[0].pago_mensual}></td>
 	</tr>
 	<tr>
-		<td><input bind:value={user.economica.deuda2Fecha}></td>
-		<td><input bind:value={user.economica.deuda2Tipo}></td>
-		<td><input bind:value={user.economica.deuda2Institucion}></td>
-		<td><input bind:value={user.economica.deuda2Cantidad}></td>
-		<td><input bind:value={user.economica.deuda2Saldo}></td>
-		<td><input bind:value={user.economica.deuda2Pago}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[1].fecha_otorgamiento}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[1].tipo}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[1].institucion}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[1].cantidad_total}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[1].saldo_actual}></td>
+		<td><input bind:value={user.situacion_economica.deudas_actuales[1].pago_mensual}></td>
 	</tr>
 </table>

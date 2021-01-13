@@ -391,7 +391,145 @@ function getEmptyUser() {
         telefono: '',
       }],
     },
-		economica: {},
+		info_economica_mensual: {
+      ingresos: [{
+        concepto: 'Investigado',
+        monto: '',
+      }, {
+        concepto: 'Cónyuge',
+        monto: '',
+      }, {
+        concepto: 'Padres',
+        monto: '',
+      }, {
+        concepto: 'Hermanos',
+        monto: '',
+      }, {
+        concepto: 'Otro',
+        monto: '',
+      }, {
+        concepto: 'Total',
+        monto: '',
+      }],
+      egresos: [{
+        concepto: 'Impuestos',
+        monto: '',
+      }, {
+        concepto: 'Vestimenta',
+        monto: '',
+      }, {
+        concepto: 'Gastos automóvil',
+        monto: '',
+      }, {
+        concepto: 'Transporte publico	',
+        monto: '',
+      }, {
+        concepto: 'Alimentación',
+        monto: '',
+      }, {
+        concepto: 'Educación',
+        monto: '',
+      }, {
+        concepto: 'Médico',
+        monto: '',
+      }, {
+        concepto: 'Diversión',
+        monto: '',
+      }, {
+        concepto: 'Servicios (Luz, Agua, Teléfono)',
+        monto: '',
+      }, {
+        concepto: 'Serv. doméstico',
+        monto: '',
+      }, {
+        concepto: 'Seguros',
+        monto: '',
+      }, {
+        concepto: 'Otro',
+        monto: '',
+      }, {
+        concepto: 'Otro',
+        monto: '',
+      }, {
+        concepto: 'Otro',
+        monto: '',
+      }, {
+        concepto: 'Total',
+        monto: '',
+      }]
+    },
+    situacion_economica: {
+      tarjetas_credito_comerciales: [{
+        institucion: '',
+        limite_credito: '',
+        pago_minimo: '',
+        saldo_actual: '',
+      }, {
+        institucion: '',
+        limite_credito: '',
+        pago_minimo: '',
+        saldo_actual: '',
+      }],
+      cuentas_debito: [{
+        institucion: '',
+        saldo_mensual: '',
+        antiguedad: '',
+        ahorro: '',
+      }, {
+        institucion: '',
+        saldo_mensual: '',
+        antiguedad: '',
+        ahorro: '',
+      }],
+      automoviles: [{
+        marca: '',
+        modelo_ano: '',
+        liquidacion: '',
+        valor_comercial: '',
+      }, {
+        marca: '',
+        modelo_ano: '',
+        liquidacion: '',
+        valor_comercial: '',
+      }],
+      bienes_raices: [{
+        tipo_inmueble: '',
+        ubicacion: '',
+        liquidacion: '',
+        valor_comercial: '',
+      }, {
+        tipo_inmueble: '',
+        ubicacion: '',
+        liquidacion: '',
+        valor_comercial: '',
+      }],
+      seguros: [{
+        empresa: '',
+        tipo: '',
+        forma_pago: '',
+        vigencia: '',
+      }, {
+        empresa: '',
+        tipo: '',
+        forma_pago: '',
+        vigencia: '',
+      }],
+      deudas_actuales: [{
+        fecha_otorgamiento: '',
+        tipo: '',
+        institucion: '',
+        cantidad_total: '',
+        saldo_actual: '',
+        pago_mensual: '',
+      }, {
+        fecha_otorgamiento: '',
+        tipo: '',
+        institucion: '',
+        cantidad_total: '',
+        saldo_actual: '',
+        pago_mensual: '',
+      }],
+    },
 		referencias: {},
 		evaluacion: {},
 		adjuntos: {}
