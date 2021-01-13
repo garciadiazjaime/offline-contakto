@@ -563,8 +563,80 @@ function getEmptyUser() {
       tipo: '',
       opinion: '',
     }],
-		evaluacion: {},
-		adjuntos: {}
+		cuadro_evaluacion: {
+      documentos_cotejados: [{
+        estatus: false,
+        tipo: 'Acta de nacimiento',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Acta de matrimonio',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Comprobante de domicilio',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Comprobrante de identificación',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Comprobante de NSS',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'CURP',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Cartilla SMN',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Último grado de estudios',
+        observaciones: '',
+      }, {
+        estatus: false,
+        tipo: 'Cartas laborales',
+        observaciones: '',
+      }],
+      aspectos_hogar: [{
+        tipo: 'Orden',
+        estatus: '',
+      }, {
+        tipo: 'Limpieza',
+        estatus: '',
+      }, {
+        tipo: 'Conservación',
+        estatus: '',
+      }],
+      aspectos_candidato: [{
+        tipo: 'Puntualidad',
+        estatus: '',
+      }, {
+        tipo: 'Apariencia física',
+        estatus: '',
+      }, {
+        tipo: 'Colaboración',
+        estatus: '',
+      }, {
+        tipo: 'Actitud',
+        estatus: '',
+      }],
+    },
+    adjuntos: {},
+    investigacion: {
+      viable: '',
+      no_viable: '',
+      reservas: '',
+      empresa: '',
+      puesto: '',
+      fecha: '',
+      conclusiones: '',
+      fecha: '',
+      fecha_hora: '',
+    },
   }
 }
 

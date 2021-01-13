@@ -37,80 +37,80 @@
 <h2>Documentos evaluados</h2>
 <p>
 	<span>Acta de nacimiento</span>
-	<input bind:checked={user.evaluacion.nacimiento} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[0].estatus} type="checkbox">
 </p>
 <p>
 	<span>Acta de matrimonio</span>
-	<input bind:checked={user.evaluacion.matrimonio} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[1].estatus} type="checkbox">
 </p>
 <p>
 	<span>Comprobante de domicilio</span>
-	<input bind:checked={user.evaluacion.domicilio} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[2].estatus} type="checkbox">
 </p>
 <p>
 	<span>Comprobrante de identificación</span>
-	<input bind:checked={user.evaluacion.identificacion} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[3].estatus} type="checkbox">
 </p>
 <p>
 	<span>Comprobante de NSS</span>
-	<input bind:checked={user.evaluacion.nss} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[4].estatus} type="checkbox">
 </p>
 <p>
 	<span>CURP</span>
-	<input bind:checked={user.evaluacion.curp} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[5].estatus} type="checkbox">
 </p>
 <p>
 	<span>Cartilla SMN</span>
-	<input bind:checked={user.evaluacion.smn} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[6].estatus} type="checkbox">
 </p>
 <p>
 	<span>Último grado de estudios</span>
-	<input bind:checked={user.evaluacion.ultimoEstudio} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[7].estatus} type="checkbox">
 </p>
 <p>
 	<span>Cartas laborales</span>
-	<input bind:checked={user.evaluacion.carta} type="checkbox">
+	<input bind:checked={user.cuadro_evaluacion.documentos_cotejados[8].estatus} type="checkbox">
 </p>
 <p>
 	<span>En caso de no presentar algún documento, especificar cuál y el motivo por el que no lo presentó</span>
-	<input bind:value={user.evaluacion.acta} type="input">
+	<input bind:value={user.cuadro_evaluacion.acta} type="input">
 </p>
 
 <h2>Calificación de 1% a 100%</h2>
 <h3>Aspecto del Hogar</h3>
 <p>
 	<span>Orden</span>
-	<input bind:checked={user.evaluacion.orden} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[0].estatus}>
 </p>
 <p>
 	<span>Limpieza</span>
-	<input bind:checked={user.evaluacion.limpieza} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[1].estatus}>
 </p>
 <p>
 	<span>Conservación</span>
-	<input bind:checked={user.evaluacion.conservacion} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[2].estatus}>
 </p>
 
 <h3>Aspecto del candidato</h3>
 <p>
 	<span>Puntualidad</span>
-	<input bind:checked={user.evaluacion.puntualidad} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[0].estatus}>
 </p>
 <p>
 	<span>Apariencia física</span>
-	<input bind:checked={user.evaluacion.apariencia} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[1].estatus}>
 </p>
 <p>
 	<span>Colaboración</span>
-	<input bind:checked={user.evaluacion.colaboracion} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[2].estatus}>
 </p>
 <p>
 	<span>Actitud</span>
-	<input bind:checked={user.evaluacion.actitud} type="checkbox">
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[3].estatus}>
 </p>
 
 <h2>Conclusión</h2>
 <p>
 	<span>Conclusiones de la entrevista (visible en conclusión pdf)</span>
-	<textarea bind:value={user.evaluacion.acta}></textarea>
+	<textarea bind:value={user.cuadro_evaluacion.acta}></textarea>
 </p>
