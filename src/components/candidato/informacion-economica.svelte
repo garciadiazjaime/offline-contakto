@@ -36,7 +36,7 @@
 
 <p>
 	<span>Dependientes economicos</span>
-	<input bind:value={user.info_economica_mensual.dependientes}>
+	<input bind:value={user.datos_generales.dependientes_economicos}>
 </p>
 
 <h2>Infonavit</h2>
@@ -50,16 +50,16 @@
 	</tr>
 	<tr>
 		<td>
-			<select bind:value={user.info_economica_mensual.infonavitTiene}>
+			<select bind:value={user.datos_generales.infonavit.activo}>
 				<option value=""></option>
 				<option value="SI">Sí</option>
 				<option value="NO">No</option>
 			</select>
 		</td>
-		<td><input bind:value={user.info_economica_mensual.infonavitCredito}></td>
-		<td><input bind:value={user.info_economica_mensual.infonavitFecha}></td>
-		<td><input bind:value={user.info_economica_mensual.infonavitUso}></td>
-		<td><input bind:value={user.info_economica_mensual.infonavitPara}></td>
+		<td><input bind:value={user.datos_generales.infonavit.numero}></td>
+		<td><input bind:value={user.datos_generales.infonavit.fecha_tramite}></td>
+		<td><input bind:value={user.datos_generales.infonavit.uso}></td>
+		<td><input bind:value={user.datos_generales.infonavit.motivo}></td>
 	</tr>
 </table>
 
@@ -73,15 +73,15 @@
 	</tr>
 	<tr>
 		<td>
-			<select bind:value={user.info_economica_mensual.fonacotTiene}>
+			<select bind:value={user.datos_generales.fonacot.activo}>
 				<option value=""></option>
 				<option value="SI">Sí</option>
 				<option value="NO">No</option>
 			</select>
 		</td>
-		<td><input bind:value={user.info_economica_mensual.fonacotCredito}></td>
-		<td><input bind:value={user.info_economica_mensual.fonacotFecha}></td>
-		<td><input bind:value={user.info_economica_mensual.fonacotUso}></td>
+		<td><input bind:value={user.datos_generales.fonacot.numero}></td>
+		<td><input bind:value={user.datos_generales.fonacot.fecha_tramite}></td>
+		<td><input bind:value={user.datos_generales.fonacot.uso}></td>
 	</tr>
 </table>
 

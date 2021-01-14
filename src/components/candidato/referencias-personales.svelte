@@ -34,8 +34,9 @@
 	<span>Tipo</span>
 	<select bind:value={user.referencias[0].tipo}>
 		<option value=""></option>
-		<option value="VECINAL">Vecinal</option>
-		<option value="PERSONAL">Personal</option>
+		<option value="vecinal">Vecinal</option>
+		<option value="personal">Personal</option>
+		<option value="personal_opcional">Opcional</option>
 	</select>
 </p>
 <p>
@@ -77,8 +78,9 @@
 	<span>Tipo</span>
 	<select bind:value={user.referencias[1].tipo}>
 		<option value=""></option>
-		<option value="VECINAL">Vecinal</option>
-		<option value="PERSONAL">Personal</option>
+		<option value="vecinal">Vecinal</option>
+		<option value="personal">Personal</option>
+		<option value="personal_opcional">Opcional</option>
 	</select>
 </p>
 <p>
@@ -120,8 +122,9 @@
 	<span>Tipo</span>
 	<select bind:value={user.referencias[2].tipo}>
 		<option value=""></option>
-		<option value="VECINAL">Vecinal</option>
-		<option value="PERSONAL">Personal</option>
+		<option value="vecinal">Vecinal</option>
+		<option value="personal">Personal</option>
+		<option value="personal_opcional">Opcional</option>
 	</select>
 </p>
 <p>

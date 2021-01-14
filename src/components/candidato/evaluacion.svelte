@@ -73,7 +73,7 @@
 </p>
 <p>
 	<span>En caso de no presentar algún documento, especificar cuál y el motivo por el que no lo presentó</span>
-	<input bind:value={user.cuadro_evaluacion.acta} type="input">
+	<input bind:value={user.cuadro_evaluacion.documentos_cotejados[9].observaciones} type="input">
 </p>
 
 <h2>Calificación de 1% a 100%</h2>
@@ -112,5 +112,5 @@
 <h2>Conclusión</h2>
 <p>
 	<span>Conclusiones de la entrevista (visible en conclusión pdf)</span>
-	<textarea bind:value={user.cuadro_evaluacion.acta}></textarea>
+	<textarea bind:value={user.investigacion.conclusiones}></textarea>
 </p>

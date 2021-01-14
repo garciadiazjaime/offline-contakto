@@ -567,38 +567,33 @@ function getEmptyUser() {
       documentos_cotejados: [{
         estatus: false,
         tipo: 'Acta de nacimiento',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Acta de matrimonio',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Comprobante de domicilio',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Comprobrante de identificación',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Comprobante de NSS',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'CURP',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Cartilla SMN',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Último grado de estudios',
-        observaciones: '',
       }, {
         estatus: false,
         tipo: 'Cartas laborales',
+      }, {
+        estatus: '',
+        tipo: 'motivos_falta_docs',
         observaciones: '',
       }],
       aspectos_hogar: [{
