@@ -35,10 +35,8 @@
 
     const img = zip.folder("images");
 
-    // const imageData = await toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0')
-
     Object.keys(user.adjuntos).map(filename => {
-      const imageData = user.adjuntos[filename].replace('data:image/png;base64,', '')
+      const imageData = user.adjuntos[filename].replace(/^data:image\/png;base64,/, "")
       img.file(`${filename}.jpg`, imageData, { base64: true });
     })
     
