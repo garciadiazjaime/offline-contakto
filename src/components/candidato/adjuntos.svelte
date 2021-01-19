@@ -6,7 +6,6 @@
 	let msg = ''
 
 	const preview = user.adjuntos || {}
-	const validExtensions = /jpeg|jpg|gif|bmp|png/i
 
 	async function changeHandler(event) {
 		event.preventDefault()
@@ -28,19 +27,30 @@
 			return null
 		}
 
-		const response = await mainProcess.saveUserFile(data)
-
 		const fileName = event.target.name
-		preview[fileName] = response
+		const response = await mainProcess.saveUserFile(data)
+		preview[fileName] = response[0]
 
 		updateUser(user)
 	}
 
-	function clickHandlerDelete() {
+	async function clickHandlerDelete() {
+		const electron = require('electron')
+		const mainProcess = electron.remote.require('./main.js');
+
+		if (!electron || !electron.remote || !electron.remote.dialog) {
+			return null
+		}
+
+
 		const { value: fileName } = this.attributes['data-file']
+
+		await mainProcess.deleteUserFile(user.adjuntos[fileName])
 
 		preview[fileName] = null
 		user.adjuntos[fileName] = null
+
+		updateUser(user)
 	}
 </script>
 

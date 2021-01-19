@@ -1,50 +1,21 @@
 <script>
-  import JSZip from 'jszip/dist/jszip'
-  import { saveAs } from 'file-saver';
-
   import { STEPS, deleteUser } from '../support/user'
-
-  import successkid from 'images/successkid.jpg';
 
   export let uuid
   export let section
   export let user
 
-  function toDataURL(url) {
-    return fetch(url)
-      .then(response => response.blob())
-      .then(blob => new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.onloadend = () => resolve(reader.result.replace('data:image/png;base64,', ''))
-        reader.onerror = reject
-        reader.readAsDataURL(blob)
-      }))
-  }
-
   async function clickHandlerExport(event) {
     event.preventDefault()
 
-    const exportName = 'user'
-    const zip = new JSZip();
+    const electron = require('electron')
+		const mainProcess = electron.remote.require('./main.js');
 
-    const data = { ...user }
-    delete data.adjuntos
-
-
-    zip.file("data.json", JSON.stringify(data));
-
-    const img = zip.folder("images");
-
-    Object.keys(user.adjuntos).map(filename => {
-      const imageData = user.adjuntos[filename].replace(/^data:image\/png;base64,/, "")
-      img.file(`${filename}.jpg`, imageData, { base64: true });
-    })
+		if (!electron || !electron.remote || !electron.remote.dialog) {
+			return null
+    }
     
-
-    const content = await zip.generateAsync({type:"blob"})
-    
-    const zipName = `user_${data.datos_generales.nombre.toLowerCase().replace(/\W/ig, '')}.zip`
-    saveAs(content, zipName);
+    await mainProcess.generateZip(user)
   }
 
   function clickHandlerDelete(e) {
