@@ -6,7 +6,8 @@
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
-    "start": "node __sapper__/build"
+    "start": "node __sapper__/build",
+    "deploy": "rm -rf ../app-contakto/bundle/* && npm run export && cp -r __sapper__/export/* ../app-contakto/bundle"
   },
   "dependencies": {
     "compression": "^1.7.1",
