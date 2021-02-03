@@ -10,6 +10,7 @@
 	export let user;
 
 	const telephoneRegex = /^[\d]{3}-[\d]{3}-[\d]{4}$/
+	const dateRegex = /^[\d]{2}\/[\d]{2}\/[\d]{4}$/
 
 	function areInputsNotEmpty(fields) {
 		if (!fields.length) {
@@ -35,6 +36,18 @@
 		return arePhonesValid(fields.slice(1))
 	}
 
+	function areDatesValid(fields) {
+		if (!fields.length) {
+			return true
+		}
+		
+		if (!dateRegex.test(fields[0])) {
+			return false
+		}
+
+		return arePhonesValid(fields.slice(1))		
+	}
+
 	function isFormReady() {
 		const fields = []
 		document.querySelectorAll('form input').forEach(input => {
@@ -51,6 +64,10 @@
 
 		if (!arePhonesValid([user.datos_generales.telefono.casa, user.datos_generales.telefono.movil, user.datos_generales.telefono.recados.numero])) {
 			return publish('UPDATE_MSG', { msg: 'Teléfonos deben llevar el formato: 123-123-1234 o "no tiene"' })
+		}
+
+		if (!areDatesValid([user.datos_generales.origen.fecha])) {
+			return publish('UPDATE_MSG', { msg: 'El formato de la fecha de nacimiento es: DD/MM/AAAA' })
 		}
 
 		if (!user.uuid) {

@@ -81,15 +81,15 @@
 <h2>Teléfonos</h2>
 <p>
 	<span>Casa</span>
-	<input bind:value={user.datos_generales.telefono.casa}>
+	<input bind:value={user.datos_generales.telefono.casa} placeholder="###-###-####">
 </p>
 <p>
 	<span>Celular</span>
-	<input bind:value={user.datos_generales.telefono.movil}>
+	<input bind:value={user.datos_generales.telefono.movil} placeholder="###-###-####">
 </p>
 <p>
 	<span>Recado</span>
-	<input bind:value={user.datos_generales.telefono.recados.numero}>
+	<input bind:value={user.datos_generales.telefono.recados.numero} placeholder="###-###-####">
 </p>
 <p>
 	<span>Parentesco</span>
@@ -103,7 +103,7 @@
 </p>
 <p>
 	<span>Fecha de nacimiento</span>
-	<input bind:value={user.datos_generales.origen.fecha}>
+	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA">
 </p>
 <p>
 	<span>Nacionalidad</span>

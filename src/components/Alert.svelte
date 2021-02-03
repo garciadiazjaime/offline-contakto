@@ -34,7 +34,7 @@
 	}
 
 	.error {
-		color: red;
+		color: #dc2b2b;
 		font-weight: bold;
 	}
 </style>
