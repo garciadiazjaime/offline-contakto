@@ -2,6 +2,11 @@
 	export let user
 
 	const states = ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de Mexico", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacan", "Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro", "Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatan", "Zacatecas"];
+
+	function nacionalidadChange(event) {
+		const nacionalidad = this.checked ? 'Mexicana' : ''
+		user.datos_generales.origen.nacionalidad = nacionalidad
+	}
 </script>
 
 
@@ -10,7 +15,7 @@
 		display: block;
 	}
 
-	input, select {
+	input:not([type='checkbox']), select {
 		height: 32px;
 		font-size: 26px;
 		width: 100%;
@@ -28,6 +33,10 @@
 
 	h2 {
 		padding-top: 29px;
+	}
+
+	.nacionalidad {
+		width: 100%;
 	}
 </style>
 
@@ -106,7 +115,12 @@
 	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA">
 </p>
 <p>
-	<span>Nacionalidad</span>
+	<span>
+		Nacionalidad <br />
+		<span class="nacionalidad">
+			<input type="checkbox" on:change={nacionalidadChange}> Mexicana 
+		</span>
+	</span>
 	<input bind:value={user.datos_generales.origen.nacionalidad}>
 </p>
 <p>
