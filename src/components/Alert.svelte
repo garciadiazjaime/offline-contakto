@@ -1,16 +1,16 @@
 <script>
-  export let msg = ''
-  let alert = ''
+	import { subscribe } from '../support/events'
 
-  $: {
-    if (msg) {
-      alert = msg
+	let alert = ''
 
-      setTimeout(() => {
-				alert = ''
-			}, 3000);
-    }
-  }
+	subscribe('UPDATE_MSG', msg => {
+		alert = msg
+
+		setTimeout(() => {
+			alert = ''
+		}, 3000);
+
+	})
 </script>
 <style>
   .alert {

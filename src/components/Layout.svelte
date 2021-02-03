@@ -13,6 +13,7 @@
 	import Alert from '../components/Alert.svelte'
 
 	import { getUsers } from '../support/user'
+	import { subscribe, publish } from '../support/events'
 
 	export let uuid;
 	export let section;
@@ -24,6 +25,9 @@
 
 	onMount(async () => {
 		users = getUsers()
+		subscribe('UPDATE_LIST', () => {
+			users = getUsers()
+		})
 	});
 
 	function clickHandlerAdd(e) {
@@ -32,7 +36,7 @@
 		if (Object.keys(users).length >= LIMIT_USERS) {
 			e.preventDefault()
 
-			msg = `No se pueden crear más de ${LIMIT_USERS} candidatos.`
+			publish('UPDATE_MSG', `No se pueden crear más de ${LIMIT_USERS} candidatos.`)
 		}
 	}
 </script>

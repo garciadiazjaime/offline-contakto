@@ -5,35 +5,29 @@
 
 	import { saveUser, updateUser } from '../support/user'
 	import Alert from './Alert.svelte'
+	import { publish } from '../support/events'
 
 	export let user;
-	
-	let msg = ''
 
 	function saveHandler() {
 		if (!user.datos_generales.nombre) {
-			return msg = 'Es necesario capturar nombre'
+			return publish('UPDATE_MSG', 'Es necesario capturar nombre')
 		}
 
 		if (!user.uuid) {
 			saveUser(user)
+			return goto('/candidatos');
 		} else {
 			updateUser(user)
 		}
 
-		goto('/candidatos?exito');
+		publish('UPDATE_MSG', 'Información guardada')
+		publish('UPDATE_LIST')
 	}
 
 	function cancelHandler() {
 		goto('/candidatos');
 	}
-
-	onMount(() => {
-		const url = new URL(window.location)
-		if(url.search.includes('exito')) {
-			msg = 'Información guardada'
-		}
-	})
 </script>
 
 <style>
@@ -82,4 +76,4 @@
 	</div>
 </form>
 
-<Alert msg={msg} />
+<Alert />
