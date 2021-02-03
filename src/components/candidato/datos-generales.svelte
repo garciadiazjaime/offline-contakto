@@ -1,5 +1,7 @@
 <script>
 	export let user
+
+	const states = ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de Mexico", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacan", "Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro", "Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatan", "Zacatecas"];
 </script>
 
 
@@ -7,7 +9,8 @@
 	span {
 		display: block;
 	}
-	input {
+
+	input, select {
 		height: 32px;
 		font-size: 26px;
 		width: 100%;
@@ -63,7 +66,12 @@
 </p>
 <p>
 	<span>Estado</span>
-	<input bind:value={user.datos_generales.direccion.estado}>
+	<select bind:value={user.datos_generales.direccion.estado}>
+		<option>Seleccionar</option>
+		{#each states as state}
+		<option value={state}>{state}</option>
+		{/each}
+	</select>
 </p>
 <p>
 	<span>Código Postal</span>

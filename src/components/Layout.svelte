@@ -36,7 +36,7 @@
 		if (Object.keys(users).length >= LIMIT_USERS) {
 			e.preventDefault()
 
-			publish('UPDATE_MSG', `No se pueden crear más de ${LIMIT_USERS} candidatos.`)
+			publish('UPDATE_MSG', { msg: `No se pueden crear más de ${LIMIT_USERS} candidatos.` })
 		}
 	}
 </script>

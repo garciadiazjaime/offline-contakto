@@ -9,7 +9,9 @@
 
 	export let user;
 
-	function isFormValid(fields) {
+	const telephoneRegex = /^[\d]{3}-[\d]{3}-[\d]{4}$/
+
+	function areInputsNotEmpty(fields) {
 		if (!fields.length) {
 			return true
 		}
@@ -18,21 +20,37 @@
 			return false
 		}
 
-		return isFormValid(fields.slice(1))
+		return areInputsNotEmpty(fields.slice(1))
 	}
 
-	function verifyForm() {
+	function arePhonesValid(fields) {
+		if (!fields.length) {
+			return true
+		}
+		
+		if (!telephoneRegex.test(fields[0]) && fields[0].toLowerCase() !== 'no tiene') {
+			return false
+		}
+
+		return arePhonesValid(fields.slice(1))
+	}
+
+	function isFormReady() {
 		const fields = []
 		document.querySelectorAll('form input').forEach(input => {
 			fields.push(input.value)
 		})
 
-		return isFormValid(fields)
+		return areInputsNotEmpty(fields)
 	}
 
 	function saveHandler() {
-		if (!verifyForm()) {
-			return publish('UPDATE_MSG', 'Es necesario llenar todos los campos')
+		if (!isFormReady()) {
+			return publish('UPDATE_MSG', { msg: 'Es necesario llenar todos los campos' })
+		}
+
+		if (!arePhonesValid([user.datos_generales.telefono.casa, user.datos_generales.telefono.movil, user.datos_generales.telefono.recados.numero])) {
+			return publish('UPDATE_MSG', { msg: 'Teléfonos deben llevar el formato: 123-123-1234 o "no tiene"' })
 		}
 
 		if (!user.uuid) {
@@ -42,7 +60,7 @@
 			updateUser(user)
 		}
 
-		publish('UPDATE_MSG', 'Información guardada')
+		publish('UPDATE_MSG', { msg: 'Información guardada', type: 'success' })
 		publish('UPDATE_LIST')
 	}
 

@@ -1,14 +1,20 @@
 <script>
 	import { subscribe } from '../support/events'
 
-	let alert = ''
+	let alertMsg = ''
+	let alertType = ''
+	let timeout = null
 
-	subscribe('UPDATE_MSG', msg => {
-		alert = msg
+	subscribe('UPDATE_MSG', ({ msg, type = 'error' }) => {
+		alertMsg = msg
+		alertType = type
 
-		setTimeout(() => {
-			alert = ''
-		}, 3000);
+		clearTimeout(timeout);
+
+		timeout = setTimeout(() => {
+			alertMsg = ''
+			alertType = ''
+		}, 5000);
 
 	})
 </script>
@@ -26,8 +32,13 @@
 		z-index: 1;
 		width: 100%;
 	}
+
+	.error {
+		color: red;
+		font-weight: bold;
+	}
 </style>
 
-{#if alert}
-	<div class="alert">{alert}</div>
+{#if alertMsg}
+	<div class="alert {alertType}">{alertMsg}</div>
 {/if}
