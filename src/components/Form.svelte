@@ -9,9 +9,30 @@
 
 	export let user;
 
+	function isFormValid(fields) {
+		if (!fields.length) {
+			return true
+		}
+
+		if (fields[0] === '') {
+			return false
+		}
+
+		return isFormValid(fields.slice(1))
+	}
+
+	function verifyForm() {
+		const fields = []
+		document.querySelectorAll('form input').forEach(input => {
+			fields.push(input.value)
+		})
+
+		return isFormValid(fields)
+	}
+
 	function saveHandler() {
-		if (!user.datos_generales.nombre) {
-			return publish('UPDATE_MSG', 'Es necesario capturar nombre')
+		if (!verifyForm()) {
+			return publish('UPDATE_MSG', 'Es necesario llenar todos los campos')
 		}
 
 		if (!user.uuid) {
