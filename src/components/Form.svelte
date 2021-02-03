@@ -45,7 +45,23 @@
 			return false
 		}
 
-		return arePhonesValid(fields.slice(1))		
+		return areDatesValid(fields.slice(1))		
+	}
+
+	function isRFCValid(field) {
+		return field && field.length >= 10
+	}
+
+	function isCURPValid(field) {
+		return field && field.length === 18
+	}
+
+	function isNSSValid(field) {
+		return field && field.length === 11
+	}
+
+	function isINEValid(field) {
+		return field && field.length === 13
 	}
 
 	function isFormReady() {
@@ -66,8 +82,24 @@
 			return publish('UPDATE_MSG', { msg: 'Teléfonos deben llevar el formato: 123-123-1234 o "no tiene"' })
 		}
 
-		if (!areDatesValid([user.datos_generales.origen.fecha])) {
-			return publish('UPDATE_MSG', { msg: 'El formato de la fecha de nacimiento es: DD/MM/AAAA' })
+		if (!areDatesValid([user.datos_generales.origen.fecha, user.datos_generales.fecha_matrimonio])) {
+			return publish('UPDATE_MSG', { msg: 'El formato para las fechas debe ser: DD/MM/AAAA' })
+		}
+
+		if (!isRFCValid(user.datos_generales.rfc)) {
+			return publish('UPDATE_MSG', { msg: 'RFC require mínimo 10 caracteres' })
+		}
+
+		if (!isCURPValid(user.datos_generales.curp)) {
+			return publish('UPDATE_MSG', { msg: 'CURP require 18 caracteres' })
+		}
+
+		if (!isNSSValid(user.datos_generales.nss)) {
+			return publish('UPDATE_MSG', { msg: 'NSS require 11 caracteres' })
+		}
+
+		if (!isINEValid(user.datos_generales.ife)) {
+			return publish('UPDATE_MSG', { msg: 'NSS require 13 caracteres' })
 		}
 
 		if (!user.uuid) {

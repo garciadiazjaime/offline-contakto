@@ -2,10 +2,25 @@
 	export let user
 
 	const states = ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de Mexico", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacan", "Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro", "Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatan", "Zacatecas"];
+	const transporte = [
+		{value: '1', label: 'AUTOMÓVIL'},
+		{value: '2', label: 'MOTO'},
+		{value: '3', label: 'TRANSPORTE PÚBLICO'},
+		{value: '4', label: 'TRANSPORTE PRIVADO'},
+		{value: '5', label: 'OTRO'},
+	]
 
 	function nacionalidadChange(event) {
 		const nacionalidad = this.checked ? 'Mexicana' : ''
 		user.datos_generales.origen.nacionalidad = nacionalidad
+	}
+
+	function transporteChange() {
+		if (this.value !== '5') {
+			user.datos_generales.medio_utilizado = transporte.find(item => item.value === this.value).label
+		} else {
+			user.datos_generales.medio_utilizado = ''
+		}
 	}
 </script>
 
@@ -142,6 +157,17 @@
 <p>
 	<span>Tipo de licencia</span>
 	<input bind:value={user.datos_generales.licencia.tipo}>
+	<select bind:value={user.datos_generales.licencia.tipo}>
+		<option value="">Seleccionar</option>
+		<option value="A">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
+		<option value="D">D</option>
+		<option value="E">E</option>
+		<option value="E1">E1</option>
+		<option value="Federal">Federal</option>
+		<option value="Binacional">Binacional</option>
+	</select>
 </p>
 <p>
 	<span>No. de licencia</span>
@@ -157,11 +183,18 @@
 </p>
 <p>
 	<span>Estado civil</span>
-	<input bind:value={user.datos_generales.estado_civil}>
+	<select bind:value={user.datos_generales.estado_civil}>
+		<option value="">Seleccionar</option>
+		<option value="1">Soltero(a)</option>
+		<option value="2">Casado(a)</option>
+		<option value="3">Divorciado(a)</option>
+		<option value="4">Unión Libre *</option>
+		<option value="5">Viudo(a) *</option>
+	</select>
 </p>
 <p>
 	<span>Fecha de matrimonio</span>
-	<input bind:value={user.datos_generales.fecha_matrimonio}>
+	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA">
 </p>
 <p>
 	<span>Religión</span>
@@ -172,7 +205,18 @@
 	<input bind:value={user.datos_generales.tiempo_radicando}>
 </p>
 <p>
-	<span>Medio que utiliza para transporte</span>
+	<span>
+		Medio que utiliza para transporte <br />
+
+
+		<select on:change={transporteChange}>
+			<option value="">Seleccionar</option>
+			{#each transporte as item}
+				<option value={item.value}>{item.label}</option>
+			{/each}
+		</select>
+	</span>
+
 	<input bind:value={user.datos_generales.medio_utilizado}>
 </p>
 <p>
