@@ -47,45 +47,17 @@
 		<td><input bind:value={user.marco_familiar.madre.telefono}></td>
 	</tr>
 
-	<tr>
-		<td>Hermano</td>
-		<td><input bind:value={user.marco_familiar.hermano[0].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hermano[0].edad}></td>
-		<td><input bind:value={user.marco_familiar.hermano[0].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hermano[0].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hermano[0].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hermano[0].telefono}></td>
-	</tr>
-
-	<tr>
-		<td>Hermano</td>
-		<td><input bind:value={user.marco_familiar.hermano[1].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hermano[1].edad}></td>
-		<td><input bind:value={user.marco_familiar.hermano[1].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hermano[1].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hermano[1].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hermano[1].telefono}></td>
-	</tr>
-
-	<tr>
-		<td>Hermano</td>
-		<td><input bind:value={user.marco_familiar.hermano[2].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hermano[2].edad}></td>
-		<td><input bind:value={user.marco_familiar.hermano[2].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hermano[2].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hermano[2].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hermano[2].telefono}></td>
-	</tr>
-
-	<tr>
-		<td>Hermano</td>
-		<td><input bind:value={user.marco_familiar.hermano[3].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hermano[3].edad}></td>
-		<td><input bind:value={user.marco_familiar.hermano[3].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hermano[3].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hermano[3].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hermano[3].telefono}></td>
-	</tr>
+	{#each [0, 1, 2, 3] as index}
+		<tr>
+			<td>Hermano</td>
+			<td><input bind:value={user.marco_familiar.hermano[index].nombre}></td>
+			<td><input bind:value={user.marco_familiar.hermano[index].edad}></td>
+			<td><input bind:value={user.marco_familiar.hermano[index].ocupacion}></td>
+			<td><input bind:value={user.marco_familiar.hermano[index].empresa}></td>
+			<td><input bind:value={user.marco_familiar.hermano[index].residencia}></td>
+			<td><input bind:value={user.marco_familiar.hermano[index].telefono}></td>
+		</tr>
+	{/each}
 
 	<tr>
 		<td>Pareja</td>
@@ -97,123 +69,27 @@
 		<td><input bind:value={user.marco_familiar.pareja.telefono}></td>
 	</tr>
 
-	<tr>
-		<td>Hijo</td>
-		<td><input bind:value={user.marco_familiar.hijo[0].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hijo[0].edad}></td>
-		<td><input bind:value={user.marco_familiar.hijo[0].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hijo[0].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hijo[0].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hijo[0].telefono}></td>
-	</tr>
-
-	<tr>
-		<td>Hijo</td>
-		<td><input bind:value={user.marco_familiar.hijo[1].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hijo[1].edad}></td>
-		<td><input bind:value={user.marco_familiar.hijo[1].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hijo[1].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hijo[1].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hijo[1].telefono}></td>
-	</tr>
-
-	<tr>
-		<td>Hijo</td>
-		<td><input bind:value={user.marco_familiar.hijo[2].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hijo[2].edad}></td>
-		<td><input bind:value={user.marco_familiar.hijo[2].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hijo[2].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hijo[2].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hijo[2].telefono}></td>
-	</tr>
-
-	<tr>
-		<td>Hijo</td>
-		<td><input bind:value={user.marco_familiar.hijo[3].nombre}></td>
-		<td><input bind:value={user.marco_familiar.hijo[3].edad}></td>
-		<td><input bind:value={user.marco_familiar.hijo[3].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.hijo[3].empresa}></td>
-		<td><input bind:value={user.marco_familiar.hijo[3].residencia}></td>
-		<td><input bind:value={user.marco_familiar.hijo[3].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[0].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[0].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[0].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[0].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[0].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[0].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[0].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[1].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[1].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[1].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[1].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[1].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[1].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[1].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[2].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[2].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[2].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[2].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[2].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[2].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[2].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[3].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[3].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[3].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[3].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[3].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[3].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[3].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[4].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[4].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[4].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[4].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[4].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[4].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[4].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[5].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[5].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[5].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[5].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[5].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[5].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[5].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[6].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[6].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[6].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[6].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[6].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[6].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[6].telefono}></td>
-	</tr>
-
-	<tr>
-		<td><input bind:value={user.marco_familiar.otro[7].parentesco}></td>
-		<td><input bind:value={user.marco_familiar.otro[7].nombre}></td>
-		<td><input bind:value={user.marco_familiar.otro[7].edad}></td>
-		<td><input bind:value={user.marco_familiar.otro[7].ocupacion}></td>
-		<td><input bind:value={user.marco_familiar.otro[7].empresa}></td>
-		<td><input bind:value={user.marco_familiar.otro[7].residencia}></td>
-		<td><input bind:value={user.marco_familiar.otro[7].telefono}></td>
-	</tr>
+	{#each [0, 1, 2, 3] as index}
+		<tr>
+			<td>Hijo</td>
+			<td><input bind:value={user.marco_familiar.hijo[index].nombre}></td>
+			<td><input bind:value={user.marco_familiar.hijo[index].edad}></td>
+			<td><input bind:value={user.marco_familiar.hijo[index].ocupacion}></td>
+			<td><input bind:value={user.marco_familiar.hijo[index].empresa}></td>
+			<td><input bind:value={user.marco_familiar.hijo[index].residencia}></td>
+			<td><input bind:value={user.marco_familiar.hijo[index].telefono}></td>
+		</tr>
+	{/each}
+	
+	{#each [0, 1, 2, 3, 4, 5, 6, 7] as index}
+		<tr>
+			<td><input bind:value={user.marco_familiar.otro[index].parentesco}></td>
+			<td><input bind:value={user.marco_familiar.otro[index].nombre}></td>
+			<td><input bind:value={user.marco_familiar.otro[index].edad}></td>
+			<td><input bind:value={user.marco_familiar.otro[index].ocupacion}></td>
+			<td><input bind:value={user.marco_familiar.otro[index].empresa}></td>
+			<td><input bind:value={user.marco_familiar.otro[index].residencia}></td>
+			<td><input bind:value={user.marco_familiar.otro[index].telefono}></td>
+		</tr>
+	{/each}
 </table>

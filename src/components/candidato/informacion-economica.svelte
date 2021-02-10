@@ -23,10 +23,6 @@
 		+ parseFloat(user.info_economica_mensual.egresos[11].monto || 0)
 		+ parseFloat(user.info_economica_mensual.egresos[12].monto || 0)
 		+ parseFloat(user.info_economica_mensual.egresos[13].monto || 0)
-		
-		
-
-
 
 	function infonavitChange(event) {
 		if (event.target.value === 'NO') {
@@ -103,6 +99,7 @@
 	</tr>
 	<tr>
 		<td>
+			<!-- svelte-ignore a11y-no-onchange -->
 			<select bind:value={user.datos_generales.infonavit.activo} on:change={infonavitChange}>
 				<option value="">Seleccionar</option>
 				<option value="SI">Sí</option>
@@ -126,6 +123,7 @@
 	</tr>
 	<tr>
 		<td>
+			<!-- svelte-ignore a11y-no-onchange -->
 			<select bind:value={user.datos_generales.fonacot.activo} on:change={fonacotChange}>
 				<option value="">Seleccionar</option>
 				<option value="SI">Sí</option>

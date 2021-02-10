@@ -190,6 +190,7 @@
 <h2>Estudios</h2>
 <div>
 	<span>Estudia Actualmente</span>
+	<!-- svelte-ignore a11y-no-onchange -->
 	<select bind:value={user.info_academica.estudia_actualmente} on:change={estudiaActualmenteChange}>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>

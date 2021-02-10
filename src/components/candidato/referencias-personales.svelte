@@ -6,7 +6,7 @@
 	span {
 		display: block;
 	}
-	input, select {
+	input {
 		height: 32px;
 		font-size: 26px;
 		width: 100%;

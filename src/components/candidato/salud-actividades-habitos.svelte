@@ -128,6 +128,7 @@
 <h2>Inactividad laboral</h2>
 <div>
 	<span></span>
+	<!-- svelte-ignore a11y-no-onchange -->
 	<select on:change={inactividadLaboralChange}>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
@@ -146,6 +147,7 @@
 <h2>Negocios por cuenta propia</h2>
 <div>
 	<span></span>
+	<!-- svelte-ignore a11y-no-onchange -->
 	<select on:change={negociosPropiosChange}>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>

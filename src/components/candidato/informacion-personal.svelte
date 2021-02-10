@@ -71,6 +71,7 @@
 <h2>Historial en empresa</h2>
 <div>
 	<span><h3>Ha trabajado anteriormente en la empresa</h3></span>
+	<!-- svelte-ignore a11y-no-onchange -->
 	<select bind:value={user.info_personal.trabajo_anterior_en_empresa.tiene} on:change={trabajoAnteriorChange}>
 		<option value=""></option>
 		<option value="SI">Sí</option>
@@ -92,6 +93,7 @@
 <div>
 	<span>Motivo de Salida</span>
 	<div>
+		<!-- svelte-ignore a11y-no-onchange -->
 		<select on:change={motivoSalidaChange}>
 			<option value="">Seleccionar</option>
 			{#each motivoSalida as item}

@@ -127,6 +127,7 @@
 		Nacionalidad
 	</span>
 	<div>
+		<!-- svelte-ignore a11y-no-onchange -->
 		<select on:change={nacionalidadChange}>
 			<option value="">Seleccionar</option>
 			{#each nacionalidad as item}
@@ -204,6 +205,7 @@
 <div>
 	<span>Medio que utiliza para transporte</span>
 	<div>
+		<!-- svelte-ignore a11y-no-onchange -->
 		<select on:change={transporteChange}>
 			<option value="">Seleccionar</option>
 			{#each medioTransporte as item}
