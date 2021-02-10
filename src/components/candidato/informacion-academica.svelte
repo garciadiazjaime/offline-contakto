@@ -1,23 +1,42 @@
 <script>
 	export let user
+
+	function estudiaActualmenteChange(event) {
+		if (event.target.value === 'NO') {
+			user.info_academica.estudios_institucion = 'no aplica'
+			user.info_academica.estudios_que = 'no aplica'
+			user.info_academica.estudios_horarios = 'no aplica'
+			user.info_academica.estudios_dias = 'no aplica'			
+		} else {
+			user.info_academica.estudios_institucion = ''
+			user.info_academica.estudios_que = ''
+			user.info_academica.estudios_horarios = ''
+			user.info_academica.estudios_dias = ''
+		}
+	}
 </script>
 
 <style>
 	span {
 		display: block;
 	}
+
 	input, select {
 		height: 32px;
 		font-size: 26px;
 		width: 100%;
 	}
 
-	p {
-		display: flex;
-		align-items: center;
+	select {
+		height: 38px;
 	}
 
-	p span {
+	div {
+		display: flex;
+		padding: 0 0 12px;
+	}
+
+	div span {
 		width: 240px;
 		padding-right: 6px;
 	}
@@ -31,147 +50,166 @@
 <h1>Inf. Académica</h1>
 
 <h2>Primaria</h2>
-<p>
+<div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.primaria.institucion}>
-</p>
-<p>
+</div>
+<div>
 	<span>Lugar (ciudad)</span>
 	<input bind:value={user.info_academica.primaria.ciudad}>
-</p>
-<p>
+</div>
+<div>
 	<span>Años</span>
 	<input bind:value={user.info_academica.primaria.anos}>
-</p>
-<p>
+</div>
+<div>
 	<span>Certificado</span>
-	<input bind:value={user.info_academica.primaria.certificado}>
-</p>
+	<select bind:value={user.info_academica.primaria.certificado}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select> 
+</div>
 
 <h2>Secundaria</h2>
-<p>
+<div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.secundaria.institucion}>
-</p>
-<p>
+</div>
+<div>
 	<span>Lugar (ciudad)</span>
 	<input bind:value={user.info_academica.secundaria.ciudad}>
-</p>
-<p>
+</div>
+<div>
 	<span>Años</span>
 	<input bind:value={user.info_academica.secundaria.anos}>
-</p>
-<p>
+</div>
+<div>
 	<span>Certificado</span>
-	<input bind:value={user.info_academica.secundaria.certificado}>
-</p>
+	<select bind:value={user.info_academica.secundaria.certificado}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select> 
+</div>
 
 <h2>Preparatoria</h2>
-<p>
+<div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.preparatoria.institucion}>
-</p>
-<p>
+</div>
+<div>
 	<span>Lugar (ciudad)</span>
 	<input bind:value={user.info_academica.preparatoria.ciudad}>
-</p>
-<p>
+</div>
+<div>
 	<span>Años</span>
 	<input bind:value={user.info_academica.preparatoria.anos}>
-</p>
-<p>
+</div>
+<div>
 	<span>Certificado</span>
-	<input bind:value={user.info_academica.preparatoria.certificado}>
-</p>
+	<select bind:value={user.info_academica.preparatoria.certificado}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select> 
+</div>
 
 <h2>Profesional</h2>
-<p>
-	<span>Institución</span>
+<div>
+	<span>Institución y carrera</span>
 	<input bind:value={user.info_academica.profesional.institucion}>
-</p>
-<p>
+</div>
+<div>
 	<span>Lugar (ciudad)</span>
 	<input bind:value={user.info_academica.profesional.ciudad}>
-</p>
-<p>
+</div>
+<div>
 	<span>Años</span>
 	<input bind:value={user.info_academica.profesional.anos}>
-</p>
-<p>
+</div>
+<div>
 	<span>Certificado</span>
-	<input bind:value={user.info_academica.profesional.certificado}>
-</p>
+	<select bind:value={user.info_academica.profesional.certificado}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select> 
+</div>
 
 <h2>Otro</h2>
-<p>
+<div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.otro_grado.institucion}>
-</p>
-<p>
+</div>
+<div>
 	<span>Lugar (ciudad)</span>
 	<input bind:value={user.info_academica.otro_grado.ciudad}>
-</p>
-<p>
+</div>
+<div>
 	<span>Años</span>
 	<input bind:value={user.info_academica.otro_grado.anos}>
-</p>
-<p>
+</div>
+<div>
 	<span>Certificado</span>
-	<input bind:value={user.info_academica.otro_grado.certificado}>
-</p>
+	<select bind:value={user.info_academica.otro_grado.certificado}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select> 
+</div>
 
 <br />
-<p>
+<div>
 	<span>Cédula profesional:</span>
 	<input bind:value={user.info_academica.cedula_profesional}>
-</p>
-<p>
+</div>
+<div>
 	<span>Año de expedición:</span>
 	<input bind:value={user.info_academica.cedula_prof_ano_exp}>
-</p>
+</div>
 
 <br />
-<p>
+<div>
 	<span>Dominio de otro idioma:</span>
 	<input bind:value={user.info_academica.otro_idioma.idioma}>
-</p>
-<p>
+</div>
+<div>
 	<span>Hablado</span>
 	<input bind:value={user.info_academica.otro_idioma.hablado}>
-</p>
-<p>
+</div>
+<div>
 	<span>Leido</span>
 	<input bind:value={user.info_academica.otro_idioma.leido}>
-</p>
-<p>
+</div>
+<div>
 	<span>Escuchado</span>
 	<input bind:value={user.info_academica.otro_idioma.escuchado}>
-</p>
+</div>
 
 <h2>Estudios</h2>
-<p>
+<div>
 	<span>Estudia Actualmente</span>
-	<select bind:value={user.info_academica.estudia_actualmente}>
-		<option value=""></option>
-		<option value="1">Sí</option>
-		<option value="2">No</option>
-		<option value="0">NA</option>
+	<select bind:value={user.info_academica.estudia_actualmente} on:change={estudiaActualmenteChange}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
 	</select> 
-</p>
-<p>
+</div>
+<div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.estudios_institucion}>
-</p>
+</div>
 
-<p>
+<div>
 	<span>Qué estudia?</span>
 	<input bind:value={user.info_academica.estudios_que}>
-</p>
-<p>
+</div>
+<div>
 	<span>Horarios</span>
 	<input bind:value={user.info_academica.estudios_horarios}>
-</p>
-<p>
+</div>
+<div>
 	<span>Días</span>
 	<input bind:value={user.info_academica.estudios_dias}>
-</p>
+</div>
