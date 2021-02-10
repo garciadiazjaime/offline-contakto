@@ -15,6 +15,17 @@ const medioTransporte = [
   ['TRANSPORTE PRIVADO', 'TRANSPORTE PRIVADO'],
   ['', 'OTRO'],
 ]
+
+const motivoSalida = [
+  ['Condiciones de trabajo', 'Condiciones de trabajo'],
+  ['Falta de herramientas', 'Falta de herramientas'],
+  ['Incumplimiento de expectativas a la contratación', 'Incumplimiento de expectativas a la contratación'],
+  ['Ajuste vida/trabajo', 'Ajuste vida/trabajo'],
+  ['Distancia geográfica', 'Distancia geográfica'],
+  ['Maternidad/embarazo', 'Maternidad/embarazo'],
+  ['Negocio propio', 'Negocio propio'],
+  ['', 'Otro'],
+]
   
 function arePhonesValid(fields) {
   if (!fields.length) {
@@ -92,8 +103,14 @@ function isDatosGeneralesValid(user) {
   return true
 }
 
+function isInfoPersonalValid(user) {
+  return true
+}
+
 export {
   isDatosGeneralesValid,
+  isInfoPersonalValid,
   nacionalidad,
-  medioTransporte
+  medioTransporte,
+  motivoSalida,
 }
