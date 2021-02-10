@@ -27,135 +27,40 @@
 	}
 </style>
 
-<h1>Referencias Personales</h1>
+<h1>Referencia</h1>
 
-<h2>Referencia 1</h2>
-<p>
-	<span>Tipo</span>
-	<select bind:value={user.referencias[0].tipo}>
-		<option value=""></option>
-		<option value="vecinal">Vecinal</option>
-		<option value="personal">Personal</option>
-		<option value="personal_opcional">Opcional</option>
-	</select>
-</p>
-<p>
-	<span>Nombre</span>
-	<input bind:value={user.referencias[0].nombre}>
-</p>
-<p>
-	<span>Domicilio</span>
-	<input bind:value={user.referencias[0].domicilio}>
-</p>
-<p>
-	<span>Teléfono</span>
-	<input bind:value={user.referencias[0].telefono}>
-</p>
-<p>
-	<span>Tiempo de conocerlo</span>
-	<input bind:value={user.referencias[0].tiempo_conocido}>
-</p>
-<p>
-	<span>Parentesco</span>
-	<input bind:value={user.referencias[0].parentesco}>
-</p>
-<p>
-	<span>Ocupación</span>
-	<input bind:value={user.referencias[0].ocupacion}>
-</p>
-<p>
-	<span>¿Cómo conoció al evaluado?</span>
-	<input bind:value={user.referencias[0].lugares_labor_evaluado}>
-</p>
-<p>
-	<span>Opinión sobre el candidato (visible en pdf)</span>
-	<input bind:value={user.referencias[0].opinion}>
-</p>
-
-
-<h2>Referencia 2</h2>
-<p>
-	<span>Tipo</span>
-	<select bind:value={user.referencias[1].tipo}>
-		<option value=""></option>
-		<option value="vecinal">Vecinal</option>
-		<option value="personal">Personal</option>
-		<option value="personal_opcional">Opcional</option>
-	</select>
-</p>
-<p>
-	<span>Nombre</span>
-	<input bind:value={user.referencias[1].nombre}>
-</p>
-<p>
-	<span>Domicilio</span>
-	<input bind:value={user.referencias[1].domicilio}>
-</p>
-<p>
-	<span>Teléfono</span>
-	<input bind:value={user.referencias[1].telefono}>
-</p>
-<p>
-	<span>Tiempo de conocerlo</span>
-	<input bind:value={user.referencias[1].tiempo_conocido}>
-</p>
-<p>
-	<span>Parentesco</span>
-	<input bind:value={user.referencias[1].parentesco}>
-</p>
-<p>
-	<span>Ocupación</span>
-	<input bind:value={user.referencias[1].ocupacion}>
-</p>
-<p>
-	<span>¿Cómo conoció al evaluado?</span>
-	<input bind:value={user.referencias[1].lugares_labor_evaluado}>
-</p>
-<p>
-	<span>Opinión sobre el candidato (visible en pdf)</span>
-	<input bind:value={user.referencias[1].opinion}>
-</p>
-
-
-<h2>Referencia 3</h2>
-<p>
-	<span>Tipo</span>
-	<select bind:value={user.referencias[2].tipo}>
-		<option value=""></option>
-		<option value="vecinal">Vecinal</option>
-		<option value="personal">Personal</option>
-		<option value="personal_opcional">Opcional</option>
-	</select>
-</p>
-<p>
-	<span>Nombre</span>
-	<input bind:value={user.referencias[2].nombre}>
-</p>
-<p>
-	<span>Domicilio</span>
-	<input bind:value={user.referencias[2].domicilio}>
-</p>
-<p>
-	<span>Teléfono</span>
-	<input bind:value={user.referencias[2].telefono}>
-</p>
-<p>
-	<span>Tiempo de conocerlo</span>
-	<input bind:value={user.referencias[2].tiempo_conocido}>
-</p>
-<p>
-	<span>Parentesco</span>
-	<input bind:value={user.referencias[2].parentesco}>
-</p>
-<p>
-	<span>Ocupación</span>
-	<input bind:value={user.referencias[2].ocupacion}>
-</p>
-<p>
-	<span>¿Cómo conoció al evaluado?</span>
-	<input bind:value={user.referencias[2].lugares_labor_evaluado}>
-</p>
-<p>
-	<span>Opinión sobre el candidato (visible en pdf)</span>
-	<input bind:value={user.referencias[2].opinion}>
-</p>
+{#each [0, 1, 2] as index}
+	<h2>Referencia {user.referencias[index].tipo}</h2>
+	<p>
+		<span>Nombre</span>
+		<input bind:value={user.referencias[index].nombre} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>Domicilio</span>
+		<input bind:value={user.referencias[index].domicilio} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>Teléfono</span>
+		<input bind:value={user.referencias[index].telefono} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>Tiempo de conocerlo</span>
+		<input bind:value={user.referencias[index].tiempo_conocido} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>Parentesco</span>
+		<input bind:value={user.referencias[index].parentesco} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>Ocupación (en caso de empleado, obligatorio especificar)</span>
+		<input bind:value={user.referencias[index].ocupacion} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>¿Cómo conoció al evaluado?</span>
+		<input bind:value={user.referencias[index].lugares_labor_evaluado} required={index === 2 ? false : true}>
+	</p>
+	<p>
+		<span>Opinión sobre el candidato (visible en pdf)</span>
+		<input bind:value={user.referencias[index].opinion} required={index === 2 ? false : true}>
+	</p>
+{/each}

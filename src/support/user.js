@@ -611,7 +611,7 @@ function getEmptyUser() {
       }],
     },
 		referencias: [{
-      tipo: '',
+      tipo: 'Vecinal',
       nombre: '',
       domicilio: '',
       telefono: '',
@@ -621,7 +621,7 @@ function getEmptyUser() {
       lugares_labor_evaluado: '',
       opinion: '',
     }, {
-      tipo: '',
+      tipo: 'Personal (no familiares)',
       nombre: '',
       domicilio: '',
       telefono: '',
@@ -629,10 +629,9 @@ function getEmptyUser() {
       parentesco: '',
       ocupacion: '',
       lugares_labor_evaluado: '',
-      tipo: '',
       opinion: '',
     }, {
-      tipo: '',
+      tipo: 'Personal',
       nombre: '',
       domicilio: '',
       telefono: '',
@@ -640,7 +639,6 @@ function getEmptyUser() {
       parentesco: '',
       ocupacion: '',
       lugares_labor_evaluado: '',
-      tipo: '',
       opinion: '',
     }],
 		cuadro_evaluacion: {
