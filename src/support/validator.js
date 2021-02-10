@@ -103,13 +103,8 @@ function isDatosGeneralesValid(user) {
   return true
 }
 
-function isInfoPersonalValid(user) {
-  return true
-}
-
 export {
   isDatosGeneralesValid,
-  isInfoPersonalValid,
   nacionalidad,
   medioTransporte,
   motivoSalida,

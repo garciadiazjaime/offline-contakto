@@ -1,23 +1,48 @@
 <script>
 	export let user
+
+	function inactividadLaboralChange(event) {
+		if (event.target.value === 'NO') {
+			user.actividades_habitos.inactividad_laboral = 'no aplica'
+			user.actividades_habitos.inactividad_laboral_actividad = 'no aplica'		
+		} else {
+			user.actividades_habitos.inactividad_laboral = ''
+			user.actividades_habitos.inactividad_laboral_actividad = ''
+		}
+	}
+
+	function negociosPropiosChange(event) {
+		if (event.target.value === 'NO') {
+			user.actividades_habitos.negocios = 'no aplica'		
+			user.actividades_habitos.negocios_actividad = 'no aplica'
+		} else {
+			user.actividades_habitos.negocios = ''
+			user.actividades_habitos.negocios_actividad = ''
+		}
+	}
 </script>
 
 <style>
 	span {
 		display: block;
 	}
-	input {
+
+	input, select {
 		height: 32px;
 		font-size: 26px;
 		width: 100%;
 	}
 
-	p {
-		display: flex;
-		align-items: center;
+	select {
+		height: 38px;
 	}
 
-	p span {
+	div {
+		display: flex;
+		padding: 0 0 12px;
+	}
+
+	div span {
 		width: 240px;
 		padding-right: 6px;
 	}
@@ -29,97 +54,123 @@
 
 <h1>Salud, Actividades y Hábitos</h1>
 
-<p>
+<div>
 	<span>Peso (kg)</span>
 	<input bind:value={user.datos_salud.peso_kg}>
-</p>
-<p>
+</div>
+<div>
 	<span>Estatura (mts)</span>
 	<input bind:value={user.datos_salud.estatura_mts}>
-</p>
-<p>
+</div>
+<div>
 	<span>Salud física</span>
-	<input bind:value={user.datos_salud.salud_fisica}>
-</p>
+	<select bind:value={user.datos_salud.salud_fisica}>
+		<option value="">Seleccionar</option>
+		<option value="BUENA">BUENA</option>
+		<option value="REGULAR">REGULAR</option>
+		<option value="MALA">MALA</option>
+	</select>
+</div>
 
 
-<p>
+<div>
 	<span>Salud visual</span>
-	<input bind:value={user.datos_salud.salud_visual}>
-</p>
-<p>
+	<select bind:value={user.datos_salud.salud_visual}>
+		<option value="">Seleccionar</option>
+		<option value="BUENA">BUENA</option>
+		<option value="REGULAR">REGULAR</option>
+		<option value="MALA">MALA</option>
+	</select>
+</div>
+<div>
 	<span>Embarazada (# meses)</span>
 	<input bind:value={user.datos_salud.embarazo_meses}>
-</p>
-<p>
+</div>
+<div>
 	<span>Ejercicio que practica y con qué frecuencia lo hace</span>
 	<input bind:value={user.datos_salud.ejercicio_tipo_frecuencia}>
-</p>
-<p>
-	<span>Accidentes</span>
+</div>
+<div>
+	<span>Accidentes (si/no) y especificar</span>
 	<input bind:value={user.datos_salud.accidentes}>
-</p>
-<p>
-	<span>Intervenciones quirúrgicas</span>
+</div>
+<div>
+	<span>Intervenciones quirúrgicas (si/no) y especificar</span>
 	<input bind:value={user.datos_salud.intervenciones_quirurgicas}>
-</p>
-<p>
+</div>
+<div>
 	<span>Enfermedades que padecen familiares:</span>
 	<input bind:value={user.datos_salud.enfermedades_familiares}>
-</p>
+</div>
 
-<p>
+<div>
 	<span>Ha estado bajo algún tratamiento médico o psicológico</span>
 	<input bind:value={user.datos_salud.tratamiento_medico_psicologico}>
-</p>
-<p>
+</div>
+<div>
 	<span>Enfermedades padecidas con mayor frecuencia</span>
 	<input bind:value={user.datos_salud.enfermedades_mayor_frecuencia}>
-</p>
-<p>
+</div>
+<div>
 	<span>Institución médica a la que acude</span>
 	<input bind:value={user.datos_salud.institucion_medica}>
-</p>
+</div>
 
-<p>
+<div>
 	<span>Religión:</span>
 	<input bind:value={user.datos_generales.religion}>
-</p>
-<p>
+</div>
+<div>
 	<span>Horarios y días en los que las practica</span>
 	<input bind:value={user.datos_generales.religion_tiempo}>
-</p>
+</div>
 
 <h2>Inactividad laboral</h2>
-<p>
+<div>
+	<span></span>
+	<select on:change={inactividadLaboralChange}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select>
+</div>
+<div>
 	<span>Periodos:</span>
 	<input bind:value={user.actividades_habitos.inactividad_laboral}>
-</p>
-<p>
+</div>
+<div>
 	<span>Actividades que realizó</span>
 	<input bind:value={user.actividades_habitos.inactividad_laboral_actividad}>
-</p>
+</div>
 
 <h2>Negocios por cuenta propia</h2>
-<p>
+<div>
+	<span></span>
+	<select on:change={negociosPropiosChange}>
+		<option value="">Seleccionar</option>
+		<option value="SI">Sí</option>
+		<option value="NO">No</option>
+	</select>
+</div>
+<div>
 	<span>Periodos:</span>
 	<input bind:value={user.actividades_habitos.negocios}>
-</p>
-<p>
+</div>
+<div>
 	<span>Actividades que realizó</span>
 	<input bind:value={user.actividades_habitos.negocios_actividad}>
-</p>
+</div>
 
 <h2>Especificar cada cuanto consume</h2>
-<p>
+<div>
 	<span>Tabaco:</span>
 	<input bind:value={user.actividades_habitos.frecuencia_tabaco}>
-</p>
-<p>
+</div>
+<div>
 	<span>Alcohol:</span>
 	<input bind:value={user.actividades_habitos.frecuencia_alcohol}>
-</p>
-<p>
+</div>
+<div>
 	<span>Otras:</span>
 	<input bind:value={user.actividades_habitos.frecuencia_otras_sust}>
-</p>
+</div>
