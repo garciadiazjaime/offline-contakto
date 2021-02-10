@@ -53,33 +53,33 @@
 
 <div>
 	<span>Nombre</span>
-	<input bind:value={user.datos_generales.nombre}>
+	<input bind:value={user.datos_generales.nombre} required>
 </div>
 <div>
 	<span>Apellido</span>
-	<input bind:value={user.datos_generales.apellido}>
+	<input bind:value={user.datos_generales.apellido} required>
 </div>
 <div>
 	<span>Email</span>
-	<input bind:value={user.datos_generales.email}>
+	<input bind:value={user.datos_generales.email} required>
 </div>
 
 <h2>Domicilio</h2>
 <div>
 	<span>Calle</span>
-	<input bind:value={user.datos_generales.direccion.calle}>
+	<input bind:value={user.datos_generales.direccion.calle} required>
 </div>
 <div>
 	<span>Colonia</span>
-	<input bind:value={user.datos_generales.direccion.colonia}>
+	<input bind:value={user.datos_generales.direccion.colonia} required>
 </div>
 <div>
 	<span>Num ext-int</span>
-	<input bind:value={user.datos_generales.direccion.num}>
+	<input bind:value={user.datos_generales.direccion.num} required>
 </div>
 <div>
 	<span>Ciudad</span>
-	<input bind:value={user.datos_generales.direccion.ciudad}>
+	<input bind:value={user.datos_generales.direccion.ciudad} required>
 </div>
 <div>
 	<span>Estado</span>
@@ -92,35 +92,35 @@
 </div>
 <div>
 	<span>Código Postal</span>
-	<input bind:value={user.datos_generales.direccion.cp}>
+	<input bind:value={user.datos_generales.direccion.cp} required>
 </div>
 
 <h2>Teléfonos</h2>
 <div>
 	<span>Casa</span>
-	<input bind:value={user.datos_generales.telefono.casa} placeholder="###-###-####">
+	<input bind:value={user.datos_generales.telefono.casa} placeholder="###-###-####" required>
 </div>
 <div>
 	<span>Celular</span>
-	<input bind:value={user.datos_generales.telefono.movil} placeholder="###-###-####">
+	<input bind:value={user.datos_generales.telefono.movil} placeholder="###-###-####" required>
 </div>
 <div>
 	<span>Recado</span>
-	<input bind:value={user.datos_generales.telefono.recados.numero} placeholder="###-###-####">
+	<input bind:value={user.datos_generales.telefono.recados.numero} placeholder="###-###-####" required>
 </div>
 <div>
 	<span>Parentesco</span>
-	<input bind:value={user.datos_generales.telefono.recados.parentesco}>
+	<input bind:value={user.datos_generales.telefono.recados.parentesco} required>
 </div>
 
 <h2>Datos adicionales</h2>
 <div>
 	<span>Lugar de nacimiento</span>
-	<input bind:value={user.datos_generales.origen.lugar}>
+	<input bind:value={user.datos_generales.origen.lugar} required>
 </div>
 <div>
 	<span>Fecha de nacimiento</span>
-	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA">
+	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA" required>
 </div>
 <div>
 	<span>
@@ -138,19 +138,19 @@
 </div>
 <div>
 	<span>RFC</span>
-	<input bind:value={user.datos_generales.rfc}>
+	<input bind:value={user.datos_generales.rfc} required>
 </div>
 <div>
 	<span>CURP</span>
-	<input bind:value={user.datos_generales.curp}>
+	<input bind:value={user.datos_generales.curp} required>
 </div>
 <div>
 	<span>Folio credencial INE</span>
-	<input bind:value={user.datos_generales.ife}>
+	<input bind:value={user.datos_generales.ife} required>
 </div>
 <div>
 	<span>Cartilla SMN</span>
-	<input bind:value={user.datos_generales.smn}>
+	<input bind:value={user.datos_generales.smn} required>
 </div>
 <div>
 	<span>Tipo de licencia</span>
@@ -168,15 +168,15 @@
 </div>
 <div>
 	<span>No. de licencia</span>
-	<input bind:value={user.datos_generales.licencia.numero}>
+	<input bind:value={user.datos_generales.licencia.numero} required>
 </div>
 <div>
 	<span>No. de pasaporte o visa</span>
-	<input bind:value={user.datos_generales.pasaporte}>
+	<input bind:value={user.datos_generales.pasaporte} required>
 </div>
 <div>
 	<span>NSS (IMSS)</span>
-	<input bind:value={user.datos_generales.nss}>
+	<input bind:value={user.datos_generales.nss} required>
 </div>
 <div>
 	<span>Estado civil</span>
@@ -191,15 +191,15 @@
 </div>
 <div>
 	<span>Fecha de matrimonio</span>
-	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA">
+	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required>
 </div>
 <div>
 	<span>Religión</span>
-	<input bind:value={user.datos_generales.religion}>
+	<input bind:value={user.datos_generales.religion} required>
 </div>
 <div>
 	<span>Tiempo radicando en la ciudad</span>
-	<input bind:value={user.datos_generales.tiempo_radicando}>
+	<input bind:value={user.datos_generales.tiempo_radicando} required>
 </div>
 <div>
 	<span>Medio que utiliza para transporte</span>
@@ -210,14 +210,14 @@
 				<option value={item[0]}>{item[1]}</option>
 			{/each}
 		</select>
-		<input bind:value={user.datos_generales.medio_utilizado}>
+		<input bind:value={user.datos_generales.medio_utilizado} required>
 	</div>
 </div>
 <div>
 	<span>Medio por el qué se enteró de la vacante</span>
-	<input bind:value={user.datos_generales.referencia_vacante}>
+	<input bind:value={user.datos_generales.referencia_vacante} required>
 </div>
 <div>
 	<span>Tiempo de trayecto al lugar de trabajo</span>
-	<input bind:value={user.datos_generales.tiempo_transporte}>
+	<input bind:value={user.datos_generales.tiempo_transporte} required>
 </div>

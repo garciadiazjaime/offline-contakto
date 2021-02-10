@@ -61,11 +61,11 @@
 
 <div>
 	<span>Demandas Laborales y/o Antecedentes Penales</span>
-	<input bind:value={user.info_personal.antecedentes_penales}>
+	<input bind:value={user.info_personal.antecedentes_penales} required>
 </div>
 <div>
 	<span>Cuenta con algún tatuaje o arete:(Cuantos y en que parte del cuerpo)</span>
-	<input bind:value={user.info_personal.tatuajes}>
+	<input bind:value={user.info_personal.tatuajes} required>
 </div>
 
 <h2>Historial en empresa</h2>
@@ -79,15 +79,15 @@
 </div>
 <div>
 	<span>Puesto</span>
-	<input bind:value={user.info_personal.trabajo_anterior_en_empresa.puesto}>
+	<input bind:value={user.info_personal.trabajo_anterior_en_empresa.puesto} required>
 </div>
 <div>
 	<span>Periodo</span>
-	<input bind:value={user.info_personal.trabajo_anterior_en_empresa.periodo}>
+	<input bind:value={user.info_personal.trabajo_anterior_en_empresa.periodo} required>
 </div>
 <div>
 	<span>Sucursal</span>
-	<input bind:value={user.info_personal.trabajo_anterior_en_empresa.sucursal}>
+	<input bind:value={user.info_personal.trabajo_anterior_en_empresa.sucursal} required>
 </div>
 <div>
 	<span>Motivo de Salida</span>
@@ -98,7 +98,7 @@
 				<option value={item[0]}>{item[1]}</option>
 			{/each}
 		</select>
-		<input bind:value={user.info_personal.trabajo_anterior_en_empresa.motivo_salida}>
+		<input bind:value={user.info_personal.trabajo_anterior_en_empresa.motivo_salida} required>
 	</div>
 </div>
 
@@ -113,17 +113,17 @@
 
 <div>
 	<span>Puesto</span>
-	<input bind:value={user.info_personal.familiar_en_empresa.puesto}>
+	<input bind:value={user.info_personal.familiar_en_empresa.puesto} required>
 </div>
 <div>
 	<span>Nombre</span>
-	<input bind:value={user.info_personal.familiar_en_empresa.nombre}>
+	<input bind:value={user.info_personal.familiar_en_empresa.nombre} required>
 </div>
 <div>
 	<span>Sucursal</span>
-	<input bind:value={user.info_personal.familiar_en_empresa.sucursal}>
+	<input bind:value={user.info_personal.familiar_en_empresa.sucursal} required>
 </div>
 <div>
 	<span>Parentesco</span>
-	<input bind:value={user.info_personal.familiar_en_empresa.parentesco}>
+	<input bind:value={user.info_personal.familiar_en_empresa.parentesco} required>
 </div>

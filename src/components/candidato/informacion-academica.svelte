@@ -52,15 +52,15 @@
 <h2>Primaria</h2>
 <div>
 	<span>Institución</span>
-	<input bind:value={user.info_academica.primaria.institucion}>
+	<input bind:value={user.info_academica.primaria.institucion} required>
 </div>
 <div>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.info_academica.primaria.ciudad}>
+	<input bind:value={user.info_academica.primaria.ciudad} required>
 </div>
 <div>
 	<span>Años</span>
-	<input bind:value={user.info_academica.primaria.anos}>
+	<input bind:value={user.info_academica.primaria.anos} required>
 </div>
 <div>
 	<span>Certificado</span>
@@ -74,15 +74,15 @@
 <h2>Secundaria</h2>
 <div>
 	<span>Institución</span>
-	<input bind:value={user.info_academica.secundaria.institucion}>
+	<input bind:value={user.info_academica.secundaria.institucion} required>
 </div>
 <div>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.info_academica.secundaria.ciudad}>
+	<input bind:value={user.info_academica.secundaria.ciudad} required>
 </div>
 <div>
 	<span>Años</span>
-	<input bind:value={user.info_academica.secundaria.anos}>
+	<input bind:value={user.info_academica.secundaria.anos} required>
 </div>
 <div>
 	<span>Certificado</span>
@@ -96,15 +96,15 @@
 <h2>Preparatoria</h2>
 <div>
 	<span>Institución</span>
-	<input bind:value={user.info_academica.preparatoria.institucion}>
+	<input bind:value={user.info_academica.preparatoria.institucion} required>
 </div>
 <div>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.info_academica.preparatoria.ciudad}>
+	<input bind:value={user.info_academica.preparatoria.ciudad} required>
 </div>
 <div>
 	<span>Años</span>
-	<input bind:value={user.info_academica.preparatoria.anos}>
+	<input bind:value={user.info_academica.preparatoria.anos} required>
 </div>
 <div>
 	<span>Certificado</span>
@@ -118,15 +118,15 @@
 <h2>Profesional</h2>
 <div>
 	<span>Institución y carrera</span>
-	<input bind:value={user.info_academica.profesional.institucion}>
+	<input bind:value={user.info_academica.profesional.institucion} required>
 </div>
 <div>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.info_academica.profesional.ciudad}>
+	<input bind:value={user.info_academica.profesional.ciudad} required>
 </div>
 <div>
 	<span>Años</span>
-	<input bind:value={user.info_academica.profesional.anos}>
+	<input bind:value={user.info_academica.profesional.anos} required>
 </div>
 <div>
 	<span>Certificado</span>
@@ -140,15 +140,15 @@
 <h2>Otro</h2>
 <div>
 	<span>Institución</span>
-	<input bind:value={user.info_academica.otro_grado.institucion}>
+	<input bind:value={user.info_academica.otro_grado.institucion} required>
 </div>
 <div>
 	<span>Lugar (ciudad)</span>
-	<input bind:value={user.info_academica.otro_grado.ciudad}>
+	<input bind:value={user.info_academica.otro_grado.ciudad} required>
 </div>
 <div>
 	<span>Años</span>
-	<input bind:value={user.info_academica.otro_grado.anos}>
+	<input bind:value={user.info_academica.otro_grado.anos} required>
 </div>
 <div>
 	<span>Certificado</span>
@@ -162,29 +162,29 @@
 <br />
 <div>
 	<span>Cédula profesional:</span>
-	<input bind:value={user.info_academica.cedula_profesional}>
+	<input bind:value={user.info_academica.cedula_profesional} required>
 </div>
 <div>
 	<span>Año de expedición:</span>
-	<input bind:value={user.info_academica.cedula_prof_ano_exp}>
+	<input bind:value={user.info_academica.cedula_prof_ano_exp} required>
 </div>
 
 <br />
 <div>
 	<span>Dominio de otro idioma:</span>
-	<input bind:value={user.info_academica.otro_idioma.idioma}>
+	<input bind:value={user.info_academica.otro_idioma.idioma} required>
 </div>
 <div>
 	<span>Hablado</span>
-	<input bind:value={user.info_academica.otro_idioma.hablado}>
+	<input bind:value={user.info_academica.otro_idioma.hablado} required>
 </div>
 <div>
 	<span>Leido</span>
-	<input bind:value={user.info_academica.otro_idioma.leido}>
+	<input bind:value={user.info_academica.otro_idioma.leido} required>
 </div>
 <div>
 	<span>Escuchado</span>
-	<input bind:value={user.info_academica.otro_idioma.escuchado}>
+	<input bind:value={user.info_academica.otro_idioma.escuchado} required>
 </div>
 
 <h2>Estudios</h2>
@@ -198,18 +198,18 @@
 </div>
 <div>
 	<span>Institución</span>
-	<input bind:value={user.info_academica.estudios_institucion}>
+	<input bind:value={user.info_academica.estudios_institucion} required>
 </div>
 
 <div>
 	<span>Qué estudia?</span>
-	<input bind:value={user.info_academica.estudios_que}>
+	<input bind:value={user.info_academica.estudios_que} required>
 </div>
 <div>
 	<span>Horarios</span>
-	<input bind:value={user.info_academica.estudios_horarios}>
+	<input bind:value={user.info_academica.estudios_horarios} required>
 </div>
 <div>
 	<span>Días</span>
-	<input bind:value={user.info_academica.estudios_dias}>
+	<input bind:value={user.info_academica.estudios_dias} required>
 </div>
