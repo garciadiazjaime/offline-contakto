@@ -99,7 +99,7 @@
 			<option value="POPULAR">Vivienda popular</option>
 			<option value="">Otro</option>
 		</select>
-		<input bind:value={user.situacion_vivienda.tipo_inmueble.casa}>
+		<input bind:value={user.situacion_vivienda.tipo_inmueble.casa} required>
 	</div>
 </div>
 <div>
@@ -110,7 +110,7 @@
 <h2>Distribución dimensional</h2>
 <div>
 	<span>Habitaciones</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.habitaciones}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.habitaciones} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -119,7 +119,7 @@
 </div>
 <div>
 	<span>Baños</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.banos}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.banos} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -128,7 +128,7 @@
 </div>
 <div>
 	<span>Salas</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.salas}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.salas} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -137,7 +137,7 @@
 </div>
 <div>
 	<span>Comedor</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.comedor}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.comedor} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -146,7 +146,7 @@
 </div>
 <div>
 	<span>Cocina</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.cocina}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.cocina} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -155,7 +155,7 @@
 </div>
 <div>
 	<span>Patios</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.patios}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.patios} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -164,7 +164,7 @@
 </div>
 <div>
 	<span>Cocheras</span>
-	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.cocheras}>
+	<select bind:value={user.situacion_vivienda.distribucion_dimensiones.cocheras} required>
 		<option value="">Seleccionar</option>
 		{#each items as item}
 			<option value={item}>{item}</option>
@@ -180,7 +180,7 @@
 </div>
 <div>
 	<span>Tipo de mobiliario</span>
-	<select bind:value={user.situacion_vivienda.tipo_mobiliario}>
+	<select bind:value={user.situacion_vivienda.tipo_mobiliario} required>
 		<option value="">Seleccionar</option>
 		<option value="INSUFICIENTE">Insuficiente</option>
 		<option value="SUFICIENTE">Suficiente</option>
@@ -188,7 +188,7 @@
 </div>
 <div>
 	<span>Sector socioeconómico</span>
-	<select bind:value={user.situacion_vivienda.sector_socioeconomico}>
+	<select bind:value={user.situacion_vivienda.sector_socioeconomico} required>
 		<option value="">Seleccionar</option>
 		<option value="A/B: Clase rica">A/B: Clase rica</option>
 		<option value="C+: Clase media alta">C+: Clase media alta</option>
@@ -204,7 +204,7 @@
 </div>
 <div>
 	<span>Conservación de Vivienda</span>
-	<select bind:value={user.situacion_vivienda.conservacion}>
+	<select bind:value={user.situacion_vivienda.conservacion} required>
 		<option value="">Seleccionar</option>
 		<option value="BUENO">Buen estado</option>
 		<option value="REGULAR">Regular estado</option>

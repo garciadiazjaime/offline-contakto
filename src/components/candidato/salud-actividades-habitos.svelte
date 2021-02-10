@@ -64,7 +64,7 @@
 </div>
 <div>
 	<span>Salud física</span>
-	<select bind:value={user.datos_salud.salud_fisica}>
+	<select bind:value={user.datos_salud.salud_fisica} required>
 		<option value="">Seleccionar</option>
 		<option value="BUENA">BUENA</option>
 		<option value="REGULAR">REGULAR</option>
@@ -75,7 +75,7 @@
 
 <div>
 	<span>Salud visual</span>
-	<select bind:value={user.datos_salud.salud_visual}>
+	<select bind:value={user.datos_salud.salud_visual} required>
 		<option value="">Seleccionar</option>
 		<option value="BUENA">BUENA</option>
 		<option value="REGULAR">REGULAR</option>
@@ -129,7 +129,7 @@
 <div>
 	<span></span>
 	<!-- svelte-ignore a11y-no-onchange -->
-	<select on:change={inactividadLaboralChange}>
+	<select on:change={inactividadLaboralChange} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -148,7 +148,7 @@
 <div>
 	<span></span>
 	<!-- svelte-ignore a11y-no-onchange -->
-	<select on:change={negociosPropiosChange}>
+	<select on:change={negociosPropiosChange} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>

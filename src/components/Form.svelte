@@ -25,7 +25,13 @@
 
 	function isFormReady() {
 		const fields = []
-		document.querySelectorAll('form input[required]').forEach(input => {
+		document.querySelectorAll('form input[required], form select[required]').forEach(input => {
+			if (!input.value) {
+				input.classList.add('required')
+			} else {
+				input.classList.remove('required')
+			}
+
 			fields.push(input.value)
 		})
 

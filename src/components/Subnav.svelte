@@ -46,6 +46,7 @@
 
   .active {
     text-decoration: underline;
+    font-weight: bold;
   }
 
   a {

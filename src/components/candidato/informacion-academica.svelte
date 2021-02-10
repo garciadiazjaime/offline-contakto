@@ -64,7 +64,7 @@
 </div>
 <div>
 	<span>Certificado</span>
-	<select bind:value={user.info_academica.primaria.certificado}>
+	<select bind:value={user.info_academica.primaria.certificado} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -86,7 +86,7 @@
 </div>
 <div>
 	<span>Certificado</span>
-	<select bind:value={user.info_academica.secundaria.certificado}>
+	<select bind:value={user.info_academica.secundaria.certificado} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -108,7 +108,7 @@
 </div>
 <div>
 	<span>Certificado</span>
-	<select bind:value={user.info_academica.preparatoria.certificado}>
+	<select bind:value={user.info_academica.preparatoria.certificado} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -130,7 +130,7 @@
 </div>
 <div>
 	<span>Certificado</span>
-	<select bind:value={user.info_academica.profesional.certificado}>
+	<select bind:value={user.info_academica.profesional.certificado} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -152,7 +152,7 @@
 </div>
 <div>
 	<span>Certificado</span>
-	<select bind:value={user.info_academica.otro_grado.certificado}>
+	<select bind:value={user.info_academica.otro_grado.certificado} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -191,7 +191,7 @@
 <div>
 	<span>Estudia Actualmente</span>
 	<!-- svelte-ignore a11y-no-onchange -->
-	<select bind:value={user.info_academica.estudia_actualmente} on:change={estudiaActualmenteChange}>
+	<select bind:value={user.info_academica.estudia_actualmente} on:change={estudiaActualmenteChange} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>

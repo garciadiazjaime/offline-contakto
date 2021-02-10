@@ -14,7 +14,7 @@
 		timeout = setTimeout(() => {
 			alertMsg = ''
 			alertType = ''
-		}, 5000);
+		}, 7000);
 
 	})
 </script>

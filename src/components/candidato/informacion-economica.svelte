@@ -100,7 +100,7 @@
 	<tr>
 		<td>
 			<!-- svelte-ignore a11y-no-onchange -->
-			<select bind:value={user.datos_generales.infonavit.activo} on:change={infonavitChange}>
+			<select bind:value={user.datos_generales.infonavit.activo} on:change={infonavitChange} required>
 				<option value="">Seleccionar</option>
 				<option value="SI">Sí</option>
 				<option value="NO">No</option>
@@ -124,7 +124,7 @@
 	<tr>
 		<td>
 			<!-- svelte-ignore a11y-no-onchange -->
-			<select bind:value={user.datos_generales.fonacot.activo} on:change={fonacotChange}>
+			<select bind:value={user.datos_generales.fonacot.activo} on:change={fonacotChange} required>
 				<option value="">Seleccionar</option>
 				<option value="SI">Sí</option>
 				<option value="NO">No</option>

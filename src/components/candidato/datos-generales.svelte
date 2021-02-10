@@ -83,8 +83,8 @@
 </div>
 <div>
 	<span>Estado</span>
-	<select bind:value={user.datos_generales.direccion.estado}>
-		<option>Seleccionar</option>
+	<select bind:value={user.datos_generales.direccion.estado} required>
+		<option value="">Seleccionar</option>
 		{#each states as state}
 		<option value={state}>{state}</option>
 		{/each}
@@ -134,7 +134,7 @@
 				<option value={item[0]}>{item[1]}</option>
 			{/each}
 		</select>
-		<input bind:value={user.datos_generales.origen.nacionalidad}>
+		<input bind:value={user.datos_generales.origen.nacionalidad} required>
 	</div>
 </div>
 <div>
@@ -155,7 +155,7 @@
 </div>
 <div>
 	<span>Tipo de licencia</span>
-	<select bind:value={user.datos_generales.licencia.tipo}>
+	<select bind:value={user.datos_generales.licencia.tipo} required>
 		<option value="">Seleccionar</option>
 		<option value="A">A</option>
 		<option value="B">B</option>
@@ -181,7 +181,7 @@
 </div>
 <div>
 	<span>Estado civil</span>
-	<select bind:value={user.datos_generales.estado_civil}>
+	<select bind:value={user.datos_generales.estado_civil} required>
 		<option value="">Seleccionar</option>
 		<option value="Soltero">Soltero(a)</option>
 		<option value="Casado">Casado(a)</option>

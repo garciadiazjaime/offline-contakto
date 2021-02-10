@@ -72,8 +72,8 @@
 <div>
 	<span><h3>Ha trabajado anteriormente en la empresa</h3></span>
 	<!-- svelte-ignore a11y-no-onchange -->
-	<select bind:value={user.info_personal.trabajo_anterior_en_empresa.tiene} on:change={trabajoAnteriorChange}>
-		<option value=""></option>
+	<select bind:value={user.info_personal.trabajo_anterior_en_empresa.tiene} on:change={trabajoAnteriorChange} required>
+		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
 	</select>
@@ -106,7 +106,7 @@
 
 <div>
 	<span><h3>Tiene algún familiar trabajando en la empresa</h3></span>
-	<select bind:value={user.info_personal.familiar_en_empresa.tiene}>
+	<select bind:value={user.info_personal.familiar_en_empresa.tiene} required>
 		<option value=""></option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
