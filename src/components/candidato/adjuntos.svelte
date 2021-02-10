@@ -239,50 +239,7 @@
 
 <br>
 
-<h2>10. Semanas Cotizadas</h2>
-<p>
-	<span>10.a Semanas Cotizadas</span>
-	<button on:click={changeHandler} name="adj8">Seleccionar Archivo</button>
-	<img src={preview.adj8} alt="" />
-	{#if preview.adj8}
-	<strong on:click={clickHandlerDelete} data-file="adj8">x</strong>
-	{/if}
-</p>
-<p>
-	<span>10.b Semanas Cotizadas</span>
-	<button on:click={changeHandler} name="adj25">Seleccionar Archivo</button>
-	<img src={preview.adj25} alt="" />
-	{#if preview.adj25}
-	<strong on:click={clickHandlerDelete} data-file="adj25">x</strong>
-	{/if}
-</p>
-<p>
-	<span>10.c Semanas Cotizadas</span>
-	<button on:click={changeHandler} name="adj26">Seleccionar Archivo</button>
-	<img src={preview.adj26} alt="" />
-	{#if preview.adj26}
-	<strong on:click={clickHandlerDelete} data-file="adj26">x</strong>
-	{/if}
-</p>
-<p>
-	<span>10.d Semanas Cotizadas</span>
-	<button on:click={changeHandler} name="adj27">Seleccionar Archivo</button>
-	<img src={preview.adj27} alt="" />
-	{#if preview.adj27}
-	<strong on:click={clickHandlerDelete} data-file="adj27">x</strong>
-	{/if}
-</p>
-<p>
-	<span>10.e Semanas Cotizadas</span>
-	<button on:click={changeHandler} name="adj28">Seleccionar Archivo</button>
-	<img src={preview.adj28} alt="" />
-	{#if preview.adj28}
-	<strong on:click={clickHandlerDelete} data-file="adj28">x</strong>
-	{/if}
-</p>
-
-
-<h2>11. Carta Laboral</h2>
+<h2>10. Carta Laboral</h2>
 <p>
 	<span>a. Principal</span>
 	<button on:click={changeHandler} name="adj18">Seleccionar Archivo</button>
@@ -301,7 +258,7 @@
 </p>
 
 
-<h2>12. Adicionales</h2>
+<h2>11. Adicionales</h2>
 <p>
 	<span>Adicionales A</span>
 	<button on:click={changeHandler} name="adj19">Seleccionar Archivo</button>
