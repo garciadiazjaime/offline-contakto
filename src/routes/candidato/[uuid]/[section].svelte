@@ -32,7 +32,7 @@
 </script>
 
 <Layout uuid={uuid} section={section} user={user}>
-	<Form user={user}>
+	<Form user={user} section={section}>
     {#if section === STEPS.generales}
 		<DatosGenerales user={user} />
     {:else if section === STEPS.personal}
