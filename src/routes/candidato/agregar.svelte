@@ -9,7 +9,7 @@
 
 
 <Layout>
-	<Form user={user}>
+	<Form user={user} section={STEPS.generales}>
 		<DatosGenerales user={user} />
 	</Form>
 </Layout>
