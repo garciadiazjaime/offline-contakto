@@ -13,11 +13,27 @@
 			user.info_personal.trabajo_anterior_en_empresa.periodo = 'no aplica'
 			user.info_personal.trabajo_anterior_en_empresa.sucursal = 'no aplica'
 			user.info_personal.trabajo_anterior_en_empresa.motivo_salida = 'no aplica'
+		} else {
+			user.info_personal.trabajo_anterior_en_empresa.puesto = ''
+			user.info_personal.trabajo_anterior_en_empresa.periodo = ''
+			user.info_personal.trabajo_anterior_en_empresa.sucursal = ''
+			user.info_personal.trabajo_anterior_en_empresa.motivo_salida = ''
+		}
+	}
+
+	function familiarTrabajandoChange(event) {
+		if (event.target.value === 'NO') {
 			user.info_personal.familiar_en_empresa.tiene = 'no aplica'
 			user.info_personal.familiar_en_empresa.puesto = 'no aplica'
 			user.info_personal.familiar_en_empresa.nombre = 'no aplica'
 			user.info_personal.familiar_en_empresa.sucursal = 'no aplica'
-			user.info_personal.familiar_en_empresa.parentesco = 'no aplica'			
+			user.info_personal.familiar_en_empresa.parentesco = 'no aplica'
+		} else {
+			user.info_personal.familiar_en_empresa.tiene = ''
+			user.info_personal.familiar_en_empresa.puesto = ''
+			user.info_personal.familiar_en_empresa.nombre = ''
+			user.info_personal.familiar_en_empresa.sucursal = ''
+			user.info_personal.familiar_en_empresa.parentesco = ''
 		}
 	}
 </script>
@@ -106,7 +122,7 @@
 
 <div>
 	<span><h3>Tiene algún familiar trabajando en la empresa</h3></span>
-	<select bind:value={user.info_personal.familiar_en_empresa.tiene} required>
+	<select bind:value={user.info_personal.familiar_en_empresa.tiene} on:change={familiarTrabajandoChange} required>
 		<option value=""></option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
