@@ -33,27 +33,27 @@
 	<h2>Referencia {user.referencias[index].tipo}</h2>
 	<p>
 		<span>Nombre</span>
-		<input bind:value={user.referencias[index].nombre} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].nombre} required>
 	</p>
 	<p>
 		<span>Domicilio</span>
-		<input bind:value={user.referencias[index].domicilio} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].domicilio} required>
 	</p>
 	<p>
 		<span>Teléfono</span>
-		<input bind:value={user.referencias[index].telefono} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].telefono} required>
 	</p>
 	<p>
 		<span>Tiempo de conocerlo</span>
-		<input bind:value={user.referencias[index].tiempo_conocido} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].tiempo_conocido} required>
 	</p>
 	<p>
 		<span>Parentesco</span>
-		<input bind:value={user.referencias[index].parentesco} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].parentesco} required>
 	</p>
 	<p>
 		<span>Ocupación (en caso de empleado, obligatorio especificar)</span>
-		<input bind:value={user.referencias[index].ocupacion} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].ocupacion} required>
 	</p>
 	<p>
 		<span>¿Cómo conoció al evaluado?</span>
