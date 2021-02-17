@@ -3,10 +3,10 @@
 
 	function estudiaActualmenteChange(event) {
 		if (event.target.value === 'NO') {
-			user.info_academica.estudios_institucion = 'no aplica'
-			user.info_academica.estudios_que = 'no aplica'
-			user.info_academica.estudios_horarios = 'no aplica'
-			user.info_academica.estudios_dias = 'no aplica'			
+			user.info_academica.estudios_institucion = 'No aplica'
+			user.info_academica.estudios_que = 'No aplica'
+			user.info_academica.estudios_horarios = 'No aplica'
+			user.info_academica.estudios_dias = 'No aplica'			
 		} else {
 			user.info_academica.estudios_institucion = ''
 			user.info_academica.estudios_que = ''

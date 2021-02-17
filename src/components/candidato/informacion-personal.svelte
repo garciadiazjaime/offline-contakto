@@ -9,10 +9,10 @@
 
 	function trabajoAnteriorChange(event) {
 		if (event.target.value === 'NO') {
-			user.info_personal.trabajo_anterior_en_empresa.puesto = 'no aplica'
-			user.info_personal.trabajo_anterior_en_empresa.periodo = 'no aplica'
-			user.info_personal.trabajo_anterior_en_empresa.sucursal = 'no aplica'
-			user.info_personal.trabajo_anterior_en_empresa.motivo_salida = 'no aplica'
+			user.info_personal.trabajo_anterior_en_empresa.puesto = 'No aplica'
+			user.info_personal.trabajo_anterior_en_empresa.periodo = 'No aplica'
+			user.info_personal.trabajo_anterior_en_empresa.sucursal = 'No aplica'
+			user.info_personal.trabajo_anterior_en_empresa.motivo_salida = 'No aplica'
 		} else {
 			user.info_personal.trabajo_anterior_en_empresa.puesto = ''
 			user.info_personal.trabajo_anterior_en_empresa.periodo = ''
@@ -23,11 +23,11 @@
 
 	function familiarTrabajandoChange(event) {
 		if (event.target.value === 'NO') {
-			user.info_personal.familiar_en_empresa.tiene = 'no aplica'
-			user.info_personal.familiar_en_empresa.puesto = 'no aplica'
-			user.info_personal.familiar_en_empresa.nombre = 'no aplica'
-			user.info_personal.familiar_en_empresa.sucursal = 'no aplica'
-			user.info_personal.familiar_en_empresa.parentesco = 'no aplica'
+			user.info_personal.familiar_en_empresa.tiene = 'No aplica'
+			user.info_personal.familiar_en_empresa.puesto = 'No aplica'
+			user.info_personal.familiar_en_empresa.nombre = 'No aplica'
+			user.info_personal.familiar_en_empresa.sucursal = 'No aplica'
+			user.info_personal.familiar_en_empresa.parentesco = 'No aplica'
 		} else {
 			user.info_personal.familiar_en_empresa.tiene = ''
 			user.info_personal.familiar_en_empresa.puesto = ''

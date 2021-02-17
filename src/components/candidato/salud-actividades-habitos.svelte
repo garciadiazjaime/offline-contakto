@@ -3,8 +3,8 @@
 
 	function inactividadLaboralChange(event) {
 		if (event.target.value === 'NO') {
-			user.actividades_habitos.inactividad_laboral = 'no aplica'
-			user.actividades_habitos.inactividad_laboral_actividad = 'no aplica'		
+			user.actividades_habitos.inactividad_laboral = 'No aplica'
+			user.actividades_habitos.inactividad_laboral_actividad = 'No aplica'		
 		} else {
 			user.actividades_habitos.inactividad_laboral = ''
 			user.actividades_habitos.inactividad_laboral_actividad = ''
@@ -13,8 +13,8 @@
 
 	function negociosPropiosChange(event) {
 		if (event.target.value === 'NO') {
-			user.actividades_habitos.negocios = 'no aplica'		
-			user.actividades_habitos.negocios_actividad = 'no aplica'
+			user.actividades_habitos.negocios = 'No aplica'		
+			user.actividades_habitos.negocios_actividad = 'No aplica'
 		} else {
 			user.actividades_habitos.negocios = ''
 			user.actividades_habitos.negocios_actividad = ''
@@ -125,9 +125,9 @@
 	<input bind:value={user.datos_generales.religion_tiempo} required>
 </div>
 
-<h2>Inactividad laboral</h2>
+<br />
 <div>
-	<span></span>
+	<span><strong>Inactividad laboral</strong></span>
 	<!-- svelte-ignore a11y-no-onchange -->
 	<select on:change={inactividadLaboralChange} required>
 		<option value="">Seleccionar</option>
@@ -144,9 +144,9 @@
 	<input bind:value={user.actividades_habitos.inactividad_laboral_actividad} required>
 </div>
 
-<h2>Negocios por cuenta propia</h2>
+<br />
 <div>
-	<span></span>
+	<span><strong>Negocios por cuenta propia</strong></span>
 	<!-- svelte-ignore a11y-no-onchange -->
 	<select on:change={negociosPropiosChange} required>
 		<option value="">Seleccionar</option>

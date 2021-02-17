@@ -26,10 +26,10 @@
 
 	function infonavitChange(event) {
 		if (event.target.value === 'NO') {
-			user.datos_generales.infonavit.numero = 'no aplica'
-			user.datos_generales.infonavit.fecha_tramite = 'no aplica'
-			user.datos_generales.infonavit.uso = 'no aplica'
-			user.datos_generales.infonavit.motivo = 'no aplica'			
+			user.datos_generales.infonavit.numero = 'No aplica'
+			user.datos_generales.infonavit.fecha_tramite = 'No aplica'
+			user.datos_generales.infonavit.uso = 'No aplica'
+			user.datos_generales.infonavit.motivo = 'No aplica'			
 		} else {
 			user.datos_generales.infonavit.numero = ''
 			user.datos_generales.infonavit.fecha_tramite = ''
@@ -40,9 +40,9 @@
 
 	function fonacotChange(event) {
 		if (event.target.value === 'NO') {
-			user.datos_generales.fonacot.numero = 'no aplica'
-			user.datos_generales.fonacot.fecha_tramite = 'no aplica'
-			user.datos_generales.fonacot.uso = 'no aplica'
+			user.datos_generales.fonacot.numero = 'No aplica'
+			user.datos_generales.fonacot.fecha_tramite = 'No aplica'
+			user.datos_generales.fonacot.uso = 'No aplica'
 		} else {
 			user.datos_generales.fonacot.numero = ''
 			user.datos_generales.fonacot.fecha_tramite = ''

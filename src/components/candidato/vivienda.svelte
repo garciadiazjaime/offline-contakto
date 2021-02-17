@@ -58,7 +58,7 @@
 </div>
 <div>
 	<span>Renta mensual</span>
-	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.renta_mensual} placeholder="$m.n. o no aplica" required>
+	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.renta_mensual} placeholder="$m.n. o No aplica" required>
 </div>
 
 <h2>Vivienda</h2>
