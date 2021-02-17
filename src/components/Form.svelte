@@ -6,7 +6,7 @@
 	import { saveUser, updateUser, STEPS } from '../support/user'
 	import Alert from './Alert.svelte'
 	import { publish } from '../support/events'
-	import { isDatosGeneralesValid, isViviendaValid } from '../support/validator'
+	import { isDatosGeneralesValid, isViviendaValid, isInfoEconomicaValid } from '../support/validator'
 
 	export let user;
 	export let section;
@@ -49,6 +49,8 @@
 			isFormValid = isDatosGeneralesValid(user)
 		} else if (section === STEPS.vivienda) {
 			isFormValid = isViviendaValid(user)
+		} else if (section === STEPS.economica) {
+			isFormValid = isInfoEconomicaValid(user)
 		}
 
 		if (!isFormValid) {

@@ -95,10 +95,110 @@ function isDatosGeneralesValid(user) {
   return true
 }
 
+function isNumberOrTextInvalid(value, emptyRule = false) {
+  if (emptyRule) {
+    return value && isNaN(value) && value != 'no aplica'
+  }
+
+  return isNaN(value) && value != 'no aplica'
+}
+
 function isViviendaValid(user) {
-  if (isNaN(user.situacion_vivienda.caracteristicas_vivienda.renta_mensual) && user.situacion_vivienda.caracteristicas_vivienda.renta_mensual.toLowerCase() != 'no aplica') {
+  if (isNumberOrTextInvalid(user.situacion_vivienda.caracteristicas_vivienda.renta_mensual)) {
     return publish('UPDATE_MSG', { msg: 'Renta mensual debe ser un número o el texto "No aplica"' })
   }
+
+  return true
+}
+
+function isInfoEconomicaValid(user) {
+  for(let i = 0; i < 5; i++ ){
+    if(isNumberOrTextInvalid(user.info_economica_mensual.ingresos[i].monto)) {
+      return publish('UPDATE_MSG', { msg: 'Los Ingresos debe ser un número o el texto "No aplica"' })
+    }
+  }
+
+  for(let i = 0; i < 14; i++ ){
+    if(isNumberOrTextInvalid(user.info_economica_mensual.egresos[i].monto)) {
+      return publish('UPDATE_MSG', { msg: 'Los Egresos debe ser un número o el texto "No aplica"' })
+    }
+  }
+
+  // Tarjetas de Crédito
+  if(isNumberOrTextInvalid(user.situacion_economica.tarjetas_credito_comerciales[0].limite_credito)) {
+    return publish('UPDATE_MSG', { msg: 'Credito en Tarjeta 1 de Crédito debe ser un número o el texto "No aplica"' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.tarjetas_credito_comerciales[0].pago_minimo)) {
+    return publish('UPDATE_MSG', { msg: 'Pago mínimo en Tarjeta 1 de Crédito debe ser un número o el texto "No aplica"' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.tarjetas_credito_comerciales[0].saldo_actual)) {
+    return publish('UPDATE_MSG', { msg: 'Saldo actual en Tarjeta 1 de Crédito debe ser un número o el texto "No aplica"' })
+  }
+
+  if(isNumberOrTextInvalid(user.situacion_economica.tarjetas_credito_comerciales[1].limite_credito, true)) {
+    return publish('UPDATE_MSG', { msg: 'Credito en Tarjeta 2 de Crédito debe ser un número o en blanco' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.tarjetas_credito_comerciales[1].pago_minimo, true)) {
+    return publish('UPDATE_MSG', { msg: 'Pago mínimo en Tarjeta 2 de Crédito debe ser un número o en blanco' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.tarjetas_credito_comerciales[1].saldo_actual, true)) {
+    return publish('UPDATE_MSG', { msg: 'Saldo actual en Tarjeta 2 de Crédito debe ser un número o en blanco' })
+  }
+
+  // Cuentas de débito
+  if(isNumberOrTextInvalid(user.situacion_economica.cuentas_debito[0].saldo_mensual)) {
+    return publish('UPDATE_MSG', { msg: 'Saldo Mensual en Cuentas de débito 1 debe ser un número o el texto "No aplica"' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.cuentas_debito[0].ahorro)) {
+    return publish('UPDATE_MSG', { msg: 'Ahorro en Cuentas de débito 1 debe ser un número o el texto "No aplica"' })
+  }
+
+  if(isNumberOrTextInvalid(user.situacion_economica.cuentas_debito[1].saldo_mensual)) {
+    return publish('UPDATE_MSG', { msg: 'Saldo Mensual en Cuentas de débito 2 debe ser un número o el texto "No aplica"' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.cuentas_debito[1].ahorro)) {
+    return publish('UPDATE_MSG', { msg: 'Ahorro en Cuentas de débito 2 debe ser un número o en blanco' })
+  }
+
+  // Automóviles
+  if(isNumberOrTextInvalid(user.situacion_economica.automoviles[0].valor_comercial)) {
+    return publish('UPDATE_MSG', { msg: 'Valor Comercial en Automóviles 1 debe ser un número o el texto "No aplica"' })
+  }
+
+  if(isNumberOrTextInvalid(user.situacion_economica.automoviles[1].valor_comercial)) {
+    return publish('UPDATE_MSG', { msg: 'Valor Comercial en Automóviles 2 debe ser un número o en blanco' })
+  }
+
+  // Bienes Raíces
+  if(isNumberOrTextInvalid(user.situacion_economica.bienes_raices[0].valor_comercial)) {
+    return publish('UPDATE_MSG', { msg: 'Valor Comercial en Bienes Raíces 1 debe ser un número o el texto "No aplica"' })
+  }
+
+  if(isNumberOrTextInvalid(user.situacion_economica.bienes_raices[1].valor_comercial)) {
+    return publish('UPDATE_MSG', { msg: 'Valor Comercial en Bienes Raíces 2 debe ser un número o en blanco' })
+  }
+
+  // Deudas actuales
+  if(isNumberOrTextInvalid(user.situacion_economica.deudas_actuales[0].cantidad_total)) {
+    return publish('UPDATE_MSG', { msg: 'Cantidad total en Deudas actuales 1 debe ser un número o el texto "No aplica"' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.deudas_actuales[0].saldo_actual)) {
+    return publish('UPDATE_MSG', { msg: 'Saldo actual en Deudas actuales 1 debe ser un número o el texto "No aplica"' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.deudas_actuales[0].pago_mensual)) {
+    return publish('UPDATE_MSG', { msg: 'Pago mensual en Deudas actuales 1 debe ser un número o el texto "No aplica"' })
+  }
+
+  if(isNumberOrTextInvalid(user.situacion_economica.deudas_actuales[1].cantidad_total)) {
+    return publish('UPDATE_MSG', { msg: 'Cantidad total en Deudas actuales 2 debe ser un número o en blanco' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.deudas_actuales[1].saldo_actual)) {
+    return publish('UPDATE_MSG', { msg: 'Saldo actual en Deudas actuales 2 debe ser un número o en blanco' })
+  }
+  if(isNumberOrTextInvalid(user.situacion_economica.deudas_actuales[1].pago_mensual)) {
+    return publish('UPDATE_MSG', { msg: 'Pago mensual en Deudas actuales 2 debe ser un número o en blanco' })
+  }
+
 
   return true
 }
@@ -108,5 +208,6 @@ export {
   nacionalidad,
   medioTransporte,
   motivoSalida,
-  isViviendaValid
+  isViviendaValid,
+  isInfoEconomicaValid,
 }

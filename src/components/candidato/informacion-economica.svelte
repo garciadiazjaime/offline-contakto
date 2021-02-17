@@ -1,28 +1,32 @@
 <script>
 	export let user
 
+	function getNumeric(value) {
+		return isNaN(value) ? 0 : parseFloat(value)
+	}
+
 	$: user.info_economica_mensual.ingresos[5].monto = 0 
-		+ parseFloat(user.info_economica_mensual.ingresos[0].monto || 0)
-		+ parseFloat(user.info_economica_mensual.ingresos[1].monto || 0)
-		+ parseFloat(user.info_economica_mensual.ingresos[2].monto || 0)
-		+ parseFloat(user.info_economica_mensual.ingresos[3].monto || 0)
-		+ parseFloat(user.info_economica_mensual.ingresos[4].monto || 0)
+		+ getNumeric(user.info_economica_mensual.ingresos[0].monto)
+		+ getNumeric(user.info_economica_mensual.ingresos[1].monto)
+		+ getNumeric(user.info_economica_mensual.ingresos[2].monto)
+		+ getNumeric(user.info_economica_mensual.ingresos[3].monto)
+		+ getNumeric(user.info_economica_mensual.ingresos[4].monto)
 	
 	$: user.info_economica_mensual.egresos[14].monto = 0
-		+ parseFloat(user.info_economica_mensual.egresos[0].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[1].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[2].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[3].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[4].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[5].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[6].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[7].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[8].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[9].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[10].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[11].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[12].monto || 0)
-		+ parseFloat(user.info_economica_mensual.egresos[13].monto || 0)
+		+ getNumeric(user.info_economica_mensual.egresos[0].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[1].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[2].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[3].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[4].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[5].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[6].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[7].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[8].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[9].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[10].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[11].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[12].monto)
+		+ getNumeric(user.info_economica_mensual.egresos[13].monto)
 
 	function infonavitChange(event) {
 		if (event.target.value === 'NO') {
@@ -253,7 +257,7 @@
 	<tr>
 		<th>Marca</th>
 		<th>Modelo y Año</th>
-		<th>Liquidad</th>
+		<th>Liquidado (Si/No)</th>
 		<th>Valor Comercial (M.N.)</th>
 	</tr>
 	{#each [0, 1] as index}
@@ -271,7 +275,7 @@
 	<tr>
 		<th>Tipo de inmueble</th>
 		<th>Ubicación (dirección completa)</th>
-		<th>Liquidado</th>
+		<th>Liquidado (Si/No)</th>
 		<th>Valor Comercial (M.N.)</th>
 	</tr>
 	{#each [0, 1] as index}
