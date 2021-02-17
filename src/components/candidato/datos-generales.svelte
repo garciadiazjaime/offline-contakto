@@ -195,10 +195,6 @@
 	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required>
 </div>
 <div>
-	<span>Religión</span>
-	<input bind:value={user.datos_generales.religion} required>
-</div>
-<div>
 	<span>Tiempo radicando en la ciudad</span>
 	<input bind:value={user.datos_generales.tiempo_radicando} required>
 </div>

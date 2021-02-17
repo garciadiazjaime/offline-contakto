@@ -92,14 +92,6 @@ function isDatosGeneralesValid(user) {
     return publish('UPDATE_MSG', { msg: 'INE require 13 caracteres' })
   }
 
-  if (user.datos_generales.origen.nacionalidad !== '' && !nacionalidad.map(item => item[0].toLocaleLowerCase()).includes(user.datos_generales.origen.nacionalidad.toLocaleLowerCase())) {
-    return publish('UPDATE_MSG', { msg: 'Valor incorrecto para Nacionalidad' })
-  }  
-
-  if (user.datos_generales.medio_utilizado !== '' && !medioTransporte.map(item => item[0].toLocaleLowerCase()).includes(user.datos_generales.medio_utilizado.toLocaleLowerCase())) {
-    return publish('UPDATE_MSG', { msg: 'Valor incorrecto para Medio de Transporte' })
-  }  
-
   return true
 }
 
