@@ -73,44 +73,44 @@
 </p>
 <p>
 	<span>En caso de no presentar algún documento, especificar cuál y el motivo por el que no lo presentó</span>
-	<input bind:value={user.cuadro_evaluacion.documentos_cotejados[9].observaciones} type="input">
+	<input bind:value={user.cuadro_evaluacion.documentos_cotejados[9].observaciones} type="input" required>
 </p>
 
 <h2>Calificación de 1% a 100%</h2>
 <h3>Aspecto del Hogar</h3>
 <p>
 	<span>Orden</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[0].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[0].estatus} required>
 </p>
 <p>
 	<span>Limpieza</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[1].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[1].estatus} required>
 </p>
 <p>
 	<span>Conservación</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[2].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_hogar[2].estatus} required>
 </p>
 
 <h3>Aspecto del candidato</h3>
 <p>
 	<span>Puntualidad</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[0].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[0].estatus} required>
 </p>
 <p>
 	<span>Apariencia física</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[1].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[1].estatus} required>
 </p>
 <p>
 	<span>Colaboración</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[2].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[2].estatus} required>
 </p>
 <p>
 	<span>Actitud</span>
-	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[3].estatus}>
+	<input bind:value={user.cuadro_evaluacion.aspectos_candidato[3].estatus} required>
 </p>
 
 <h2>Conclusión</h2>
 <p>
 	<span>Conclusiones de la entrevista (visible en conclusión pdf)</span>
-	<textarea bind:value={user.investigacion.conclusiones}></textarea>
+	<textarea bind:value={user.investigacion.conclusiones} required></textarea>
 </p>
