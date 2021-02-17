@@ -218,7 +218,6 @@ function getEmptyUser() {
         terreno_compartido: '',
         departamento: '',
         vivienda_popular: '',
-        otro_tipo: '',
       },
       distribucion_dimensiones: {
         habitaciones: '',

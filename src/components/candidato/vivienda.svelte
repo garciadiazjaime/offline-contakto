@@ -102,10 +102,6 @@
 		<input bind:value={user.situacion_vivienda.tipo_inmueble.casa} required>
 	</div>
 </div>
-<div>
-	<span>Otro</span>
-	<input bind:value={user.situacion_vivienda.tipo_inmueble.otro_tipo} required>
-</div>
 
 <h2>Distribución dimensional</h2>
 <div>

@@ -69,7 +69,7 @@ function isINEValid(field) {
 
 function isDatosGeneralesValid(user) {
   if (!arePhonesValid([user.datos_generales.telefono.casa, user.datos_generales.telefono.movil, user.datos_generales.telefono.recados.numero])) {
-    return publish('UPDATE_MSG', { msg: 'Teléfonos deben llevar el formato: 123-123-1234 o "no tiene"' })
+    return publish('UPDATE_MSG', { msg: 'Teléfonos deben llevar el formato: 123-123-1234 o "No tiene"' })
   }
 
   if (!areDatesValid([user.datos_generales.origen.fecha, user.datos_generales.fecha_matrimonio])) {
@@ -95,9 +95,18 @@ function isDatosGeneralesValid(user) {
   return true
 }
 
+function isViviendaValid(user) {
+  if (isNaN(user.situacion_vivienda.caracteristicas_vivienda.renta_mensual) && user.situacion_vivienda.caracteristicas_vivienda.renta_mensual.toLowerCase() != 'no aplica') {
+    return publish('UPDATE_MSG', { msg: 'Renta mensual debe ser un número o el texto "No aplica"' })
+  }
+
+  return true
+}
+
 export {
   isDatosGeneralesValid,
   nacionalidad,
   medioTransporte,
   motivoSalida,
+  isViviendaValid
 }
