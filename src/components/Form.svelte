@@ -25,6 +25,8 @@
 
 	function isFormReady() {
 		const fields = []
+		document.querySelectorAll('.required').forEach(input => input.classList.remove('required'))
+
 		document.querySelectorAll('form input[required], form select[required], form textarea[required]').forEach(input => {
 			if (!input.value) {
 				input.classList.add('required')

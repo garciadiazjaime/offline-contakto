@@ -29,5 +29,5 @@
 
 <a href="/candidatos" class="login" on:click={() => login = true}>
 	<h1>Contakto Offline</h1>
-	<small>V1.5</small>
+	<small>V1.7</small>
 </a>

@@ -2,7 +2,7 @@
 	export let user
 
 	function getNumeric(value) {
-		return isNaN(value) ? 0 : parseFloat(value)
+		return !value || isNaN(value) ? 0 : parseFloat(value)
 	}
 
 	$: user.info_economica_mensual.ingresos[5].monto = 0 

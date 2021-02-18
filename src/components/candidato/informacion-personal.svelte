@@ -122,6 +122,7 @@
 
 <div>
 	<span><h3>Tiene algún familiar trabajando en la empresa</h3></span>
+	<!-- svelte-ignore a11y-no-onchange -->
 	<select bind:value={user.info_personal.familiar_en_empresa.tiene} on:change={familiarTrabajandoChange} required>
 		<option value=""></option>
 		<option value="SI">Sí</option>
