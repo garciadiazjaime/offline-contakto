@@ -218,6 +218,7 @@ function getEmptyUser() {
         terreno_compartido: '',
         departamento: '',
         vivienda_popular: '',
+        otro_tipo: '',
       },
       distribucion_dimensiones: {
         habitaciones: '',
@@ -610,7 +611,7 @@ function getEmptyUser() {
       }],
     },
 		referencias: [{
-      tipo: 'Vecinal',
+      tipo: 'vecinal',
       nombre: '',
       domicilio: '',
       telefono: '',
@@ -620,7 +621,7 @@ function getEmptyUser() {
       lugares_labor_evaluado: '',
       opinion: '',
     }, {
-      tipo: 'Personal (no familiares)',
+      tipo: 'personal',
       nombre: '',
       domicilio: '',
       telefono: '',
@@ -630,7 +631,7 @@ function getEmptyUser() {
       lugares_labor_evaluado: '',
       opinion: '',
     }, {
-      tipo: 'Personal',
+      tipo: 'personal_opcional',
       nombre: '',
       domicilio: '',
       telefono: '',
