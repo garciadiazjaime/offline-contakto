@@ -39,16 +39,12 @@ function arePhonesValid(fields) {
   return arePhonesValid(fields.slice(1))
 }
 
-function areDatesValid(fields) {
-  if (!fields.length) {
-    return true
-  }
-  
-  if (!dateRegex.test(fields[0])) {
-    return false
-  }
+function isDateValid(fields) {
+  return dateRegex.test(fields)
+}
 
-  return areDatesValid(fields.slice(1))		
+function isDateValidOrTextValid(value) {
+  return dateRegex.test(value) || value.toLowerCase() === 'no aplica'
 }
 
 function isRFCValid(field) {
@@ -72,8 +68,12 @@ function isDatosGeneralesValid(user) {
     return publish('UPDATE_MSG', { msg: 'Teléfonos deben llevar el formato: 123-123-1234 o "No tiene"' })
   }
 
-  if (!areDatesValid([user.datos_generales.origen.fecha, user.datos_generales.fecha_matrimonio])) {
+  if (!isDateValid(user.datos_generales.origen.fecha)) {
     return publish('UPDATE_MSG', { msg: 'El formato para las fechas debe ser: DD/MM/AAAA' })
+  }
+
+  if (!isDateValidOrTextValid(user.datos_generales.fecha_matrimonio)) {
+    return publish('UPDATE_MSG', { msg: 'El formato para las fechas debe ser: DD/MM/AAAA o el texto "No aplica"' })
   }
 
   if (!isRFCValid(user.datos_generales.rfc)) {
