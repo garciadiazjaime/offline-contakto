@@ -2,7 +2,7 @@
 	export let user
 
 	function estudiaActualmenteChange(event) {
-		if (event.target.value === 'NO') {
+		if (event.target.value === '2') {
 			user.info_academica.estudios_institucion = 'No aplica'
 			user.info_academica.estudios_que = 'No aplica'
 			user.info_academica.estudios_horarios = 'No aplica'
@@ -193,8 +193,8 @@
 	<!-- svelte-ignore a11y-no-onchange -->
 	<select bind:value={user.info_academica.estudia_actualmente} on:change={estudiaActualmenteChange} required>
 		<option value="">Seleccionar</option>
-		<option value="SI">Sí</option>
-		<option value="NO">No</option>
+		<option value="1">Sí</option>
+		<option value="2">No</option>
 	</select> 
 </div>
 <div>
