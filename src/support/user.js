@@ -138,8 +138,10 @@ function getEmptyUser() {
       institucion_medica: '',
     },
     actividades_habitos: {
+      inactividad_laboral_menu: '',
       inactividad_laboral: '',
       inactividad_laboral_actividad: '',
+      negocios_menu: '',
       negocios: '',
       negocios_actividad: '',
       frecuencia_tabaco: '',

@@ -4,7 +4,7 @@
 	function inactividadLaboralChange(event) {
 		if (event.target.value === 'NO') {
 			user.actividades_habitos.inactividad_laboral = 'No aplica'
-			user.actividades_habitos.inactividad_laboral_actividad = 'No aplica'		
+			user.actividades_habitos.inactividad_laboral_actividad = 'No aplica'
 		} else {
 			user.actividades_habitos.inactividad_laboral = ''
 			user.actividades_habitos.inactividad_laboral_actividad = ''
@@ -129,7 +129,7 @@
 <div>
 	<span><strong>Inactividad laboral</strong></span>
 	<!-- svelte-ignore a11y-no-onchange -->
-	<select on:change={inactividadLaboralChange} required>
+	<select bind:value={user.actividades_habitos.inactividad_laboral_menu} on:change={inactividadLaboralChange} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
@@ -148,7 +148,7 @@
 <div>
 	<span><strong>Negocios por cuenta propia</strong></span>
 	<!-- svelte-ignore a11y-no-onchange -->
-	<select on:change={negociosPropiosChange} required>
+	<select bind:value={user.actividades_habitos.negocios_menu} on:change={negociosPropiosChange} required>
 		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
