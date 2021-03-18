@@ -23,13 +23,11 @@
 
 	function familiarTrabajandoChange(event) {
 		if (event.target.value === 'NO') {
-			user.info_personal.familiar_en_empresa.tiene = 'No aplica'
 			user.info_personal.familiar_en_empresa.puesto = 'No aplica'
 			user.info_personal.familiar_en_empresa.nombre = 'No aplica'
 			user.info_personal.familiar_en_empresa.sucursal = 'No aplica'
 			user.info_personal.familiar_en_empresa.parentesco = 'No aplica'
 		} else {
-			user.info_personal.familiar_en_empresa.tiene = ''
 			user.info_personal.familiar_en_empresa.puesto = ''
 			user.info_personal.familiar_en_empresa.nombre = ''
 			user.info_personal.familiar_en_empresa.sucursal = ''
@@ -124,7 +122,7 @@
 	<span><h3>Tiene algún familiar trabajando en la empresa</h3></span>
 	<!-- svelte-ignore a11y-no-onchange -->
 	<select bind:value={user.info_personal.familiar_en_empresa.tiene} on:change={familiarTrabajandoChange} required>
-		<option value=""></option>
+		<option value="">Seleccionar</option>
 		<option value="SI">Sí</option>
 		<option value="NO">No</option>
 	</select>
