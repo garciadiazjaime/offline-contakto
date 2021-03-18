@@ -78,10 +78,6 @@
 	</div>
 </div>
 <div>
-	<span>Otra</span>
- 	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.otra} required>
-</div>
-<div>
 	<span>Valor aproximado</span>
 	<input bind:value={user.situacion_vivienda.caracteristicas_vivienda.valor_aproximado} required>
 </div>

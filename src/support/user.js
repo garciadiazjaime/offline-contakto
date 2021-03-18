@@ -211,7 +211,6 @@ function getEmptyUser() {
         rentada: '',
         hipotecada: '',
         prestada: '',
-        otra: '',
         valor_aproximado: '',
         renta_mensual: '',
       },
