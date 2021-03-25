@@ -11,6 +11,14 @@
 	function transporteChange(event) {
 		user.datos_generales.medio_utilizado = event.target.value
 	}
+
+	function licenciaChange(event) {
+		if (event.target.value === 'No Tiene') {
+			user.datos_generales.licencia.numero = 'No Aplica'
+		} else {
+			user.datos_generales.licencia.numero = ''
+		}
+	}
 </script>
 
 
@@ -155,7 +163,8 @@
 </div>
 <div>
 	<span>Tipo de licencia</span>
-	<select bind:value={user.datos_generales.licencia.tipo} required>
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.licencia.tipo} required on:change={licenciaChange}>
 		<option value="">Seleccionar</option>
 		<option value="A">A</option>
 		<option value="B">B</option>
@@ -165,6 +174,7 @@
 		<option value="E1">E1</option>
 		<option value="Federal">Federal</option>
 		<option value="Binacional">Binacional</option>
+		<option value="No Tiene">No Tiene</option>
 	</select>
 </div>
 <div>
