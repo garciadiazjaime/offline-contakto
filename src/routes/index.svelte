@@ -29,5 +29,4 @@
 
 <a href="/candidatos" class="login" on:click={() => login = true}>
 	<h1>Contakto Offline</h1>
-	<small>V1.10</small>
 </a>

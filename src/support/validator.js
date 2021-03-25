@@ -97,10 +97,10 @@ function isDatosGeneralesValid(user) {
 
 function isNumberOrTextInvalid(value, emptyRule = false) {
   if (emptyRule) {
-    return value && isNaN(value) && value != 'no aplica'
+    return value && isNaN(value) && value.toLowerCase() !== 'no aplica'
   }
 
-  return isNaN(value) && value != 'no aplica'
+  return isNaN(value) && value.toLowerCase() != 'no aplica'
 }
 
 function isViviendaValid(user) {
