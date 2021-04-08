@@ -129,7 +129,7 @@
 
 <nav>
 	<a href="/candidatos">
-		Contakto Offline <small>v.11</small>
+		Contakto Offline <small>v.12</small>
 	</a>
 </nav>
 
