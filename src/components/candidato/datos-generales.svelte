@@ -19,6 +19,12 @@
 			user.datos_generales.licencia.numero = ''
 		}
 	}
+
+	function edoCivilChange(event) {
+		if (event.target.value === 'Soltero') {
+			user.datos_generales.fecha_matrimonio = 'No Aplica'
+		}
+	}
 </script>
 
 
@@ -191,7 +197,8 @@
 </div>
 <div>
 	<span>Estado civil</span>
-	<select bind:value={user.datos_generales.estado_civil} required>
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.estado_civil} required on:change={edoCivilChange}>
 		<option value="">Seleccionar</option>
 		<option value="Soltero">Soltero(a)</option>
 		<option value="Casado">Casado(a)</option>
