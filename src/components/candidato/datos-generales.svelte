@@ -189,7 +189,7 @@
 </div>
 <div>
 	<span>No. de pasaporte o visa</span>
-	<input bind:value={user.datos_generales.pasaporte} required>
+	<input bind:value={user.datos_generales.pasaporte} required maxlength="30">
 </div>
 <div>
 	<span>NSS (IMSS)</span>
