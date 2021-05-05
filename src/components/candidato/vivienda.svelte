@@ -192,7 +192,7 @@
 </div>
 <div>
 	<span>Número de personas y parentescos de quienes viven con el evaluado</span>
-	<input bind:value={user.situacion_vivienda.personas_viven_con_evaluado} required>
+	<input bind:value={user.situacion_vivienda.personas_viven_con_evaluado} required maxlength="50">
 </div>
 <div>
 	<span>Conservación de Vivienda</span>
