@@ -134,7 +134,7 @@
 </div>
 <div>
 	<span>Fecha de nacimiento</span>
-	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA" required>
+	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA" required type="date">
 </div>
 <div>
 	<span>
@@ -209,7 +209,7 @@
 </div>
 <div>
 	<span>Fecha de matrimonio</span>
-	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required>
+	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required type="date">
 </div>
 <div>
 	<span>Tiempo radicando en la ciudad</span>

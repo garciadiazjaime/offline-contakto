@@ -2,6 +2,7 @@
   export let handler
   export let name
   export let required
+  export let value
 </script>
 
 <style>
@@ -13,7 +14,7 @@
 </style>
 
 <!-- svelte-ignore a11y-no-onchange -->
-<select on:change={handler} name={name} required={required}>
+<select on:change={handler} name={name} required={required} value={value}>
   <option value="">Seleccionar</option>
   <option value="SI">Sí</option>
   <option value="NO">No</option>

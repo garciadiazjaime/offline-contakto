@@ -1,18 +1,45 @@
 <script>
 	export let user
 
-	function estudiaActualmenteChange(event) {
-		if (event.target.value === '2') {
-			user.info_academica.estudios_institucion = 'No aplica'
-			user.info_academica.estudios_que = 'No aplica'
-			user.info_academica.estudios_horarios = 'No aplica'
-			user.info_academica.estudios_dias = 'No aplica'			
-		} else {
-			user.info_academica.estudios_institucion = ''
-			user.info_academica.estudios_que = ''
-			user.info_academica.estudios_horarios = ''
-			user.info_academica.estudios_dias = ''
+	import Select from "../form/select.svelte"
+
+	function schoolChangeHandler(event) {
+		const { name: field, value } = event.target
+		const label = value === 'NO' ? 'No aplica' : ''
+
+		if (field === 'estudia_actualmente') {
+			user.info_academica.estudia_actualmente = value
+			user.info_academica.estudios_institucion = label
+			user.info_academica.estudios_que = label
+			user.info_academica.estudios_horarios = label
+			user.info_academica.estudios_dias = label
+
+			return
 		}
+
+		if (field === 'cedula_profesional') {
+			user.info_academica.cedula_profesional_tiene = value
+			user.info_academica.cedula_profesional = label
+			user.info_academica.cedula_prof_ano_exp = label
+
+			return
+		}
+
+		if (field === 'otro_idioma') {
+			user.info_academica[field].tiene = value
+			user.info_academica[field].idioma = label
+			user.info_academica[field].hablado = label
+			user.info_academica[field].leido = label
+			user.info_academica[field].escuchado = label
+
+			return
+		}
+
+		user.info_academica[field].tiene = value
+		user.info_academica[field].institucion = label
+		user.info_academica[field].ciudad = label
+		user.info_academica[field].anos = label
+		user.info_academica[field].certificado = value === 'NO' ? value : ''
 	}
 </script>
 
@@ -49,7 +76,10 @@
 
 <h1>Inf. Académica</h1>
 
-<h2>Primaria</h2>
+<div>
+	<span><strong>Cuenta con Primaria?</strong></span>
+	<Select value={user.info_academica.primaria.tiene} handler={schoolChangeHandler} name="primaria" required/>
+</div>
 <div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.primaria.institucion} required>
@@ -70,8 +100,11 @@
 		<option value="NO">No</option>
 	</select> 
 </div>
-
-<h2>Secundaria</h2>
+<br  />
+<div>
+	<span><strong>Cuenta con Secundaria?</strong></span>
+	<Select value={user.info_academica.secundaria.tiene} handler={schoolChangeHandler} name="secundaria" required/>
+</div>
 <div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.secundaria.institucion} required>
@@ -93,7 +126,11 @@
 	</select> 
 </div>
 
-<h2>Preparatoria</h2>
+<br />
+<div>
+	<span><strong>Cuenta con Preparatoria?</strong></span>
+	<Select value={user.info_academica.preparatoria.tiene} handler={schoolChangeHandler} name="preparatoria" required/>
+</div>
 <div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.preparatoria.institucion} required>
@@ -115,7 +152,11 @@
 	</select> 
 </div>
 
-<h2>Profesional</h2>
+<br />
+<div>
+	<span><strong>Cuenta con Carrera Profesional?</strong></span>
+	<Select value={user.info_academica.profesional.tiene} handler={schoolChangeHandler} name="profesional" required/>
+</div>
 <div>
 	<span>Institución y carrera</span>
 	<input bind:value={user.info_academica.profesional.institucion} required>
@@ -137,7 +178,11 @@
 	</select> 
 </div>
 
-<h2>Otro</h2>
+<br />
+<div>
+	<span><strong>Cuenta con Otro Estudio?</strong></span>
+	<Select value={user.info_academica.otro_grado.tiene} handler={schoolChangeHandler} name="otro_grado" required/>
+</div>
 <div>
 	<span>Institución</span>
 	<input bind:value={user.info_academica.otro_grado.institucion} required>
@@ -161,6 +206,10 @@
 
 <br />
 <div>
+	<span><strong>Cuenta con Cédula profesional?</strong></span>
+	<Select value={user.info_academica.cedula_profesional_tiene} handler={schoolChangeHandler} name="cedula_profesional" required/>
+</div>
+<div>
 	<span>Cédula profesional:</span>
 	<input bind:value={user.info_academica.cedula_profesional} required>
 </div>
@@ -170,6 +219,10 @@
 </div>
 
 <br />
+<div>
+	<span><strong>Domina de otro idioma?</strong></span>
+	<Select value={user.info_academica.otro_idioma.tiene} handler={schoolChangeHandler} name="otro_idioma" required/>
+</div>
 <div>
 	<span>Dominio de otro idioma:</span>
 	<input bind:value={user.info_academica.otro_idioma.idioma} required>
@@ -190,12 +243,7 @@
 <h2>Estudios</h2>
 <div>
 	<span>Estudia Actualmente</span>
-	<!-- svelte-ignore a11y-no-onchange -->
-	<select bind:value={user.info_academica.estudia_actualmente} on:change={estudiaActualmenteChange} required>
-		<option value="">Seleccionar</option>
-		<option value="1">Sí</option>
-		<option value="2">No</option>
-	</select> 
+	<Select value={user.info_academica.estudia_actualmente} handler={schoolChangeHandler} name="estudia_actualmente" required />
 </div>
 <div>
 	<span>Institución</span>
