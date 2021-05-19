@@ -25,6 +25,46 @@
 			user.datos_generales.fecha_matrimonio = 'No Aplica'
 		}
 	}
+
+	function telefonoHandler(event, field) {
+		const x = event.target.value.slice(0, 12).replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+		const phone = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
+		if (field === 'user.datos_generales.telefono.casa') {
+			user.datos_generales.telefono.casa = phone
+		}
+		else if (field === 'user.datos_generales.telefono.movil') {
+			user.datos_generales.telefono.movil = phone
+		}
+		else if (field === 'user.datos_generales.telefono.recados.numero') {
+			user.datos_generales.telefono.recados.numero = phone
+		}
+	}
+
+	function dateHandler(event, field) {
+		const [year, month, day] = event.target.value.split('-')
+		const date = `${day}/${month}/${year}`
+
+		if (field === 'user.datos_generales.origen.fecha') {
+			user.datos_generales.origen.fecha = date
+		}
+		else if(field === 'user.datos_generales.fecha_matrimonio') {
+			user.datos_generales.fecha_matrimonio = date
+		}
+	}
+
+	function telSelectHandler(event, field) {
+		const value = event.target.value === "1" ? 'No tiene' : ''
+
+		if (field === 'user.datos_generales.telefono.casa') {
+			user.datos_generales.telefono.casa = value
+		}
+		else if (field === 'user.datos_generales.telefono.movil') {
+			user.datos_generales.telefono.movil = value
+		}
+		else if (field === 'user.datos_generales.telefono.recados.numero') {
+			user.datos_generales.telefono.recados.numero = value
+		}
+	}
 </script>
 
 
@@ -59,6 +99,14 @@
 
 	h2 {
 		padding-top: 29px;
+	}
+
+	.date-picker {
+		width: 64px;
+		border: none;
+	}
+	.date-picker:focus, .date-picker:focus{
+		outline: none;
 	}
 </style>
 
@@ -112,15 +160,36 @@
 <h2>Teléfonos</h2>
 <div>
 	<span>Casa</span>
-	<input bind:value={user.datos_generales.telefono.casa} placeholder="###-###-####" required>
+	<div>
+		<input on:keyup={e => telefonoHandler(e, 'user.datos_generales.telefono.casa')} bind:value={user.datos_generales.telefono.casa} placeholder="###-###-####" required>
+		<!-- svelte-ignore a11y-no-onchange -->
+		<select on:change={e => telSelectHandler(e, 'user.datos_generales.telefono.casa')}>
+			<option value=0>Seleccionar</option>
+			<option value=1>No tiene</option>
+		</select>
+	</div>
 </div>
 <div>
 	<span>Celular</span>
-	<input bind:value={user.datos_generales.telefono.movil} placeholder="###-###-####" required>
+	<div>
+		<input on:keyup={e => telefonoHandler(e, 'user.datos_generales.telefono.movil')} bind:value={user.datos_generales.telefono.movil} placeholder="###-###-####" required>
+		<!-- svelte-ignore a11y-no-onchange -->
+		<select on:change={e => telSelectHandler(e, 'user.datos_generales.telefono.movil')}>
+			<option value=0>Seleccionar</option>
+			<option value=1>No tiene</option>
+		</select>
+	</div>
 </div>
 <div>
 	<span>Recado</span>
-	<input bind:value={user.datos_generales.telefono.recados.numero} placeholder="###-###-####" required>
+	<div>
+		<input on:keyup={e => telefonoHandler(e, 'user.datos_generales.telefono.recados.numero')} bind:value={user.datos_generales.telefono.recados.numero} placeholder="###-###-####" required>
+		<!-- svelte-ignore a11y-no-onchange -->
+		<select on:change={e => telSelectHandler(e, 'user.datos_generales.telefono.recados.numero')}>
+			<option value=0>Seleccionar</option>
+			<option value=1>No tiene</option>
+		</select>
+	</div>
 </div>
 <div>
 	<span>Parentesco</span>
@@ -134,7 +203,10 @@
 </div>
 <div>
 	<span>Fecha de nacimiento</span>
-	<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA" required type="date">
+	<div>
+		<input bind:value={user.datos_generales.origen.fecha} placeholder="DD/MM/AAAA" required>
+		<input on:change={e => dateHandler(e, 'user.datos_generales.origen.fecha')} type="date" class="date-picker">
+	</div>
 </div>
 <div>
 	<span>
@@ -209,7 +281,10 @@
 </div>
 <div>
 	<span>Fecha de matrimonio</span>
-	<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required type="date">
+	<div>
+		<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required>
+		<input on:change={e => dateHandler(e, 'user.datos_generales.fecha_matrimonio')} type="date" class="date-picker">
+	</div>
 </div>
 <div>
 	<span>Tiempo radicando en la ciudad</span>

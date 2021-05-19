@@ -53,6 +53,50 @@
 			user.datos_generales.fonacot.uso = ''
 		}
 	}
+
+	function selectChange(event, field) {
+		const value = event.target.value === 'NO' ? 'No aplica' : ''
+		const index = 0
+
+		if (field === 'credito') {
+			user.situacion_economica.tarjetas_credito_comerciales[index].institucion = value
+			user.situacion_economica.tarjetas_credito_comerciales[index].limite_credito = value
+			user.situacion_economica.tarjetas_credito_comerciales[index].pago_minimo = value
+			user.situacion_economica.tarjetas_credito_comerciales[index].saldo_actual = value
+		}
+		else if (field === 'debito') {
+			user.situacion_economica.cuentas_debito[index].institucion = value
+			user.situacion_economica.cuentas_debito[index].saldo_mensual = value
+			user.situacion_economica.cuentas_debito[index].antiguedad = value
+			user.situacion_economica.cuentas_debito[index].ahorro = value
+		}
+		else if (field === 'auto') {
+			user.situacion_economica.automoviles[index].marca = value	
+			user.situacion_economica.automoviles[index].modelo_ano = value	
+			user.situacion_economica.automoviles[index].liquidacion = value	
+			user.situacion_economica.automoviles[index].valor_comercial = value
+		}
+		else if (field === 'bienes') {
+			user.situacion_economica.bienes_raices[index].tipo_inmueble = value
+			user.situacion_economica.bienes_raices[index].ubicacion = value
+			user.situacion_economica.bienes_raices[index].liquidacion = value
+			user.situacion_economica.bienes_raices[index].valor_comercial = value
+		}
+		else if (field === 'seguro') {
+			user.situacion_economica.seguros[index].empresa = value
+			user.situacion_economica.seguros[index].tipo = value
+			user.situacion_economica.seguros[index].forma_pago = value
+			user.situacion_economica.seguros[index].vigencia = value
+		}
+		else if (field === 'deuda') {
+			user.situacion_economica.deudas_actuales[index].fecha_otorgamiento = value
+			user.situacion_economica.deudas_actuales[index].tipo = value
+			user.situacion_economica.deudas_actuales[index].institucion = value
+			user.situacion_economica.deudas_actuales[index].cantidad_total = value
+			user.situacion_economica.deudas_actuales[index].saldo_actual = value
+			user.situacion_economica.deudas_actuales[index].pago_mensual = value
+		}
+	}
 </script>
 
 <style>
@@ -64,6 +108,10 @@
 		height: 32px;
 		font-size: 26px;
 		width: 100%;
+	}
+
+	select {
+		height: 38px;
 	}
 
 	p {
@@ -215,6 +263,7 @@
 <h2>Tarjetas de Crédito</h2>
 <table>
 	<tr>
+		<th>Tiene?</th>
 		<th>Institución</th>
 		<th>Crédito</th>
 		<th>Pago Mínimo</th>
@@ -223,9 +272,15 @@
 	{#each [0, 1] as index}
 		<tr>
 			<td>
-				
-					<input bind:value={user.situacion_economica.tarjetas_credito_comerciales[index].institucion} required={index === 0 ? true : false}>
-				
+				<!-- svelte-ignore a11y-no-onchange -->
+				<select on:change={e => selectChange(e, 'credito')} required={index === 0 ? true : false}>
+					<option value="">Seleccionar</option>
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</td>
+			<td>
+				<input bind:value={user.situacion_economica.tarjetas_credito_comerciales[index].institucion} required={index === 0 ? true : false}>
 			</td>
 			<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[index].limite_credito} placeholder="$m.n." required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.tarjetas_credito_comerciales[index].pago_minimo} placeholder="$m.n." required={index === 0 ? true : false}></td>
@@ -237,6 +292,7 @@
 <h2>Cuentas de débito</h2>
 <table>
 	<tr>
+		<th>Tiene?</th>
 		<th>Institución</th>
 		<th>Saldo Mensual</th>
 		<th>Antiguedad</th>
@@ -244,6 +300,14 @@
 	</tr>
 	{#each [0, 1] as index}
 		<tr>
+			<td>
+				<!-- svelte-ignore a11y-no-onchange -->
+				<select on:change={e => selectChange(e, 'debito')} required={index === 0 ? true : false}>
+					<option value="">Seleccionar</option>
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</td>
 			<td><input bind:value={user.situacion_economica.cuentas_debito[index].institucion} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.cuentas_debito[index].saldo_mensual} placeholder="$m.n." required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.cuentas_debito[index].antiguedad} required={index === 0 ? true : false}></td>
@@ -255,6 +319,7 @@
 <h2>Automóviles</h2>
 <table>
 	<tr>
+		<th>Tiene?</th>
 		<th>Marca</th>
 		<th>Modelo y Año</th>
 		<th>Liquidado (Si/No)</th>
@@ -262,6 +327,14 @@
 	</tr>
 	{#each [0, 1] as index}
 		<tr>
+			<td>
+				<!-- svelte-ignore a11y-no-onchange -->
+				<select on:change={e => selectChange(e, 'auto')} required={index === 0 ? true : false}>
+					<option value="">Seleccionar</option>
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</td>
 			<td><input bind:value={user.situacion_economica.automoviles[index].marca} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.automoviles[index].modelo_ano} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.automoviles[index].liquidacion} required={index === 0 ? true : false}></td>
@@ -273,6 +346,7 @@
 <h2>Bienes Raíces</h2>
 <table>
 	<tr>
+		<th>Tiene?</th>
 		<th>Tipo de inmueble</th>
 		<th>Ubicación (dirección completa)</th>
 		<th>Liquidado (Si/No)</th>
@@ -280,6 +354,14 @@
 	</tr>
 	{#each [0, 1] as index}
 		<tr>
+			<td>
+				<!-- svelte-ignore a11y-no-onchange -->
+				<select on:change={e => selectChange(e, 'bienes')} required={index === 0 ? true : false}>
+					<option value="">Seleccionar</option>
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</td>
 			<td><input bind:value={user.situacion_economica.bienes_raices[index].tipo_inmueble} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.bienes_raices[index].ubicacion} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.bienes_raices[index].liquidacion} required={index === 0 ? true : false}></td>
@@ -291,6 +373,7 @@
 <h2>Seguros</h2>
 <table>
 	<tr>
+		<th>Tiene?</th>
 		<th>Empresa</th>
 		<th>Tipo de seguridad</th>
 		<th>Forma de pago</th>
@@ -298,6 +381,14 @@
 	</tr>
 	{#each [0, 1] as index}
 		<tr>
+			<td>
+				<!-- svelte-ignore a11y-no-onchange -->
+				<select on:change={e => selectChange(e, 'seguro')} required={index === 0 ? true : false}>
+					<option value="">Seleccionar</option>
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</td>
 			<td><input bind:value={user.situacion_economica.seguros[index].empresa} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.seguros[index].tipo} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.seguros[index].forma_pago} required={index === 0 ? true : false}></td>
@@ -309,6 +400,7 @@
 <h2>Deudas actuales</h2>
 <table>
 	<tr>
+		<th>Tiene?</th>
 		<th>Fecha otorgamiento</th>
 		<th>Tipo</th>
 		<th>Insitución</th>
@@ -318,6 +410,14 @@
 	</tr>
 	{#each [0, 1] as index}
 		<tr>
+			<td>
+				<!-- svelte-ignore a11y-no-onchange -->
+				<select on:change={e => selectChange(e, 'deuda')} required={index === 0 ? true : false}>
+					<option value="">Seleccionar</option>
+					<option value="SI">Sí</option>
+					<option value="NO">No</option>
+				</select>
+			</td>
 			<td><input bind:value={user.situacion_economica.deudas_actuales[index].fecha_otorgamiento} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.deudas_actuales[index].tipo} required={index === 0 ? true : false}></td>
 			<td><input bind:value={user.situacion_economica.deudas_actuales[index].institucion} required={index === 0 ? true : false}></td>
