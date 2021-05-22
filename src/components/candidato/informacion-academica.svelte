@@ -243,7 +243,7 @@
 <h2>Estudios</h2>
 <div>
 	<span>Estudia Actualmente</span>
-	<Select value={user.info_academica.estudia_actualmente} handler={schoolChangeHandler} name="estudia_actualmente" required />
+	<Select value={user.info_academica.estudia_actualmente} handler={schoolChangeHandler} name="estudia_actualmente" type="num" required />
 </div>
 <div>
 	<span>Institución</span>

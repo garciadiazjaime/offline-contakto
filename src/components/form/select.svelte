@@ -3,6 +3,12 @@
   export let name
   export let required
   export let value
+  export let type = "text"
+
+  const values = {
+    text: ["SI", "NO"],
+    num: ["1", "2"],
+  }
 </script>
 
 <style>
@@ -16,6 +22,6 @@
 <!-- svelte-ignore a11y-no-onchange -->
 <select on:change={handler} name={name} required={required} value={value}>
   <option value="">Seleccionar</option>
-  <option value="SI">Sí</option>
-  <option value="NO">No</option>
+  <option value={values[type][0]}>Sí</option>
+  <option value={values[type][1]}>No</option>
 </select>	

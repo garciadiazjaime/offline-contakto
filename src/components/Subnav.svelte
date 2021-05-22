@@ -1,12 +1,31 @@
 <script>
-  import { STEPS, deleteUser } from '../support/user'
+  import { STEPS, deleteUser, updateUser } from '../support/user'
 
   export let uuid
   export let section
   export let user
 
+  function fixFields() {
+    let update = false
+
+    if (user.info_academica.estudia_actualmente === "SI") {
+      user.info_academica.estudia_actualmente = "1"
+      update = true
+    }
+    else if (user.info_academica.estudia_actualmente === "NO") {
+      user.info_academica.estudia_actualmente = "2"
+      update = true
+    }
+
+    if (update) {
+      updateUser(user)
+    }
+  }
+
   async function clickHandlerExport(event) {
     event.preventDefault()
+
+    fixFields()
 
     const electron = require('electron')
 		const mainProcess = electron.remote.require('./main.js');
