@@ -5,7 +5,7 @@
 
 	function schoolChangeHandler(event) {
 		const { name: field, value } = event.target
-		const label = value === 'NO' ? 'No aplica' : ''
+		const label = value === 'NO' || value === '2' ? 'No aplica' : ''
 
 		if (field === 'estudia_actualmente') {
 			user.info_academica.estudia_actualmente = value
