@@ -54,9 +54,8 @@
 		}
 	}
 
-	function selectChange(event, field) {
+	function selectChange(event, field, index) {
 		const value = event.target.value === 'NO' ? 'No aplica' : ''
-		const index = 0
 
 		if (field === 'credito') {
 			user.situacion_economica.tarjetas_credito_comerciales[index].institucion = value
@@ -273,7 +272,7 @@
 		<tr>
 			<td>
 				<!-- svelte-ignore a11y-no-onchange -->
-				<select on:change={e => selectChange(e, 'credito')} required={index === 0 ? true : false}>
+				<select bind:value={user.situacion_economica.tarjetas_credito_comerciales[index].tiene} on:change={e => selectChange(e, 'credito', index)} required={index === 0 ? true : false}>
 					<option value="">Seleccionar</option>
 					<option value="SI">Sí</option>
 					<option value="NO">No</option>
@@ -302,7 +301,7 @@
 		<tr>
 			<td>
 				<!-- svelte-ignore a11y-no-onchange -->
-				<select on:change={e => selectChange(e, 'debito')} required={index === 0 ? true : false}>
+				<select bind:value={user.situacion_economica.cuentas_debito[index].tiene} on:change={e => selectChange(e, 'debito', index)} required={index === 0 ? true : false}>
 					<option value="">Seleccionar</option>
 					<option value="SI">Sí</option>
 					<option value="NO">No</option>
@@ -329,7 +328,7 @@
 		<tr>
 			<td>
 				<!-- svelte-ignore a11y-no-onchange -->
-				<select on:change={e => selectChange(e, 'auto')} required={index === 0 ? true : false}>
+				<select bind:value={user.situacion_economica.automoviles[index].tiene} on:change={e => selectChange(e, 'auto', index)} required={index === 0 ? true : false}>
 					<option value="">Seleccionar</option>
 					<option value="SI">Sí</option>
 					<option value="NO">No</option>
@@ -356,7 +355,7 @@
 		<tr>
 			<td>
 				<!-- svelte-ignore a11y-no-onchange -->
-				<select on:change={e => selectChange(e, 'bienes')} required={index === 0 ? true : false}>
+				<select bind:value={user.situacion_economica.bienes_raices[index].tiene} on:change={e => selectChange(e, 'bienes', index)} required={index === 0 ? true : false}>
 					<option value="">Seleccionar</option>
 					<option value="SI">Sí</option>
 					<option value="NO">No</option>
@@ -383,7 +382,7 @@
 		<tr>
 			<td>
 				<!-- svelte-ignore a11y-no-onchange -->
-				<select on:change={e => selectChange(e, 'seguro')} required={index === 0 ? true : false}>
+				<select bind:value={user.situacion_economica.seguros[index].tiene} on:change={e => selectChange(e, 'seguro', index)} required={index === 0 ? true : false}>
 					<option value="">Seleccionar</option>
 					<option value="SI">Sí</option>
 					<option value="NO">No</option>
@@ -412,7 +411,7 @@
 		<tr>
 			<td>
 				<!-- svelte-ignore a11y-no-onchange -->
-				<select on:change={e => selectChange(e, 'deuda')} required={index === 0 ? true : false}>
+				<select bind:value={user.situacion_economica.deudas_actuales[index].tiene} on:change={e => selectChange(e, 'deuda', index)} required={index === 0 ? true : false}>
 					<option value="">Seleccionar</option>
 					<option value="SI">Sí</option>
 					<option value="NO">No</option>
