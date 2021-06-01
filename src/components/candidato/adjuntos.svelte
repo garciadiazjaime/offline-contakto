@@ -250,10 +250,10 @@
 </p>
 <p>
 	<span>b. Extra</span>
-	<button on:click={changeHandler} name="adj7">Seleccionar Archivo</button>
-	<img src={preview.adj7} alt="" />
-	{#if preview.adj7}
-	<strong on:click={clickHandlerDelete} data-file="adj7">x</strong>
+	<button on:click={changeHandler} name="adj37">Seleccionar Archivo</button>
+	<img src={preview.adj37} alt="" />
+	{#if preview.adj37}
+	<strong on:click={clickHandlerDelete} data-file="adj37">x</strong>
 	{/if}
 </p>
 
