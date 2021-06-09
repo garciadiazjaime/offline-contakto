@@ -11,6 +11,7 @@
 
 	import Subnav from '../components/Subnav.svelte'
 	import Alert from '../components/Alert.svelte'
+	import OnlineStatus from '../components/OnlineStatus.svelte'
 
 	import { getUsers } from '../support/user'
 	import { subscribe, publish } from '../support/events'
@@ -60,7 +61,7 @@
 	a {
 		text-decoration: none;
 	}
-	
+
   .container {
 		position: relative;
 		top: 50px;
@@ -91,7 +92,7 @@
     padding: 12px 20px;
     font-size: 20px;
 	}
-	
+
 	.btn:hover {
 		cursor: pointer;
 	}
@@ -112,7 +113,7 @@
 	li:hover {
 		background-color:#e5e5e5
 	}
-	
+
 	.link {
 		cursor: pointer
 	}
@@ -131,6 +132,7 @@
 	<a href="/candidatos">
 		Contakto Offline <small>v.14</small>
 	</a>
+	<OnlineStatus />
 </nav>
 
 
