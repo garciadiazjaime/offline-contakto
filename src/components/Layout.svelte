@@ -22,11 +22,19 @@
 	let users = {}
 	let msg = ''
 	let VERSION = ''
+	let isOnline = true
 	const LIMIT_USERS = 15
 
 	let electron
 
 	onMount(async () => {
+		window.addEventListener('offline', () => isOnline = false);
+		window.addEventListener('online', () => isOnline = true);
+
+		if (!window.require) {
+			return
+		}
+
 		if (!electron) {
       electron = require('electron')
     }
@@ -67,6 +75,10 @@
 
 	function updateHandler(e) {
 		e.preventDefault()
+
+		if (!electron) {
+			return alert('Error, favor de contactar a soporte.')
+		}
 
 		const { ipcRenderer } = electron
     ipcRenderer.send('restart_app');
@@ -153,6 +165,12 @@
 		text-decoration: underline;
 		font-weight: bold;
 	}
+
+	.update {
+		float: right;
+		padding-right: 24px;
+		font-size: .5em;
+	}
 </style>
 
 <svelte:head>
@@ -163,7 +181,9 @@
 	<a href="/candidatos">
 		Contakto Offline <small>{VERSION}</small>
 	</a>
-	<a href="/actualizar" on:click={updateHandler}>Actualizar</a>
+	{#if isOnline}
+	<a href="/actualizar" on:click={updateHandler} class="update">Actualizar</a>
+	{/if}
 </nav>
 
 
