@@ -21,13 +21,38 @@
 
 	let users = {}
 	let msg = ''
+	let VERSION = ''
 	const LIMIT_USERS = 15
 
+	let electron
+
 	onMount(async () => {
+		if (!electron) {
+      electron = require('electron')
+    }
+
+    const { ipcRenderer } = electron
+
 		users = getUsers()
 		subscribe('UPDATE_LIST', () => {
 			users = getUsers()
 		})
+
+		ipcRenderer.send('app_version')
+    ipcRenderer.on('app_version', (event, arg) => {
+			VERSION = arg.version
+    })
+
+    ipcRenderer.on('update_available', () => {
+      alert('Actualización disponbile, favor de reiniciar aplicación.')
+      ipcRenderer.removeAllListeners('update_available');
+    });
+
+    ipcRenderer.on('update_downloaded', () => {
+      alert('Actualización disponbile, favor de reiniciar aplicación')
+
+      ipcRenderer.removeAllListeners('update_downloaded');
+    });
 	});
 
 	function clickHandlerAdd(e) {
@@ -38,6 +63,13 @@
 
 			publish('UPDATE_MSG', { msg: `No se pueden crear más de ${LIMIT_USERS} candidatos.` })
 		}
+	}
+
+	function updateHandler(e) {
+		e.preventDefault()
+
+		const { ipcRenderer } = electron
+    ipcRenderer.send('restart_app');
 	}
 </script>
 
@@ -129,8 +161,9 @@
 
 <nav>
 	<a href="/candidatos">
-		Contakto Offline <small>v.14</small>
+		Contakto Offline <small>{VERSION}</small>
 	</a>
+	<a href="/actualizar" on:click={updateHandler}>Actualizar</a>
 </nav>
 
 
