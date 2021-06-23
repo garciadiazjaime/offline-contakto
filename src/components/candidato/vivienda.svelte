@@ -168,7 +168,7 @@
 
 <div>
 	<span>Tiempo de radicar en el domicilio</span>
-	<input bind:value={user.situacion_vivienda.tiempo_radicando} required>
+	<input bind:value={user.situacion_vivienda.tiempo_radicando} required maxlength="50">
 </div>
 <div>
 	<span>Tipo de mobiliario</span>
