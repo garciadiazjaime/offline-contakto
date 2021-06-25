@@ -52,12 +52,12 @@
     })
 
     ipcRenderer.on('update_available', () => {
-      alert('Actualización disponbile, favor de reiniciar aplicación.')
+      alert('Una nueva versión se está descargando, favor de esperar...')
       ipcRenderer.removeAllListeners('update_available');
     });
 
     ipcRenderer.on('update_downloaded', () => {
-      alert('Actualización disponbile, favor de reiniciar aplicación')
+      alert('Actualización descargada, favor de reiniciar aplicación')
 
       ipcRenderer.removeAllListeners('update_downloaded');
     });
@@ -71,17 +71,6 @@
 
 			publish('UPDATE_MSG', { msg: `No se pueden crear más de ${LIMIT_USERS} candidatos.` })
 		}
-	}
-
-	function updateHandler(e) {
-		e.preventDefault()
-
-		if (!electron) {
-			return alert('Error, favor de contactar a soporte.')
-		}
-
-		const { ipcRenderer } = electron
-    ipcRenderer.send('restart_app');
 	}
 </script>
 
@@ -181,9 +170,6 @@
 	<a href="/candidatos">
 		Contakto Offline <small>{VERSION}</small>
 	</a>
-	{#if isOnline}
-	<a href="/actualizar" on:click={updateHandler} class="update">Actualizar</a>
-	{/if}
 </nav>
 
 
