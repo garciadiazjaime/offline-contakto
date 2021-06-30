@@ -29,7 +29,10 @@
 
 		const fileName = event.target.name
 		const response = await mainProcess.saveUserFile(data)
-		preview[fileName] = response[0]
+		const { reducedImageName, imagePath } = response[0]
+		console.log({ reducedImageName, imagePath })
+
+		preview[fileName] = `./adjuntos/${reducedImageName}`
 
 		updateUser(user)
 	}
