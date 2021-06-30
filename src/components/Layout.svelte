@@ -154,12 +154,6 @@
 		text-decoration: underline;
 		font-weight: bold;
 	}
-
-	.update {
-		float: right;
-		padding-right: 24px;
-		font-size: .5em;
-	}
 </style>
 
 <svelte:head>
