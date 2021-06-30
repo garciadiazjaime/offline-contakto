@@ -232,6 +232,29 @@
 	<input bind:value={user.datos_generales.curp} required>
 </div>
 <div>
+	<span>NSS (IMSS)</span>
+	<input bind:value={user.datos_generales.nss} required>
+</div>
+<div>
+	<span>Estado civil</span>
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.estado_civil} required on:change={edoCivilChange}>
+		<option value="">Seleccionar</option>
+		<option value="Soltero">Soltero(a)</option>
+		<option value="Casado">Casado(a)</option>
+		<option value="Divorciado">Divorciado(a)</option>
+		<option value="Unión Libre">Unión Libre</option>
+		<option value="Viudo">Viudo(a)</option>
+	</select>
+</div>
+<div>
+	<span>Fecha de matrimonio</span>
+	<div>
+		<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required>
+		<input on:change={e => dateHandler(e, 'user.datos_generales.fecha_matrimonio')} type="date" class="date-picker">
+	</div>
+</div>
+<div>
 	<span>Folio credencial INE</span>
 	<input bind:value={user.datos_generales.ife} required>
 </div>
@@ -262,29 +285,6 @@
 <div>
 	<span>No. de pasaporte o visa</span>
 	<input bind:value={user.datos_generales.pasaporte} required maxlength="30">
-</div>
-<div>
-	<span>NSS (IMSS)</span>
-	<input bind:value={user.datos_generales.nss} required>
-</div>
-<div>
-	<span>Estado civil</span>
-	<!-- svelte-ignore a11y-no-onchange -->
-	<select bind:value={user.datos_generales.estado_civil} required on:change={edoCivilChange}>
-		<option value="">Seleccionar</option>
-		<option value="Soltero">Soltero(a)</option>
-		<option value="Casado">Casado(a)</option>
-		<option value="Divorciado">Divorciado(a)</option>
-		<option value="Unión Libre">Unión Libre</option>
-		<option value="Viudo">Viudo(a)</option>
-	</select>
-</div>
-<div>
-	<span>Fecha de matrimonio</span>
-	<div>
-		<input bind:value={user.datos_generales.fecha_matrimonio} placeholder="DD/MM/AAAA" required>
-		<input on:change={e => dateHandler(e, 'user.datos_generales.fecha_matrimonio')} type="date" class="date-picker">
-	</div>
 </div>
 <div>
 	<span>Tiempo radicando en la ciudad</span>

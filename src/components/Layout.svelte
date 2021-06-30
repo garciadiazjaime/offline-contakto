@@ -31,6 +31,12 @@
 		window.addEventListener('offline', () => isOnline = false);
 		window.addEventListener('online', () => isOnline = true);
 
+		users = getUsers()
+
+		subscribe('UPDATE_LIST', () => {
+			users = getUsers()
+		})
+
 		if (!window.require) {
 			return
 		}
@@ -40,11 +46,6 @@
     }
 
     const { ipcRenderer } = electron
-
-		users = getUsers()
-		subscribe('UPDATE_LIST', () => {
-			users = getUsers()
-		})
 
 		ipcRenderer.send('app_version')
     ipcRenderer.on('app_version', (event, arg) => {
