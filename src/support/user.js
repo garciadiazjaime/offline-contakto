@@ -104,6 +104,8 @@ function getEmptyUser() {
         numero: '',
         uso: '',
       },
+      dropdown: {
+      }
     },
 		info_personal: {
       antecedentes_penales: '',
@@ -736,6 +738,20 @@ function deleteUser(uuid) {
   localStorage.setItem('users', JSON.stringify(users))
 }
 
+function fixFields(user) {
+  let update = false
+
+  console.log('fields fixed: [`user.datos_generales.dropdown`]')
+  if (!user.datos_generales.dropdown) {
+    user.datos_generales.dropdown = {}
+    update = true
+  }
+
+  if (update) {
+    updateUser(user)
+  }
+}
+
 
 module.exports = {
   STEPS,
@@ -745,4 +761,5 @@ module.exports = {
   updateUser,
   getEmptyUser,
   deleteUser,
+  fixFields,
 }

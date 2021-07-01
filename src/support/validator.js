@@ -13,7 +13,6 @@ const medioTransporte = [
   ['MOTO', 'MOTO'],
   ['TRANSPORTE PÚBLICO', 'TRANSPORTE PÚBLICO'],
   ['TRANSPORTE PRIVADO', 'TRANSPORTE PRIVADO'],
-  ['', 'OTRO'],
 ]
 
 const motivoSalida = [
@@ -60,7 +59,7 @@ function isNSSValid(field) {
 }
 
 function isINEValid(field) {
-  return field && field.length === 13
+  return field && (field.length === 13 || field === "No presentó")
 }
 
 function isDatosGeneralesValid(user) {
