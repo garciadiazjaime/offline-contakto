@@ -1,6 +1,17 @@
 <script>
 	import { nacionalidad, medioTransporte } from '../../support/validator'
+	import { fixFields } from '../../support/user'
 	export let user
+
+	fixFields(user)
+	
+	const dropdown = {
+		ife: user.datos_generales.dropdown.ife,
+		smn: user.datos_generales.dropdown.smn,
+		pasaporte: user.datos_generales.dropdown.pasaporte,
+		medio_utilizado: user.datos_generales.dropdown.medio_utilizado,
+		referencia_vacante: user.datos_generales.dropdown.referencia_vacante,
+	}
 
 	const states = ["Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Distrito Federal", "Durango", "Estado de Mexico", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Michoacan", "Morelos", "Nayarit", "Nuevo Leon", "Oaxaca", "Puebla", "Queretaro", "Quintana Roo", "San Luis Potosi", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatan", "Zacatecas"];
 
@@ -65,6 +76,42 @@
 			user.datos_generales.telefono.recados.numero = value
 		}
 	}
+
+	function dropdownHandler(event, field) {
+		if (event.target.value === "" || event.target.value === "especificar") {
+			if (field === 'licencia') {
+				user.datos_generales.licencia.numero = ""
+			} else {
+				user.datos_generales[field] = ""
+			}
+		}
+
+		else if (event.target.value === "no_presento") {
+			const label = "No presentó"
+			if (field === 'licencia') {
+				user.datos_generales.licencia.numero = label
+			} else {
+				user.datos_generales[field] = label
+			}
+		}
+
+		else if (event.target.value !== "especificar") {
+			user.datos_generales[field] = event.target.value
+		}
+
+		dropdown[field] = event.target.value
+	}
+
+	function showDropdown(event, field) {
+		user.datos_generales.dropdown[field] = ""
+		dropdown[field] = ""
+
+		if (field === 'licencia') {
+			user.datos_generales.licencia.numero = ""
+		} else {
+			user.datos_generales[field] = ""
+		}
+	}
 </script>
 
 
@@ -107,6 +154,23 @@
 	}
 	.date-picker:focus, .date-picker:focus{
 		outline: none;
+	}
+
+	.show-dropdown-parent {
+		position: relative;
+	}
+
+	.show-dropdown {
+		position: absolute;
+		right: 0;
+		top: 6px;
+		font-weight: bold;
+		font-size: 18px;
+		text-align: right;
+		width: 20px;
+	}
+	.show-dropdown:hover {
+		cursor: pointer;
 	}
 </style>
 
@@ -254,20 +318,41 @@
 		<input on:change={e => dateHandler(e, 'user.datos_generales.fecha_matrimonio')} type="date" class="date-picker">
 	</div>
 </div>
-<div>
+<div class="show-dropdown-parent">
 	<span>Folio credencial INE</span>
+	{#if dropdown.ife !== "especificar"}
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.dropdown.ife} required on:change={(event) => dropdownHandler(event, 'ife')}>
+		<option value="">Seleccionar</option>
+		<option value="no_presento">No presentó</option>
+		<option value="especificar">Especificar</option>
+	</select>
+	{:else}
 	<input bind:value={user.datos_generales.ife} required>
+	<span class="show-dropdown" on:click={(event) => showDropdown(event, "ife")}>X</span>
+	{/if}
 </div>
-<div>
+<div class="show-dropdown-parent">
 	<span>Cartilla SMN</span>
+	{#if dropdown.smn !== "especificar"}
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.dropdown.smn} required on:change={(event) => dropdownHandler(event, 'smn')}>
+		<option value="">Seleccionar</option>
+		<option value="no_presento">No presentó</option>
+		<option value="especificar">Especificar</option>
+	</select>
+	{:else}
 	<input bind:value={user.datos_generales.smn} required>
+	<span class="show-dropdown" on:click={(event) => showDropdown(event, 'smn')}>X</span>
+	{/if}
 </div>
 <div>
 	<span>Tipo de licencia</span>
 	<!-- svelte-ignore a11y-no-onchange -->
 	<select bind:value={user.datos_generales.licencia.tipo} required on:change={licenciaChange}>
 		<option value="">Seleccionar</option>
-		<option value="A">A</option>
+		<option value="A - Automovilista">A - Automovilista</option>
+		<option value="A - Chofer">A - Chofer</option>
 		<option value="B">B</option>
 		<option value="C">C</option>
 		<option value="D">D</option>
@@ -278,34 +363,82 @@
 		<option value="No Tiene">No Tiene</option>
 	</select>
 </div>
-<div>
+<div class="show-dropdown-parent">
 	<span>No. de licencia</span>
+	{#if dropdown.licencia !== "especificar"}
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.dropdown.licencia} required on:change={(event) => dropdownHandler(event, 'licencia')}>
+		<option value="">Seleccionar</option>
+		<option value="no_presento">No presentó</option>
+		<option value="especificar">Especificar</option>
+	</select>
+	{:else}
 	<input bind:value={user.datos_generales.licencia.numero} required>
+	<span class="show-dropdown" on:click={(event) => showDropdown(event, 'licencia')}>X</span>
+	{/if}
 </div>
-<div>
+<div class="show-dropdown-parent">
 	<span>No. de pasaporte o visa</span>
+	{#if dropdown.pasaporte !== "especificar"}
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.dropdown.pasaporte} required on:change={(event) => dropdownHandler(event, 'pasaporte')}>
+		<option value="">Seleccionar</option>
+		<option value="no_presento">No presentó</option>
+		<option value="especificar">Especificar</option>
+	</select>
+	{:else}
 	<input bind:value={user.datos_generales.pasaporte} required maxlength="30">
+	<span class="show-dropdown" on:click={(event) => showDropdown(event, 'pasaporte')}>X</span>
+	{/if}
 </div>
 <div>
 	<span>Tiempo radicando en la ciudad</span>
-	<input bind:value={user.datos_generales.tiempo_radicando} required>
+	<select bind:value={user.datos_generales.tiempo_radicando} required>
+		<option value="">Seleccionar</option>
+		<option value="menos de 1 año">menos de 1 año</option>
+		<option value="1 a 5 años">1 a 5 años</option>
+		<option value="más de 5 años">más de 5 años</option>
+		<option value="más de 10 años">más de 10 años</option>
+		<option value="toda la vida">toda la vida</option>
+	</select>
 </div>
-<div>
+<div class="show-dropdown-parent">
 	<span>Medio que utiliza para transporte</span>
 	<div>
+		{#if dropdown.medio_utilizado !== "especificar"}
 		<!-- svelte-ignore a11y-no-onchange -->
-		<select on:change={transporteChange}>
+		<select bind:value={user.datos_generales.dropdown.medio_utilizado} required on:change={(event) => dropdownHandler(event, 'medio_utilizado')}>
 			<option value="">Seleccionar</option>
 			{#each medioTransporte as item}
 				<option value={item[0]}>{item[1]}</option>
 			{/each}
+			<option value="especificar">Especificar</option>
 		</select>
+		{:else}
 		<input bind:value={user.datos_generales.medio_utilizado} required>
+		<span class="show-dropdown" on:click={(event) => showDropdown(event, 'medio_utilizado')}>X</span>
+		{/if}
 	</div>
 </div>
-<div>
+<div class="show-dropdown-parent">
 	<span>Medio por el qué se enteró de la vacante</span>
+	{#if dropdown.referencia_vacante !== "especificar"}
+	<!-- svelte-ignore a11y-no-onchange -->
+	<select bind:value={user.datos_generales.dropdown.referencia_vacante} required on:change={(event) => dropdownHandler(event, 'referencia_vacante')}>
+		<option value="">Seleccionar</option>
+		<option value="Bolsas de trabajo">Bolsas de trabajo</option>
+		<option value="Redes sociales">Redes sociales</option>
+		<option value="Modulo">Modulo</option>
+		<option value="Medios impresos">Medios impresos</option>
+		<option value="Televisión">Televisión</option>
+		<option value="especificar">Especificar</option>
+		<option value="Radio">Radio</option>
+		<option value="Otros">Otros</option>
+	</select>
+	{:else}
 	<input bind:value={user.datos_generales.referencia_vacante} required>
+	<span class="show-dropdown" on:click={(event) => showDropdown(event, 'referencia_vacante')}>X</span>
+	{/if}
 </div>
 <div>
 	<span>Tiempo de trayecto al lugar de trabajo</span>
