@@ -44,7 +44,7 @@
 		if (!electron) {
       electron = require('electron')
     }
-		console.log('electron found')
+		console.log('electron found... setup listeners...')
 
     const { ipcRenderer } = electron
 
@@ -62,6 +62,8 @@
       alert('Actualización descargada, favor de reiniciar aplicación')
 
       ipcRenderer.removeAllListeners('update_downloaded');
+
+			ipcRenderer.send('restart_app');
     });
 	});
 
@@ -73,24 +75,6 @@
 
 			publish('UPDATE_MSG', { msg: `No se pueden crear más de ${LIMIT_USERS} candidatos.` })
 		}
-	}
-
-	function updateHandler(event) {
-		event.preventDefault()
-
-		if (!window.require) {
-			return
-		}
-
-		if (!electron) {
-      electron = require('electron')
-    }
-
-		console.log('electron found')
-
-    const { ipcRenderer } = electron
-
-		ipcRenderer.send('restart_app');
 	}
 </script>
 
@@ -174,12 +158,6 @@
 		text-decoration: underline;
 		font-weight: bold;
 	}
-
-	.update {
-		float: right;
-		font-size: .4em;
-		margin-right: 20px;
-	}
 </style>
 
 <svelte:head>
@@ -190,7 +168,6 @@
 	<a href="/candidatos">
 		Contakto Offline <small>{VERSION}</small>
 	</a>
-	<a class="update" href="/actualizar" on:click={updateHandler}>Actualizar</a>
 </nav>
 
 

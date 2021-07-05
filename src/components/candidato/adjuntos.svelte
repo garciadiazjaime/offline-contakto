@@ -7,6 +7,16 @@
 
 	const preview = user.adjuntos || {}
 
+	function toBase64(arr) {
+		if (!arr || !arr.reduce) {
+			return ""
+		}
+
+		return btoa(
+				arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+		);
+	}
+
 	async function changeHandler(event) {
 		event.preventDefault()
 
@@ -29,10 +39,13 @@
 
 		const fileName = event.target.name
 		const response = await mainProcess.saveUserFile(data)
-		const { reducedImageName, imagePath } = response[0]
-		console.log({ reducedImageName, imagePath })
 
-		preview[fileName] = `./adjuntos/${reducedImageName}`
+		const { imageBuffer, imageName } = response[0]
+
+		preview[fileName] = {
+			imageName,
+			imageBuffer: `data:image/png;base64,${toBase64(imageBuffer)}`
+		}
 
 		updateUser(user)
 	}
@@ -45,10 +58,9 @@
 			return null
 		}
 
-
 		const { value: fileName } = this.attributes['data-file']
 
-		await mainProcess.deleteUserFile(user.adjuntos[fileName])
+		await mainProcess.deleteUserFile(user.adjuntos[fileName].imageName)
 
 		preview[fileName] = null
 		user.adjuntos[fileName] = null
@@ -104,9 +116,9 @@
 <p>
 	<span><b>1. Foto de perfil del candidato</b></span>
 	<button on:click={changeHandler} name="adj2">Seleccionar Archivo</button>
-	<img src={preview.adj2} alt="" />
 	{#if preview.adj2}
-	<strong on:click={clickHandlerDelete} data-file="adj2">x</strong>
+		<img src={preview.adj2.imageBuffer} alt="" />
+		<strong on:click={clickHandlerDelete} data-file="adj2">x</strong>
 	{/if}
 </p>
 
