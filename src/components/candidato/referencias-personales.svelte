@@ -84,10 +84,10 @@
 	</p>
 	<p>
 		<span>¿Cómo conoció al evaluado?</span>
-		<input bind:value={user.referencias[index].lugares_labor_evaluado} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].lugares_labor_evaluado}>
 	</p>
 	<p>
 		<span>Opinión sobre el candidato (visible en pdf)</span>
-		<input bind:value={user.referencias[index].opinion} required={index === 2 ? false : true}>
+		<input bind:value={user.referencias[index].opinion}>
 	</p>
 {/each}
